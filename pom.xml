@@ -7,7 +7,8 @@
 		<module>spring-boot-helloworld</module>
 		<module>spring-boot-redis</module>
 		<module>spring-boot-email</module>
-	</modules>
+        <module>spring-cloud-nacos-discovery</module>
+    </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
