@@ -13,6 +13,7 @@
 		<module>spring-boot-druid</module>
 		<module>spring-boot-properties</module>
 		<module>spring-boot-log</module>
+		<module>spring-boot-async</module>
 	</modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>

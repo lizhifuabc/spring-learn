@@ -1,0 +1,17 @@
+spring:
+  task:
+    execution:
+      # 线程池配置
+      pool:
+        # 最大线程数 默认最大为:Integer.MAX_VALUE
+        max-size: 16
+        # 核心线程数 默认为:8
+        core-size: 8
+        # 存活时间 默认为：60s
+        keep-alive: 60s
+        # 队列大小 默认为：Integer.MAX_VALUE
+        queue-capacity: 200
+        # 是否允许核心线程超时 默认：true
+        allow-core-thread-timeout: true
+      # 线程名称前缀 默认为：task-
+      thread-name-prefix: async-task-
