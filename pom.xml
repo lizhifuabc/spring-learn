@@ -8,7 +8,8 @@
 		<module>spring-boot-redis</module>
 		<module>spring-boot-email</module>
         <module>spring-cloud-nacos-discovery</module>
-    </modules>
+		<module>spring-cloud-nacos-config</module>
+	</modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
