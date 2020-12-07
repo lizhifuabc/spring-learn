@@ -1,0 +1,5 @@
+application:
+  name: prod环境 @artifactId@
+  version: prod环境 @version@
+extend:
+  name: prod环境

@@ -1,0 +1,5 @@
+application:
+  name: dev环境 @artifactId@
+  version: dev环境 @version@
+extend:
+  name: dev环境
