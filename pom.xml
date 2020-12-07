@@ -9,6 +9,10 @@
 		<module>spring-boot-email</module>
         <module>spring-cloud-nacos-discovery</module>
 		<module>spring-cloud-nacos-config</module>
+		<module>spring-boot-gen</module>
+		<module>spring-boot-druid</module>
+		<module>spring-boot-properties</module>
+		<module>spring-boot-log</module>
 	</modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
