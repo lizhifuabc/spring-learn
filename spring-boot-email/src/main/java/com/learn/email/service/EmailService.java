@@ -1,6 +1,9 @@
 package com.learn.email.service;
 
 import com.learn.email.domain.EmailDTO;
+import com.learn.email.domain.MimeEmailDTO;
+
+import javax.mail.MessagingException;
 
 /**
  * EmailService
@@ -15,4 +18,6 @@ public interface EmailService {
      * @param emailDTO 邮件参数
      */
     void sendSimpleMail(EmailDTO emailDTO);
+
+    void sendMimeMail(MimeEmailDTO mimeEmailDTO) throws MessagingException;
 }

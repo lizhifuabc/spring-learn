@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * 启动
  * @author lizhifu
- * TODO 复杂邮件发送
+ * 复杂邮件发送
  * @date 2020/12/4
  */
 @SpringBootApplication

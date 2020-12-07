@@ -12,7 +12,7 @@ public class EmailDTO{
     /**
      * 收件人地址
      */
-    private String to;
+    private String[] to;
     /**
      * 邮件主题
      */
@@ -31,12 +31,11 @@ public class EmailDTO{
      */
     private String[] bcc;
 
-
-    public String getTo() {
+    public String[] getTo() {
         return to;
     }
 
-    public void setTo(String to) {
+    public void setTo(String[] to) {
         this.to = to;
     }
 
