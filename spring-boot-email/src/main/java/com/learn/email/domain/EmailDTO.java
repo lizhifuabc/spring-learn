@@ -1,5 +1,7 @@
 package com.learn.email.domain;
 
+import java.util.Arrays;
+
 /**
  * EmailDTO
  * 邮件发送
@@ -68,5 +70,16 @@ public class EmailDTO{
 
     public void setBcc(String[] bcc) {
         this.bcc = bcc;
+    }
+
+    @Override
+    public String toString() {
+        return "EmailDTO{" +
+                "to='" + to + '\'' +
+                ", subject='" + subject + '\'' +
+                ", text='" + text + '\'' +
+                ", cc=" + Arrays.toString(cc) +
+                ", bcc=" + Arrays.toString(bcc) +
+                '}';
     }
 }
