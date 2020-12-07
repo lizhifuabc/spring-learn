@@ -39,7 +39,7 @@ public class EmailServiceTest {
     }
     @Test
     public void testSendMimeMail() throws MessagingException, FileNotFoundException {
-        String contentId = "xkcoding";
+        String contentId = "lzftest";
         String text = "<html><body>静态资源的邮件<br/><img src=\'cid:" + contentId + "\' ></body></html>";
 
         FileSystemResource file = new FileSystemResource(new File("/Users/lizhifu/Downloads/报价单.xlsx"));
