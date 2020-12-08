@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.gen.mycode.mapper.MyCodeMapper">
+
+    <resultMap type="MyCode" id="MyCodeResult">
+        <result property="infoId"    column="info_id"    />
+        <result property="userName"    column="user_name"    />
+        <result property="code"    column="code"    />
+        <result property="amount"    column="amount"    />
+        <result property="createTime"    column="create_time"    />
+    </resultMap>
+
+    <sql id="selectMyCodeVo">
+        select info_id, user_name, code, amount, create_time from my_code
+    </sql>
+
+    <select id="selectMyCodeList" parameterType="MyCode" resultMap="MyCodeResult">
+        <include refid="selectMyCodeVo"/>
+        <where>
+            <if test="infoId != null "> and info_id = #{infoId}</if>
+            <if test="userName != null  and userName != ''"> and user_name = #{userName}</if>
+            <if test="code != null  and code != ''"> and code = #{code}</if>
+            <if test="amount != null "> and amount = #{amount}</if>
+            <if test="createTime != null "> and create_time = #{createTime}</if>
+        </where>
+    </select>
+
+    <select id="selectMyCodeById" parameterType="Long" resultMap="MyCodeResult">
+        <include refid="selectMyCodeVo"/>
+        where info_id = #{infoId}
+    </select>
+
+    <insert id="insertMyCode" parameterType="MyCode" useGeneratedKeys="true" keyProperty="infoId">
+        insert into my_code
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userName != null">user_name,</if>
+            <if test="code != null and code != ''">code,</if>
+            <if test="amount != null">amount,</if>
+            <if test="createTime != null">create_time,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userName != null">#{userName},</if>
+            <if test="code != null and code != ''">#{code},</if>
+            <if test="amount != null">#{amount},</if>
+            <if test="createTime != null">#{createTime},</if>
+        </trim>
+    </insert>
+
+    <update id="updateMyCode" parameterType="MyCode">
+        update my_code
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userName != null">user_name = #{userName},</if>
+            <if test="code != null and code != ''">code = #{code},</if>
+            <if test="amount != null">amount = #{amount},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+        </trim>
+        where info_id = #{infoId}
+    </update>
+
+    <delete id="deleteMyCodeById" parameterType="Long">
+        delete from my_code where info_id = #{infoId}
+    </delete>
+
+    <delete id="deleteMyCodeByIds" parameterType="String">
+        delete from my_code where info_id in
+        <foreach item="infoId" collection="array" open="(" separator="," close=")">
+            #{infoId}
+        </foreach>
+    </delete>
+
+</mapper>

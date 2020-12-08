@@ -2,7 +2,6 @@ package com.boot.gen.domain;
 
 
 import lombok.Data;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * 列信息 gen_table_column

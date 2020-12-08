@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -16,11 +17,11 @@ import java.util.List;
  */
 @SpringBootTest
 public class GenTableColumnMapperTest {
-    @Autowired
+    @Resource
     GenTableColumnMapper genTableColumnMapper;
     @Test
     public void test(){
-        List<GenTableColumn> list = genTableColumnMapper.selectDbTableColumnsByName("my_info");
+        List<GenTableColumn> list = genTableColumnMapper.selectDbTableColumnsByName("my_code");
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i).toString());
         }
