@@ -16,6 +16,7 @@
 		<module>spring-boot-async</module>
 		<module>spring-boot-nacos</module>
 		<module>spring-boot-test</module>
+		<module>spring-boot-redis-advanced</module>
 	</modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
