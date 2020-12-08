@@ -5,31 +5,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.boot.gen.mapper.GenTableColumnMapper">
     
     <resultMap type="GenTableColumn" id="GenTableColumnResult">
-        <id     property="columnId"       column="column_id"      />
-        <result property="tableId"        column="table_id"       />
         <result property="columnName"     column="column_name"    />
+        <result property="dataType"     column="data_type"    />
         <result property="columnComment"  column="column_comment" />
         <result property="columnType"     column="column_type"    />
-        <result property="javaType"       column="java_type"      />
-        <result property="javaField"      column="java_field"     />
-        <result property="isPk"           column="is_pk"          />
-        <result property="isIncrement"    column="is_increment"   />
-        <result property="isRequired"     column="is_required"    />
-        <result property="isInsert"       column="is_insert"      />
-        <result property="isEdit"         column="is_edit"        />
-        <result property="isList"         column="is_list"        />
-        <result property="isQuery"        column="is_query"       />
-        <result property="queryType"      column="query_type"     />
-        <result property="htmlType"       column="html_type"      />
-        <result property="dictType"       column="dict_type"      />
+        <result property="pk"           column="pk"          />
+        <result property="increment"    column="increment"   />
+        <result property="required"     column="required"    />
         <result property="sort"           column="sort"           />
-        <result property="createBy"       column="create_by"      />
-        <result property="createTime"     column="create_time"    />
-        <result property="updateBy"       column="update_by"      />
-        <result property="updateTime"     column="update_time"    />
     </resultMap>
     <select id="selectDbTableColumnsByName" parameterType="String" resultMap="GenTableColumnResult">
-		select column_name, (case when (is_nullable = 'no' <![CDATA[ && ]]> column_key != 'PRI') then '1' else null end) as is_required, (case when column_key = 'PRI' then '1' else '0' end) as is_pk, ordinal_position as sort, column_comment, (case when extra = 'auto_increment' then '1' else '0' end) as is_increment, column_type
+		select column_name,data_type,column_comment,column_type,ordinal_position as sort,
+		       (case when (is_nullable = 'no' <![CDATA[ && ]]> column_key != 'PRI') then true else false end) as required,
+		       (case when column_key = 'PRI' then true else false end) as pk,
+		       (case when extra = 'auto_increment' then true else false end) as increment
 		from information_schema.columns where table_schema = (select database()) and table_name = (#{tableName})
 		order by ordinal_position
 	</select>
