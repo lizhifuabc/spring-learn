@@ -1,4 +1,4 @@
-package con.cloud.consumer.controller;
+package com.cloud.consumer.controller;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
