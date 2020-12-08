@@ -15,6 +15,7 @@
 		<module>spring-boot-log</module>
 		<module>spring-boot-async</module>
 		<module>spring-boot-nacos</module>
+		<module>spring-boot-test</module>
 	</modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
