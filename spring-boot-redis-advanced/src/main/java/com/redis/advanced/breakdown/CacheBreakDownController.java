@@ -2,6 +2,7 @@ package com.redis.advanced.breakdown;
 
 import com.redis.advanced.service.RedisService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -28,5 +29,14 @@ public class CacheBreakDownController {
             cacheBreakDown = "走数据库查询：数据库可能被打穿";
         }
         return cacheBreakDown;
+    }
+
+    /**
+     * 数据预热:防止突然大量数据请求数据库，可以采用数据预热的方式，加载到缓存中
+     */
+    @RequestMapping("cacheBreakDown/init")
+    public String init(){
+        redisService.setCacheObject("cacheBreakDown","cacheBreakDown");
+        return "数据预热:";
     }
 }
