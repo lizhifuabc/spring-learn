@@ -1,0 +1,11 @@
+server:
+  # 端口设置
+  port: 8080
+  # 访问路径
+  servlet:
+    context-path: /learn
+spring:
+  cache:
+    # ehcache配置文件
+    ehcache:
+      config: classpath:ehcache.xml

@@ -1,0 +1,45 @@
+<!-- ehcache配置 -->
+<ehcache
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
+        updateCheck="false">
+    <!--这个是磁盘存储路径，当内存缓存满了的时候，就会往这里面放-->
+    <diskStore path="java.io.tmpdir/test_ehcache"/>
+    <!-- maxElementsInMemory:内存缓存中最多可以存放的元素数量
+         overflowToDisk:true,则会将Cache中多出的元素放入磁盘文件中;false,则根据memoryStoreEvictionPolicy策略替换Cache中原有的元素
+         eternal:缓存中对象是否永久有效
+         timeToIdleSeconds:缓存数据在失效前的允许闲置时间(单位:秒)，仅当eternal=false时使用,默认值是0表示可闲置时间无穷大,若超过这个时间没有访问此Cache中的某个元素,那么此元素将被从Cache中清除
+         timeToLiveSeconds:缓存数据的总的存活时间（单位：秒），仅当eternal=false时使用，从创建开始计时，失效结束。
+         maxElementsOnDisk:磁盘缓存中最多可以存放的元素数量,0表示无穷大
+         diskExpiryThreadIntervalSeconds:磁盘缓存的清理线程运行间隔,默认是120秒
+         memoryStoreEvictionPolicy:内存存储与释放策略,到maxElementsInMemory限制时,Ehcache会根据指定策略清理内存
+         共有三种策略,分别为LRU(最近最少使用)、LFU(最常用的)、FIFO(先进先出)
+         -->
+    <defaultCache
+            maxElementsInMemory="20000"
+            eternal="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            overflowToDisk="true"
+            maxElementsOnDisk="10000000"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="120"
+            memoryStoreEvictionPolicy="LRU"/>
+    <!--
+    缓存文件名：user，同样的可以配置多个缓存
+    maxElementsInMemory：内存中最多存储
+    eternal：外部存储
+    overflowToDisk：超出缓存到磁盘
+    diskPersistent：磁盘持久化
+    timeToLiveSeconds：缓存时间
+    diskExpiryThreadIntervalSeconds：磁盘过期时间
+    -->
+    <cache name="hello"
+           maxElementsInMemory="20000"
+           eternal="true"
+           overflowToDisk="true"
+           diskPersistent="false"
+           timeToLiveSeconds="0"
+           diskExpiryThreadIntervalSeconds="120"/>
+
+</ehcache>
