@@ -17,6 +17,7 @@
 		<module>spring-boot-nacos</module>
 		<module>spring-boot-test</module>
 		<module>spring-boot-redis-advanced</module>
+		<module>spring-boot-ehcache</module>
 	</modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
