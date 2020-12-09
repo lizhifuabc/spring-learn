@@ -26,6 +26,7 @@ public class CacheCrashController {
     public String cacheCrash(){
         String cacheCrash = "init";
         try{
+            //测试的过程我们可以关闭redis模拟崩溃
             cacheCrash = redisService.getCacheObject("cacheCrash");
             if(cacheCrash == null){
                 redisService.setCacheObject("cacheCrash","cacheCrash");
