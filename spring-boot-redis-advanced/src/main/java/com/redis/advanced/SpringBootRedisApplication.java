@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 启动
  * @author lizhifu
  * @date 2020/12/4
- * TODO
  */
 @SpringBootApplication
 public class SpringBootRedisApplication {
