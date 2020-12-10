@@ -15,15 +15,15 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "user")
 @PropertySource(value = { "classpath:demo.properties" })
 public class DemoProperties {
-    private String name;
+    private String namep;
     private Integer age;
 
-    public String getName() {
-        return name;
+    public String getNamep() {
+        return namep;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNamep(String namep) {
+        this.namep = namep;
     }
 
     public Integer getAge() {
@@ -37,7 +37,7 @@ public class DemoProperties {
     @Override
     public String toString() {
         return "DemoProperties{" +
-                "name='" + name + '\'' +
+                "namep='" + namep + '\'' +
                 ", age=" + age +
                 '}';
     }
