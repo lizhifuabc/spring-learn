@@ -20,6 +20,7 @@
 		<module>spring-boot-ehcache</module>
 		<module>spring-boot-zk</module>
 		<module>spring-boot-redis-redisson</module>
+		<module>spring-boot-mybatis</module>
 	</modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
