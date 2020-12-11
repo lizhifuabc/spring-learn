@@ -2,6 +2,7 @@ package com.boot.mybatis.mapper;
 
 import com.boot.mybatis.domain.MyInfo;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 /**
  * MyInfoMapper
@@ -15,4 +16,12 @@ public interface MyInfoMapper {
      * @param myInfo
      */
     public void insert(@Param("myInfo")MyInfo myInfo);
+
+    /**
+     * 查询
+     * @param id
+     * @return
+     */
+    @Select("select * from my_info where info_id = #{id}")
+    MyInfo selectById(@Param("id") Integer id);
 }
