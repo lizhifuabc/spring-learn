@@ -23,7 +23,8 @@
 		<module>spring-boot-mybatis</module>
         <module>spring-boot-mybatis-common</module>
 		<module>spring-boot-mybatis-common-example</module>
-	</modules>
+        <module>spring-boot-idempotent</module>
+    </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
