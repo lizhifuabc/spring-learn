@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BaseMybatisTemplate">
+    <!-- 插入 -->
+    <sql id="insert">
+        insert into <include refid="table" />
+        (<include refid="column" />)
+        values
+        <foreach collection="@com.mybatis.common.xml.ColumnXml@getColumnListValue(param_entity)"
+                 item="_val" open="(" separator=", " close=")">
+            #{_val}
+        </foreach>
+    </sql>
+</mapper>
