@@ -4,6 +4,12 @@
 
 # spring-boot
 
+[spring-boot-mybatis-common](./spring-boot-mybatis-common): 通用mappe的一种实现思路
+
+- 基于Mybatis解析xml文件
+- 生成Document、Element，通过XMLMapperBuilder进行解析
+- 使用demo：[spring-boot-mybatis-common-example](./spring-boot-mybatis-common-example)
+
 [spring-boot-scheduling：定时任务](./spring-boot-scheduling)
 
 [spring-boot-upload：文件上传](./spring-boot-upload)
