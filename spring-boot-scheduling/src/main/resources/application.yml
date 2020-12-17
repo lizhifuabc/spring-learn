@@ -1,0 +1,14 @@
+server:
+  # 端口设置
+  port: 8080
+  # 访问路径
+  servlet:
+    context-path: /learn
+
+spring:
+  task:
+    scheduling:
+      # 线程池
+      pool:
+        size: 1
+      thread-name-prefix: own-thread

@@ -1,5 +1,10 @@
 # spring-learn
+
+记录在日常过程用经常使用的方法、工程，方便去查找DEMO
+
 # spring-boot
+
+spring-boot-scheduling：定时任务
 
 spring-boot-upload：文件上传
 

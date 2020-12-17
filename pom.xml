@@ -26,7 +26,8 @@
         <module>spring-boot-idempotent</module>
 		<module>spring-boot-pk</module>
         <module>spring-boot-upload</module>
-    </modules>
+		<module>spring-boot-scheduling</module>
+	</modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
