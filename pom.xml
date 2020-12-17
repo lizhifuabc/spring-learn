@@ -25,7 +25,8 @@
 		<module>spring-boot-mybatis-common-example</module>
         <module>spring-boot-idempotent</module>
 		<module>spring-boot-pk</module>
-	</modules>
+        <module>spring-boot-upload</module>
+    </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
