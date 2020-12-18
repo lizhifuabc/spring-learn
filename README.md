@@ -4,6 +4,14 @@
 
 # spring-boot
 
+[spring-boot-rabbitmq](./spring-boot-rabbitmq)
+
+- 延迟队列
+- 死信队列
+- 广播模式
+- 主题模式
+- 点对点模式
+
 [spring-boot-mybatis-common](./spring-boot-mybatis-common): 通用mappe的一种实现思路
 
 - 基于Mybatis解析xml文件
