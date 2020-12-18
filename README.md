@@ -4,7 +4,7 @@
 
 # spring-boot
 
-[spring-boot-rabbitmq](./spring-boot-rabbitmq)
+[spring-boot-rabbitmq](./spring-boot-mq/spring-boot-rabbitmq)
 
 - 延迟队列
 - 死信队列
