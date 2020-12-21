@@ -37,7 +37,12 @@
 - 数据库自增
 - mysql sequence
 
+[spring-boot-hotaccount：热点账户](./spring-boot-hotaccount)
+
+提供解决热点账户的几种思路。
+
 ## spring-cloud
+
 [spring-cloud-nacos-config](./spring-cloud-nacos-config)
 
 [spring-cloud-nacos-discovery](./spring-cloud-nacos-discovery)
