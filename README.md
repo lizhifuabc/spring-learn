@@ -41,6 +41,10 @@
 
 提供解决热点账户的几种思路。
 
+[spring-boot-saas](./spring-boot-saas)
+
+多租户模式下，数据源切换：采用共享DB，独立Schema的方式进行
+
 ## spring-cloud
 
 [spring-cloud-nacos-config](./spring-cloud-nacos-config)

@@ -29,7 +29,8 @@
 		<module>spring-boot-scheduling</module>
 		<module>spring-boot-mq</module>
 		<module>spring-boot-hotaccount</module>
-	</modules>
+        <module>spring-boot-saas</module>
+    </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
