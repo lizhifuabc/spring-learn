@@ -4,6 +4,14 @@
 
 # spring-boot
 
+[spring-boot-api](./spring-boot-api):api层设计
+
+- 版本标记：`@ApiVersion`
+- 统一异常处理：`GlobalExceptionHandler`
+- 参数校验：`validation`
+- 自定义参数校验：`@Amount`
+- 接口版本号控制：`ApiVersionCondition`
+
 [spring-boot-rabbitmq](./spring-boot-mq/spring-boot-rabbitmq)
 
 - 延迟队列
