@@ -4,6 +4,12 @@
 
 # spring-boot
 
+[spring-boot-redis](./spring-boot-redis):redis
+
+- RedisService简单工具service
+- redis分布式锁：setIfAbsent
+- redis分布式锁：lua脚本
+
 [spring-boot-zk](./spring-boot-zk):zookeeper
 
 - 伪分布式配置
