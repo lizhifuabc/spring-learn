@@ -34,6 +34,7 @@
 		<module>spring-boot-guava-limit</module>
 		<module>spring-cloud-gateway</module>
 		<module>spring-boot-api</module>
+		<module>spring-boot-caffeine</module>
 	</modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
