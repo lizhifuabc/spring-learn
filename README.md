@@ -4,6 +4,11 @@
 
 # spring-boot
 
+[spring-boot-zk](./spring-boot-zk):zookeeper
+
+- 伪分布式配置
+- 分布式锁
+
 [spring-boot-api](./spring-boot-api):api层设计
 
 - 版本标记：`@ApiVersion`
