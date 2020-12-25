@@ -2,9 +2,12 @@ package com.learn.redis.lock;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.script.RedisScript;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * redis 锁
@@ -21,6 +24,8 @@ import javax.annotation.Resource;
 public class RedisLock {
     @Resource
     public RedisTemplate redisTemplate;
+    @Resource
+    private RedisScript<Long> redisLuaScript;
     /**
      * 加锁
      * @param lockKey 加锁的Key
@@ -59,5 +64,14 @@ public class RedisLock {
             // 删除锁
             redisTemplate.opsForValue().getOperations().delete(lockKey);
         }
+    }
+    /**
+     * 释放锁-lua表达式方式
+     * @param lockKey
+     * @param timeStamp
+     */
+    public void releaseLockLua(String lockKey,String timeStamp){
+        List<String> keys = Collections.singletonList(lockKey);
+        Long result = (Long) redisTemplate.execute(redisLuaScript,keys,String.valueOf(timeStamp));
     }
 }
