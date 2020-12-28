@@ -35,7 +35,8 @@
 		<module>spring-cloud-gateway</module>
 		<module>spring-boot-api</module>
 		<module>spring-boot-caffeine</module>
-	</modules>
+        <module>spring-boot-design</module>
+    </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
