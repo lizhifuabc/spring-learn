@@ -4,6 +4,14 @@
 
 # spring-boot
 
+[design-singleton](./spring-boot-design/design-singleton):单例模式
+
+- 懒汉模式
+- 双重锁校验
+- 枚举单例
+- 饿汉模式
+- 类的内部类
+
 [spring-boot-redis](./spring-boot-redis):redis
 
 - RedisService简单工具service
