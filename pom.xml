@@ -36,7 +36,8 @@
 		<module>spring-boot-api</module>
 		<module>spring-boot-caffeine</module>
         <module>spring-boot-design</module>
-    </modules>
+		<module>spring-boot-lombok</module>
+	</modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
