@@ -37,6 +37,7 @@
 		<module>spring-boot-caffeine</module>
         <module>spring-boot-design</module>
 		<module>spring-boot-lombok</module>
+		<module>spring-boot-log-custom</module>
 	</modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
