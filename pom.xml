@@ -38,6 +38,7 @@
         <module>spring-boot-design</module>
 		<module>spring-boot-lombok</module>
 		<module>spring-boot-log-custom</module>
+		<module>spring-boot-sharding</module>
 	</modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
