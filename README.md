@@ -4,6 +4,12 @@
 
 # spring-boot
 
+[spring-boot-cors](./spring-boot-cors):跨域，三种方式选择一个即可
+
+- WebMvcConfigurer
+- Filter
+- @CrossOrigin
+
 [design-singleton](./spring-boot-design/design-singleton):单例模式
 
 - 懒汉模式
