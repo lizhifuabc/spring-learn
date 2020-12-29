@@ -1,0 +1,9 @@
+application:
+  name: test环境 @artifactId@
+  version: test环境 @version@
+extend:
+  name: test环境
+spring:
+  config:
+    activate:
+      on-profile: dev

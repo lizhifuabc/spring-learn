@@ -3,3 +3,7 @@ application:
   version: dev环境 @version@
 extend:
   name: dev环境
+spring:
+  config:
+    activate:
+      on-profile: prod

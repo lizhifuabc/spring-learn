@@ -5,3 +5,5 @@ server:
 spring:
   profiles:
     active: dev
+  config:
+    import: classpath:application-test.yml
