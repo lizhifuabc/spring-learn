@@ -40,6 +40,7 @@
 		<module>spring-boot-log-custom</module>
 		<module>spring-boot-sharding</module>
 		<module>spring-boot-cors</module>
+		<module>spring-boot-mybatis-sharding</module>
 	</modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
