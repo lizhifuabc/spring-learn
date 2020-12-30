@@ -46,7 +46,7 @@ public class Singleton {
      *   版本三：保障多线程的安全性，通过条件判断使得效率更高
      * @return
      */
-    public static synchronized Singleton getInstance3(){
+    public static Singleton getInstance3(){
         if(null == instance){
             synchronized (Singleton.class) {
                 if (null == instance) {
