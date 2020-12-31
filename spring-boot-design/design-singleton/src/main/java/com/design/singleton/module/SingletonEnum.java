@@ -13,13 +13,13 @@ public enum SingletonEnum {
     INSTANCE;
 
     /**
-     * 这个方法有啥用呢？？？没看懂
+     * 演示方法
      */
     public void getMsg() {
     }
 
     /**
-     * main方法也不用写了吧？
+     * main方法
      * @param args
      */
     public static void main(String[] args) {
