@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * 启动程序
+ * 简单演示几种初始化时候的方法
+ * 可以用于缓存预热等等预处理的方法
  * <p>
  *     启动之后访问路径：http://localhost:8080/learn/
  * </p>
