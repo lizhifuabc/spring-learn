@@ -41,6 +41,7 @@
 		<module>spring-boot-sharding</module>
 		<module>spring-boot-cors</module>
 		<module>spring-boot-mybatis-sharding</module>
+		<module>spring-boot-mybatis-select</module>
 	</modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
