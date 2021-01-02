@@ -1,7 +1,7 @@
 package com.design.singleton.module;
 
 /**
- * 单例设计模式之双重锁校验
+ * 单例设计模式之双重锁校验实现
  *
  * @author lizhifu
  * @date 2020/12/28
