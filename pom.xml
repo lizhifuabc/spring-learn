@@ -42,7 +42,8 @@
 		<module>spring-boot-cors</module>
 		<module>spring-boot-mybatis-sharding</module>
 		<module>spring-boot-mybatis-select</module>
-	</modules>
+        <module>spring-boot-jpa</module>
+    </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
