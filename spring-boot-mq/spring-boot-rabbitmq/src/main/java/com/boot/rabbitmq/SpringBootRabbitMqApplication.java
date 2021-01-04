@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * 启动
+ * 启动：https://www.rabbitmq.com/
  * @author lizhifu
  */
 @SpringBootApplication
