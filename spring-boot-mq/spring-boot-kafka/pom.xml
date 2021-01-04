@@ -3,29 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>spring-learn</artifactId>
+        <artifactId>spring-boot-mq</artifactId>
         <groupId>com.lizhifu</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-boot-mq</artifactId>
+    <artifactId>spring-boot-kafka</artifactId>
 
-    <packaging>pom</packaging>
-    <modules>
-        <module>spring-boot-rabbitmq</module>
-        <module>spring-boot-rabbitmq-consume</module>
-        <module>spring-boot-mq-common</module>
-        <module>spring-boot-kafka</module>
-        <module>spring-boot-kafka-consume</module>
-    </modules>
     <dependencyManagement>
         <dependencies>
             <!--  设置springboot版本依赖 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-parent</artifactId>
-                <version>2.4.0</version>
+                <version>2.4.1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -37,6 +29,22 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.lizhifu</groupId>
+            <artifactId>spring-boot-mq-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
@@ -56,4 +64,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
