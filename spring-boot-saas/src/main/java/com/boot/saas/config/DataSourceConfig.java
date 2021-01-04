@@ -31,7 +31,7 @@ public class DataSourceConfig {
         return dataSource;
     }
     /**
-     * 动态数据源
+     * 动态数据源 DependsOn 在defaultDataSource之后才能初始化
      * @return
      */
     @Bean
