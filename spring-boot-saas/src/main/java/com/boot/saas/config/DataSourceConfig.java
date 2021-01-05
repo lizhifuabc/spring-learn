@@ -32,6 +32,7 @@ public class DataSourceConfig {
     }
     /**
      * 动态数据源 DependsOn 在defaultDataSource之后才能初始化
+     * 保证动态数据源的前置增强先于事务
      * @return
      */
     @Bean
