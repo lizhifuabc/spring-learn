@@ -3,7 +3,7 @@
 <mapper namespace="com.boot.sharding.mapper.OrderMapper">
     <insert id="insert">
         insert into t_order (user_id,order_id)
-        values (#{order.userId},
-                #{order.orderId})
+        values (#{userId},
+                #{orderId})
     </insert>
 </mapper>

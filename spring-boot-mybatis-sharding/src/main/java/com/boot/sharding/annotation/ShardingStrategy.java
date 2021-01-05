@@ -6,7 +6,7 @@ import com.boot.sharding.strategy.impl.EmptyTableShardingStrategy;
 import java.lang.annotation.*;
 
 /**
- * 分库分表注解
+ * 分表注解
  *
  * @author lizhifu
  * @date 2020/12/30

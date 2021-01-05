@@ -22,7 +22,7 @@ public class OrderMapperTest {
         Order param = new Order();
         param.setOrderId(1L);
         param.setUserId(1L);
-        Order order = orderMapper.selectByOrderIdAndUserId(1L,1L);
+        Order order = orderMapper.selectByOrderIdAndUserId(1L,2L);
         System.out.println(order.toString());
     }
 }

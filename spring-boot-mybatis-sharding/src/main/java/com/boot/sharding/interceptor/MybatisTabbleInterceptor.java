@@ -21,6 +21,9 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.util.List;
+import java.util.Map;
+
+import static com.boot.sharding.config.DatasourceHolder.DATASOURCE_MAP;
 
 /**
  * 动态解析SQL和更改SQL
@@ -38,7 +41,7 @@ import java.util.List;
 @Slf4j
 @Component
 @Intercepts({@Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class,Integer.class })})
-public class MybatisInterceptor implements Interceptor {
+public class MybatisTabbleInterceptor implements Interceptor {
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
         StatementHandler statementHandler = (StatementHandler) invocation.getTarget();
@@ -47,39 +50,44 @@ public class MybatisInterceptor implements Interceptor {
         MappedStatement mappedStatement = (MappedStatement) metaObject.getValue("delegate.mappedStatement");
         String id = mappedStatement.getId();
         Class clz = Class.forName(id.substring(0, id.lastIndexOf(".")));
-        Annotation annotation = clz.getAnnotation(ShardingStrategy.class);
-        if(null == annotation){
+        Annotation[] annotations = clz.getAnnotations();
+        if(null == annotations || annotations.length == 0){
             return invocation.proceed();
         }
         log.info("获取到ShardingStrategy注解，开始进行sql解析");
-        ShardingStrategy shardingStrategy = (ShardingStrategy)annotation;
-        String logicTable = shardingStrategy.logicTable();
-        String shardingKey = shardingStrategy.shardingKey();
-
         BoundSql boundSql = statementHandler.getBoundSql();
         log.info("[原始SQL] sql:{}", boundSql.getSql());
         String originSql = boundSql.getSql();
-        //获取字段?的位置
-        int index = StrUtil.sumNumber(originSql.split(shardingKey)[0],"\\?");
         Object parameterObject = boundSql.getParameterObject();
         MetaObject metaParamObject = mappedStatement.getConfiguration().newMetaObject(parameterObject);
         List<ParameterMapping> list = boundSql.getParameterMappings();
-        ParameterMapping parameterMapping = list.get(index);
-        String propertyName = parameterMapping.getProperty();
-        Object obj;
-        if (metaParamObject.hasGetter(propertyName)) {
-            obj = metaParamObject.getValue(propertyName);
-        }else {
-            obj = boundSql.getAdditionalParameter(propertyName);
+        String sql = originSql;
+        for (int i = 0; i < annotations.length; i++) {
+            Annotation annotation = annotations[i];
+            if(annotation.annotationType().isAssignableFrom(ShardingStrategy.class)){
+                ShardingStrategy shardingStrategy = (ShardingStrategy)annotation;
+                String logicTable = shardingStrategy.logicTable();
+                String shardingKey = shardingStrategy.shardingKey();
+                //获取字段?的位置
+                int index = StrUtil.sumNumber(originSql.split(shardingKey)[0],"\\?");
+                Class<? extends TableShardingStrategy> tableShardingStrategy = shardingStrategy.tableShardingStrategy();
+                ParameterMapping parameterMapping = list.get(index);
+                String propertyName = parameterMapping.getProperty();
+                Object obj;
+                if (metaParamObject.hasGetter(propertyName)) {
+                    obj = metaParamObject.getValue(propertyName);
+                }else {
+                    obj = boundSql.getAdditionalParameter(propertyName);
+                }
+                String tableName = tableShardingStrategy.newInstance().getTableName(logicTable,obj);
+                sql = sql.replaceAll(logicTable, tableName);
+                log.info("[表名称] tableName:{}", tableName);
+                Field field = boundSql.getClass().getDeclaredField("sql");
+                field.setAccessible(true);
+                field.set(boundSql, sql);
+                log.info("分库分表之后SQL：{}", sql);
+            }
         }
-        Class<? extends TableShardingStrategy> tableShardingStrategy = shardingStrategy.tableShardingStrategy();
-        String tableName = tableShardingStrategy.newInstance().getTableName(logicTable,obj);
-        log.info("[表名称] tableName:{}", tableName);
-        String sql = originSql.replaceAll(logicTable, tableName);
-        Field field = boundSql.getClass().getDeclaredField("sql");
-        field.setAccessible(true);
-        field.set(boundSql, sql);
-        log.info("分库分表之后SQL：{}", sql);
         return invocation.proceed();
     }
 }

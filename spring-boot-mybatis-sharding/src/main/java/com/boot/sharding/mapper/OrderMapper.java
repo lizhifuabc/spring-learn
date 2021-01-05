@@ -4,7 +4,6 @@ package com.boot.sharding.mapper;
 import com.boot.sharding.annotation.ShardingStrategy;
 import com.boot.sharding.domain.Order;
 import com.boot.sharding.strategy.impl.LongHashTableShardingStrategy;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
@@ -24,7 +23,7 @@ public interface OrderMapper {
     @Select("select * from t_order where user_id = #{order.userId} and order_id = #{order.orderId}")
     Order select(@Param("order") Order order);
 
-    @Select("select * from t_order where order_id = #{orderId} and user_id = #{userId}")
+    @Select("select * from t_order t1 join t_order t2 on t1.id = t2.id where t1.order_id = #{orderId} and t1.user_id = #{userId}")
     Order selectByOrderIdAndUserId(@Param("orderId") Long orderId,@Param("userId")Long userId);
 
     void insert(Order order);
