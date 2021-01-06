@@ -43,6 +43,7 @@
 		<module>spring-boot-mybatis-sharding</module>
 		<module>spring-boot-mybatis-select</module>
         <module>spring-boot-jpa</module>
+        <module>spring-boot-mybatis-provider</module>
     </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
