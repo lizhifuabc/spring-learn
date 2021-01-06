@@ -4,6 +4,8 @@
 
 [基于mybatis的`XMLMapperBuilder`机制实现Mybatis通用Mapper](./spring-boot-mybatis-common)
 
+[基于mybatis的分库分表实现思路:不涉及分布式事务](./spring-boot-mybatis-sharding)
+
 
 
 # spring-learn
