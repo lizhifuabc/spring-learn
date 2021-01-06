@@ -5,4 +5,5 @@
 # 核心类
 
 - MyBatisConfiguration
-- 
+- base-mybatis-template.xml
+
