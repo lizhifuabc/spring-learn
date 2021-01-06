@@ -44,6 +44,7 @@
 		<module>spring-boot-mybatis-select</module>
         <module>spring-boot-jpa</module>
         <module>spring-boot-mybatis-provider</module>
+        <module>spring-boot-lock</module>
     </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>

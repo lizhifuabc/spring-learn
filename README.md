@@ -6,6 +6,10 @@
 
 [基于mybatis的分库分表实现思路:不涉及分布式事务](./spring-boot-mybatis-sharding)
 
+# 进阶
+
+[保障幂等性的几种方法：数据库+redis](./spring-boot-idempotent)
+
 
 
 # spring-learn
