@@ -13,16 +13,17 @@ public enum SingletonEnum {
     INSTANCE;
 
     /**
-     * 演示方法
+     * 2.随便写了个方法，为了演示方法的调用
      */
     public void getMsg() {
     }
 
     /**
-     * main方法
+     * 3.编写main方法进行方法调用的测试
      * @param args
      */
     public static void main(String[] args) {
+
         SingletonEnum.INSTANCE.getMsg();
     }
 }
