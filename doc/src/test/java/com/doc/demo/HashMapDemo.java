@@ -98,7 +98,7 @@ public class HashMapDemo {
     @Test
     public void hashCodeTest() {
         //指定初始容量
-        Map hashMap = new HashMap(Integer.MAX_VALUE);
+        Map hashMap = new HashMap(16);
         String key = "123";
         String value = "32";
         System.out.println(Objects.hashCode(key));
