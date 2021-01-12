@@ -1,9 +1,6 @@
 package com.boot.properties.controller;
 
-import com.boot.properties.properties.ApplicationProperties;
-import com.boot.properties.properties.DemoProperties;
-import com.boot.properties.properties.DemoYmlProperties;
-import com.boot.properties.properties.ExtendProperties;
+import com.boot.properties.properties.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,8 +22,14 @@ public class PropertiesController {
     private DemoProperties demoProperties;
     @Resource
     private DemoYmlProperties demoYmlProperties;
+    @Resource
+    private WechatProperties wechatProperties;
     @GetMapping("getProperties")
     public String getProperties(){
-        return applicationProperties.toString()+extendProperties.toString()+demoProperties.toString()+demoYmlProperties.toString();
+        return applicationProperties.toString()+
+                extendProperties.toString()+
+                demoProperties.toString()+
+                demoYmlProperties.toString()+
+                wechatProperties.toString();
     }
 }
