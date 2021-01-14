@@ -29,24 +29,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-<!--        &lt;!&ndash;   redis 依赖     &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-data-redis</artifactId>-->
-<!--        </dependency>-->
-<!--        &lt;!&ndash; 对象池，使用redis时必须引入 &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.commons</groupId>-->
-<!--            <artifactId>commons-pool2</artifactId>-->
-<!--        </dependency>-->
-        <!-- redisson 依赖-->
-        <!-- https://mvnrepository.com/artifact/org.redisson/redisson -->
-<!--        <dependency>-->
-<!--            <groupId>org.redisson</groupId>-->
-<!--            <artifactId>redisson</artifactId>-->
-<!--            <version>3.14.0</version>-->
-<!--        </dependency>-->
-        <!-- https://mvnrepository.com/artifact/org.redisson/redisson-spring-boot-starter -->
         <dependency>
             <groupId>org.redisson</groupId>
             <artifactId>redisson-spring-boot-starter</artifactId>
@@ -57,7 +39,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
-            <version>1.18.2</version>
         </dependency>
         <!--  spring boot test      -->
         <dependency>
