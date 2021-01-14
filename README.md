@@ -22,6 +22,8 @@
 
 ## 缓存
 
+[Java本地缓存之Caffine Cache](https://github.com/lizhifuabc/spring-learn/tree/main/spring-boot-caffeine)
+
 [缓存雪崩](./spring-boot-redis-advanced/缓存雪崩.md)
 
 [缓存击穿](./spring-boot-redis-advanced/缓存击穿.md)
