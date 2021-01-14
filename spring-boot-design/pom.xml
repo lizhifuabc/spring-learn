@@ -15,5 +15,6 @@
         <module>design-singleton</module>
         <module>design-adapter</module>
         <module>design-factory</module>
+        <module>design-abstract-factory</module>
     </modules>
 </project>
