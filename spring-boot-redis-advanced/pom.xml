@@ -60,7 +60,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
-            <version>1.18.2</version>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>

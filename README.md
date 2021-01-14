@@ -20,6 +20,16 @@
 
 [限流算法之令牌桶算法](./spring-boot-guava-limit/令牌桶算法.md)
 
+## 缓存
+
+[缓存雪崩](./spring-boot-redis-advanced/缓存雪崩.md)
+
+[缓存击穿](./spring-boot-redis-advanced/缓存击穿.md)
+
+[缓存穿透](./spring-boot-redis-advanced/缓存穿透.md)
+
+[布隆过滤器](./spring-boot-redis-advanced/布隆过滤器.md)
+
 # spring-learn
 
 记录在日常过程用经常使用的方法、工程，方便去查找DEMO
