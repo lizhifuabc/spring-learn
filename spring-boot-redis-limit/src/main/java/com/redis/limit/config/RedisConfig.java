@@ -25,4 +25,24 @@ public class RedisConfig {
         redisScript.setResultType(Long.class);
         return redisScript;
     }
+    /**
+     * 令牌桶限流脚本初始key
+     */
+    @Bean
+    public DefaultRedisScript<Long> bucketInitRedisLuaScript() {
+        DefaultRedisScript<Long> redisScript = new DefaultRedisScript<>();
+        redisScript.setScriptSource(new ResourceScriptSource(new ClassPathResource("redis/bucketLimitInit.lua")));
+        redisScript.setResultType(Long.class);
+        return redisScript;
+    }
+    /**
+     * 令牌桶限流脚本
+     */
+    @Bean
+    public DefaultRedisScript<Long> bucketRedisLuaScript() {
+        DefaultRedisScript<Long> redisScript = new DefaultRedisScript<>();
+        redisScript.setScriptSource(new ResourceScriptSource(new ClassPathResource("redis/bucketLimit.lua")));
+        redisScript.setResultType(Long.class);
+        return redisScript;
+    }
 }

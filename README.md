@@ -10,7 +10,15 @@
 
 [保障幂等性的几种方法：数据库+redis](./spring-boot-idempotent)
 
+## 限流算法
 
+[限流算法之计数器（固定窗口）算法](./spring-boot-guava-limit/固定窗口算法.md)
+
+[限流算法之滑动窗口算法](./spring-boot-guava-limit/滑动窗口计数器算法.md)
+
+限流算法之漏桶算法
+
+[限流算法之令牌桶算法](./spring-boot-guava-limit/令牌桶算法.md)
 
 # spring-learn
 
