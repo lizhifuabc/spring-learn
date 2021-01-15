@@ -16,8 +16,8 @@ import javax.annotation.Resource;
  * @date 2021/1/15
  */
 @Configuration
-@ConditionalOnWebApplication // 如果时 web 应用则配置生效
-@EnableConfigurationProperties(DemoProperties.class) // 使得 HelloProperties 生效
+@ConditionalOnWebApplication // web 应用则配置生效
+@EnableConfigurationProperties(DemoProperties.class) // 使得 DemoProperties 生效
 public class DemoServiceAutoConfiguration {
     @Resource
     private DemoProperties demoProperties;
