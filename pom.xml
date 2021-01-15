@@ -47,7 +47,8 @@
         <module>spring-boot-lock</module>
 		<module>doc</module>
         <module>spring-boot-payment</module>
-    </modules>
+        <module>spring-boot-starter</module>
+	</modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
