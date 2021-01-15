@@ -36,6 +36,10 @@
 
 记录在日常过程用经常使用的方法、工程，方便去查找DEMO
 
+[spring-boot-starter自定义starter](./spring-boot-starter)
+
+
+
 # spring-boot
 
 [spring-boot-cors](./spring-boot-cors):跨域，三种方式选择一个即可
