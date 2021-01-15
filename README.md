@@ -38,7 +38,7 @@
 
 [spring-boot-starter自定义starter](./spring-boot-starter)
 
-
+[spring-cloud-loadbalancer简单实例](./spring-cloud-loadbalancer)
 
 # spring-boot
 
