@@ -97,7 +97,7 @@ spring.thymeleaf.cache = true
 # 编码
 spring.thymeleaf.encoding = UTF-8
 # 模式
-spring.thymeleaf.mode = HTML5
+spring.thymeleaf.mode = HTML
 # 页面存放路径
 spring.thymeleaf.prefix = classpath:/templates/
 # 页面名称的后缀
