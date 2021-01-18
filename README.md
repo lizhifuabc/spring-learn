@@ -44,6 +44,8 @@
 
 [spring-boot-cors：跨域的三种实现方式](./spring-boot-cors)
 
+[spring-boot-thymeleaf：springbot整合thymeleaf](./spring-boot-thymeleaf)
+
 # spring-boot
 
 [design-singleton](./spring-boot-design/design-singleton):单例模式

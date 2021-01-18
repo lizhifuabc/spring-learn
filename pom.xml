@@ -50,7 +50,8 @@
         <module>spring-boot-starter</module>
 		<module>spring-cloud-loadbalancer</module>
 		<module>spring-boot-webflux</module>
-	</modules>
+        <module>spring-boot-thymeleaf</module>
+    </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
