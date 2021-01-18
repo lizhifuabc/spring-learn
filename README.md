@@ -36,17 +36,15 @@
 
 记录在日常过程用经常使用的方法、工程，方便去查找DEMO
 
+[spring-boot-webflux函数式编程DEMO](./spring-boot-webflux)
+
 [spring-boot-starter自定义starter](./spring-boot-starter)
 
 [spring-cloud-loadbalancer简单实例](./spring-cloud-loadbalancer)
 
+[spring-boot-cors：跨域的三种实现方式](./spring-boot-cors)
+
 # spring-boot
-
-[spring-boot-cors](./spring-boot-cors):跨域，三种方式选择一个即可
-
-- WebMvcConfigurer
-- Filter
-- @CrossOrigin
 
 [design-singleton](./spring-boot-design/design-singleton):单例模式
 

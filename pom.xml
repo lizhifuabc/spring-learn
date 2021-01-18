@@ -49,6 +49,7 @@
         <module>spring-boot-payment</module>
         <module>spring-boot-starter</module>
 		<module>spring-cloud-loadbalancer</module>
+		<module>spring-boot-webflux</module>
 	</modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
