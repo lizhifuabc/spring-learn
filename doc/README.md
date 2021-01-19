@@ -2,6 +2,8 @@
 
 ### [java内的相等判断](./javaequal.md)
 
+### [hashcode和equals](./hashcodeequals.md)
+
 # HashMap
 
 ###  [HashMap之构造函数](./hashmap.md)
