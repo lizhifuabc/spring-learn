@@ -17,17 +17,33 @@ import java.util.Map;
 @Data
 @Component
 @PropertySource("classpath:wechat.properties")
-@ConfigurationProperties(prefix = "wechat")
+@ConfigurationProperties(prefix = "wx")
 public class WxProperties {
     /**
      * 配置文件数据
      */
-    private Map<String, String> data = new HashMap();
-
-    public String getAppV3Secret(String appId){
-        return data.get(appId+".appV3Secret");
-    }
-    public String getMchId(String appId){
-        return data.get(appId+".mchId");
+    private Map<String, Detail> data = new HashMap();
+    @Data
+    public static class Detail{
+        /**
+         * appSecret
+         */
+        private String appSecret;
+        /**
+         * appId
+         */
+        private String appId;
+        /**
+         * 证书路径
+         */
+        private String certPath;
+        /**
+         * 证书编号
+         */
+        private String serialNo;
+        /**
+         * 商户号
+         */
+        private String mchId;
     }
 }

@@ -10,6 +10,16 @@ import org.springframework.http.HttpMethod;
  */
 public enum WechatPayV3Type {
     /**
+     * 商户订单号查询
+     * https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_1_2.shtml#menu2
+     */
+    TRANSACTION_OUT_TRADE_NO(HttpMethod.GET, "%s/v3/pay/transactions/out-trade-no/{out_trade_no}"),
+    /**
+     * 获取证书.
+     * https://pay.weixin.qq.com/wiki/doc/apiv3/wechatpay/wechatpay5_1.shtml
+     */
+    CERT(HttpMethod.GET, "%s/v3/certificates"),
+    /**
      * 统一下单API
      * https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_1_1.shtml
      */
@@ -41,5 +51,11 @@ public enum WechatPayV3Type {
     }
     public String pattern() {
         return this.pattern;
+    }
+    /**
+     * 支付URI
+     */
+    public String uri(WxServer weChatServer) {
+        return String.format(this.pattern, weChatServer.domain());
     }
 }

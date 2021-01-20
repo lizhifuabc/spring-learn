@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
+import java.util.Map;
+import java.util.stream.Stream;
 
 /**
  * WxProperties
@@ -18,7 +20,7 @@ public class WxPropertiesTest {
     WxProperties wxProperties;
     @Test
     public void test(){
-        System.out.println("WxPropertiesTest.test:"+wxProperties.getAppV3Secret("wx524534x423134"));
-        System.out.println("WxPropertiesTest.test:"+wxProperties.getMchId("wx524534x423134"));
+        Map<String, WxProperties.Detail> data = wxProperties.getData();
+        data.keySet().forEach(key-> System.out.printf(key+":"+data.get(key)));
     }
 }

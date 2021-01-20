@@ -4,6 +4,7 @@ import com.boot.payment.param.wx.Amount;
 import com.boot.payment.param.wx.Detail;
 import com.boot.payment.param.wx.Payer;
 import com.boot.payment.param.wx.SceneInfo;
+import lombok.Data;
 
 /**
  * 微信支付参数
@@ -11,6 +12,7 @@ import com.boot.payment.param.wx.SceneInfo;
  * @author lizhifu
  * @date 2021/1/12
  */
+@Data
 public class WxPayParam {
     /**
      * 应用ID

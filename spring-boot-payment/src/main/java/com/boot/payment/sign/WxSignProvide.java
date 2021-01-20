@@ -1,16 +1,15 @@
 package com.boot.payment.sign;
 
-import com.boot.payment.param.WxMetaData;
 import lombok.SneakyThrows;
 import org.springframework.util.AlternativeJdkIdGenerator;
 import org.springframework.util.Base64Utils;
 import org.springframework.util.IdGenerator;
 
 import java.nio.charset.StandardCharsets;
-import java.security.KeyPair;
+import java.security.PrivateKey;
 import java.security.Signature;
+import java.util.Arrays;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * 微信签名
@@ -40,19 +39,22 @@ public class WxSignProvide {
      * @param timestamp    当前时间戳   因为要配置到TOKEN 中所以 签名中的要跟TOKEN 保持一致
      * @param nonceStr     随机字符串  要和TOKEN中的保持一致
      * @param body         请求体 GET 为 "" POST 为JSON
-     * @param keyPair      商户API 证书解析的密钥对  实际使用的是其中的私钥
+     * @param privateKey      商户API 证书解析的密钥对  实际使用的是其中的私钥
      * @return the string
      */
     @SneakyThrows
-    public static String sign(String method, String canonicalUrl, long timestamp, String nonceStr, String body, KeyPair keyPair)  {
-        String signatureStr = Stream.of(method, canonicalUrl, String.valueOf(timestamp), nonceStr, body)
-                .collect(Collectors.joining("\n", "", "\n"));
-        Signature sign = Signature.getInstance("SHA256withRSA");
-        sign.initSign(keyPair.getPrivate());
-        sign.update(signatureStr.getBytes(StandardCharsets.UTF_8));
-        return Base64Utils.encodeToString(sign.sign());
+    public static String sign(String method, String canonicalUrl, long timestamp, String nonceStr, String body, PrivateKey privateKey)  {
+        return sign(privateKey,method,canonicalUrl,String.valueOf(timestamp),nonceStr, body);
     }
-
+    @SneakyThrows
+    public static String sign(PrivateKey privateKey, String... orderedComponents) {
+        Signature signer = Signature.getInstance("SHA256withRSA");
+        signer.initSign(privateKey);
+        String signatureStr = Arrays.stream(orderedComponents)
+                .collect(Collectors.joining("\n", "", "\n"));
+        signer.update(signatureStr.getBytes(StandardCharsets.UTF_8));
+        return Base64Utils.encodeToString(signer.sign());
+    }
     /**
      * 生成token
      * @param method
@@ -60,15 +62,15 @@ public class WxSignProvide {
      * @param body
      * @param serialNo
      * @param mchId
-     * @param keyPair
+     * @param privateKey
      * @return
      */
-    public static String getToken(String method, String canonicalUrl,String body,String serialNo,String mchId, KeyPair keyPair){
+    public static String authorization(String method, String canonicalUrl,String body,String serialNo,String mchId, PrivateKey privateKey){
         long timestamp = System.currentTimeMillis() / 1000;
         String nonceStr = idGenerator.generateId()
                 .toString()
                 .replaceAll("-", "");
-        String sign = sign(method,canonicalUrl,timestamp,nonceStr,body,keyPair);
+        String sign = sign(method,canonicalUrl,timestamp,nonceStr,body,privateKey);
         // 生成token
         String token = String.format(TOKEN_PATTERN,mchId, nonceStr, timestamp, serialNo, sign);
         return AUTHORIZATION.concat(token);
