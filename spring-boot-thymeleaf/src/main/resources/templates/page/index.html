@@ -4,6 +4,25 @@
 <body>
 <div>
 	欢迎登录，<span th:text="${hello}"></span>！
+	<button onclick="ajaxDemo()">ajaxDemo</button>
 </div>
 </body>
+<!-- 全局js -->
+<script th:src="@{/js/jquery.min.js}"></script>
+<script>
+	function ajaxDemo(){
+		$.ajax({
+			type:"GET",
+			url:"/learn/user",
+			dataType:"json",
+			success:function(data){
+				console.log(data)
+				console.log(data.length)
+			},
+			error:function(jqXHR){
+				alert("error");
+			}
+		});
+	}
+</script>
 </html>

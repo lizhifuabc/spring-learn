@@ -1,9 +1,13 @@
 package com.boot.thymeleaf.controller;
 
+import com.boot.thymeleaf.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -21,5 +25,16 @@ public class IndexController {
         modelAndView.setViewName("page/index");
         modelAndView.addObject("hello","hello:"+random.nextInt());
         return modelAndView;
+    }
+    @ResponseBody
+    @GetMapping("/user")
+    public List<User> user(){
+        List<User> list = new ArrayList<>();
+        User user = new User();
+        user.setName("小马");
+        user.setAge(18);
+        list.add(user);
+        list.add(user);
+        return list;
     }
 }
