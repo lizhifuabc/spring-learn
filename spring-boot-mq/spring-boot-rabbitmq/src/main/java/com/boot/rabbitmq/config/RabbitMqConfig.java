@@ -28,7 +28,7 @@ public class RabbitMqConfig {
         rabbitTemplate.setConfirmCallback((correlationData, ack, cause)
                 -> log.info("消息发送成功:correlationData({}),ack({}),cause({})", correlationData, ack, cause));
         rabbitTemplate.setReturnsCallback((message)
-                -> log.info("消息返回:exchange({}),route({}),replyCode({}),replyText({}),message:{}",
+                -> log.info("消息发送失败:exchange({}),route({}),replyCode({}),replyText({}),message:{}",
                 message.getExchange(), message.getRoutingKey(), message.getReplyCode(), message.getReplyText(), message.getMessage()));
         return rabbitTemplate;
     }

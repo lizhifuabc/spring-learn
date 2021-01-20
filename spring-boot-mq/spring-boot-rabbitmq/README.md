@@ -7,7 +7,7 @@
 
 ## RabbitMQ高可用性
 
-- 单机模式(Demo)
+- 单机模式(Demo):适用于个人测试，尽量不要使用到生产环境
 - 普通集群模式（无高可用性）：主要是为了吞吐量，让集群中多个节点来服务某个 queue 的操作
   - 多台机器上启动多个 RabbitMQ 实例，每个机器启动一个
   - queue队列只会放在一个 RabbitMQ 实例上
@@ -20,6 +20,47 @@
   - 每次写消息到 queue 的时候，都会自动把消息同步到多个实例的 queue 上
   - 无法线性的扩展queue
   - queue 的数据量很大，如果大于单机的承载能力，就会无法处理
+
+# 保障消息投递
+
+- 生产者保障能够发送消息到Broker
+
+  ```java
+  spring.rabbitmq.publisher-confirm-type=CORRELATED
+  ```
+
+  ```java
+      @Bean
+      public RabbitTemplate rabbitTemplate(CachingConnectionFactory connectionFactory) {
+          RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
+          //交换器无法根据自身类型和路由键找到一个符合条件的队列时的处理方式
+          //true：RabbitMQ会调用Basic.Return命令将消息返回给生产者
+          //false：RabbitMQ会把消息直接丢弃
+          rabbitTemplate.setMandatory(true);
+          rabbitTemplate.setConfirmCallback((correlationData, ack, cause)
+                  -> log.info("消息发送成功:correlationData({}),ack({}),cause({})", correlationData, ack, cause));
+          rabbitTemplate.setReturnsCallback((message)
+                  -> log.info("消息发送失败:exchange({}),route({}),replyCode({}),replyText({}),message:{}",
+                  message.getExchange(), message.getRoutingKey(), message.getReplyCode(), message.getReplyText(), message.getMessage()));
+          return rabbitTemplate;
+      }
+  ```
+
+- 消费者消息已经收到(ack)
+
+  ```java
+  # 消息开启手动确认ACK
+  spring.rabbitmq.listener.direct.acknowledge-mode=manual
+  spring.rabbitmq.listener.simple.acknowledge-mode=manual
+  ```
+
+- 开启mq消息的持久化
+
+- 生产者发送消息失败，存在处理机制(人工+重试)
+
+- 消费者没有正常的消费的信息，存在处理机制(人工+重试)
+
+- 消费者要进行幂等处理
 
 ## Mac 安装 RabbitMQ
 
@@ -84,7 +125,7 @@ OK。
 
 接下来就可以启动了，进入安装目录，执行命令：
 
-```
+```js
 ./sbin/rabbitmq-server
 ```
 
