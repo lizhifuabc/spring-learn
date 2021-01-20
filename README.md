@@ -46,6 +46,8 @@
 
 [spring-boot-thymeleaf：springbot整合thymeleaf](./spring-boot-thymeleaf)
 
+[spring-boot-rabbitmq:整合rabbitmq](./spring-boot-mq/spring-boot-rabbitmq)
+
 # spring-boot
 
 [design-singleton](./spring-boot-design/design-singleton):单例模式
