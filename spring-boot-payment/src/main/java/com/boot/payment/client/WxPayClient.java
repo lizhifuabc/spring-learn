@@ -1,7 +1,7 @@
 package com.boot.payment.client;
 
 import com.boot.payment.init.WxMetaData;
-import com.boot.payment.enumeration.WechatPayV3Type;
+import com.boot.payment.enumeration.WxPayV3Type;
 import com.boot.payment.handler.WechatPayResponseErrorHandler;
 import com.boot.payment.init.WxMetaDataConstant;
 import com.boot.payment.sign.WxSignProvide;
@@ -31,11 +31,20 @@ public class WxPayClient {
      * rest 请求
      */
     private RestOperations restOperations;
-    private WechatPayV3Type wechatPayV3Type;
+    /**
+     * 地址
+     */
+    private WxPayV3Type wxPayV3Type;
+    /**
+     * 构建参数
+     */
     private Object param;
+    /**
+     * appId
+     */
     private String appId;
     private Consumer<ResponseEntity<ObjectNode>> responseBodyConsumer;
-    private BiFunction<WechatPayV3Type, Object, RequestEntity<?>> requestEntityBiFunction;
+    private BiFunction<WxPayV3Type, Object, RequestEntity<?>> requestEntityBiFunction;
 
     /**
      * 默认构造函数
@@ -73,12 +82,12 @@ public class WxPayClient {
 
     /**
      * 设置请求地址和参数
-     * @param wechatPayV3Type
+     * @param wxPayV3Type
      * @param param
      * @return
      */
-    public WxPayClient withUri(WechatPayV3Type wechatPayV3Type,Object param) {
-        this.wechatPayV3Type = wechatPayV3Type;
+    public WxPayClient withUri(WxPayV3Type wxPayV3Type, Object param) {
+        this.wxPayV3Type = wxPayV3Type;
         this.param = param;
         return this;
     }
@@ -98,7 +107,7 @@ public class WxPayClient {
      * @param requestEntityBiFunction
      * @return
      */
-    public WxPayClient withFunction(BiFunction<WechatPayV3Type, Object, RequestEntity<?>> requestEntityBiFunction) {
+    public WxPayClient withFunction(BiFunction<WxPayV3Type, Object, RequestEntity<?>> requestEntityBiFunction) {
         this.requestEntityBiFunction = requestEntityBiFunction;
         return this;
     }
@@ -106,7 +115,7 @@ public class WxPayClient {
      * 执行
      */
     public void execute() {
-        RequestEntity<?> requestEntity = this.requestEntityBiFunction.apply(this.wechatPayV3Type, this.param);
+        RequestEntity<?> requestEntity = this.requestEntityBiFunction.apply(this.wxPayV3Type, this.param);
         WxRequestEntity<?> wxRequestEntity = WxRequestEntity.of(requestEntity, this.responseBodyConsumer);
         wxRequestEntity = this.header(wxRequestEntity);
         log.info("请求参数为:{}",wxRequestEntity);

@@ -2,7 +2,7 @@ package com.boot.payment.api;
 
 import com.boot.payment.client.WxPayClient;
 import com.boot.payment.client.WxResponseEntity;
-import com.boot.payment.enumeration.WechatPayV3Type;
+import com.boot.payment.enumeration.WxPayV3Type;
 import com.boot.payment.enumeration.WxServer;
 import com.boot.payment.param.TransactionQueryParams;
 import com.boot.payment.param.WxPayParam;
@@ -14,10 +14,6 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
-import java.security.PrivateKey;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
-import java.util.Objects;
 
 /**
  * 直连模式
@@ -35,7 +31,7 @@ public class WxDirectPayApi extends BaseAbstractApi{
         WxResponseEntity<ObjectNode> wxResponseEntity = new WxResponseEntity<>();
         WxPayClient.create()
                 .withAppId(wxPayParam.getAppid())
-                .withUri(WechatPayV3Type.JSAPI,wxPayParam)
+                .withUri(WxPayV3Type.JSAPI,wxPayParam)
                 .withFunction(this::payFunction)
                 .withConsumer(responseEntity -> {
                     ObjectNode body = responseEntity.getBody();
@@ -56,7 +52,7 @@ public class WxDirectPayApi extends BaseAbstractApi{
         WxResponseEntity<ObjectNode> wxResponseEntity = new WxResponseEntity<>();
         WxPayClient.create()
                 .withAppId(params.getAppId())
-                .withUri(WechatPayV3Type.TRANSACTION_OUT_TRADE_NO,params)
+                .withUri(WxPayV3Type.TRANSACTION_OUT_TRADE_NO,params)
                 .withFunction(this::queryTransactionFunction)
                 .withConsumer(wxResponseEntity::convert)
                 .execute();
@@ -66,30 +62,30 @@ public class WxDirectPayApi extends BaseAbstractApi{
 
     /**
      * 订单查询
-     * @param wechatPayV3Type
+     * @param wxPayV3Type
      * @param o
      * @return
      */
-    private RequestEntity<?> queryTransactionFunction(WechatPayV3Type wechatPayV3Type, Object o) {
+    private RequestEntity<?> queryTransactionFunction(WxPayV3Type wxPayV3Type, Object o) {
         TransactionQueryParams params = (TransactionQueryParams) o;
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         //转换
         queryParams.add("mchid", params.getMchId());
-        URI uri = UriComponentsBuilder.fromHttpUrl(wechatPayV3Type.uri(WxServer.CHINA))
+        URI uri = UriComponentsBuilder.fromHttpUrl(wxPayV3Type.uri(WxServer.CHINA))
                 .queryParams(queryParams)
                 .build()
                 .expand(params.getTransactionIdOrOutTradeNo())
                 .toUri();
         return get(uri);
     }
-    private RequestEntity<?> payFunction(WechatPayV3Type wechatPayV3Type, Object o) {
+    private RequestEntity<?> payFunction(WxPayV3Type wxPayV3Type, Object o) {
         WxPayParam wxPayParam = (WxPayParam) o;
 //        WechatPayProperties.V3 v3 = this.wechatMetaBean().getV3();
 //        wxPayParam.setAppid(v3.getAppId());
 //        wxPayParam.setMchid(v3.getMchId());
 //        String notifyUrl = v3.getDomain().concat(wxPayParam.getNotifyUrl());
 //        wxPayParam.setNotifyUrl(notifyUrl);
-        URI uri = UriComponentsBuilder.fromHttpUrl(wechatPayV3Type.uri(WxServer.CHINA))
+        URI uri = UriComponentsBuilder.fromHttpUrl(wxPayV3Type.uri(WxServer.CHINA))
                 .build()
                 .toUri();
         return post(uri, wxPayParam);

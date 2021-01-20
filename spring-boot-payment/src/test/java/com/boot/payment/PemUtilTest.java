@@ -1,6 +1,6 @@
 package com.boot.payment;
 
-import com.boot.payment.enumeration.WechatPayV3Type;
+import com.boot.payment.enumeration.WxPayV3Type;
 import com.boot.payment.enumeration.WxServer;
 import com.boot.payment.sign.PemUtil;
 import com.boot.payment.sign.WxSignProvide;
@@ -43,7 +43,7 @@ public class PemUtilTest {
         X509Certificate x509Certificate = PemUtil.loadCertificate(resource2);
         System.out.println(x509Certificate.getSerialNumber());
 
-        String url = WechatPayV3Type.CERT.uri(WxServer.CHINA);
+        String url = WxPayV3Type.CERT.uri(WxServer.CHINA);
 
         UriComponents uri = UriComponentsBuilder.fromHttpUrl(url).build();
 
@@ -54,7 +54,7 @@ public class PemUtilTest {
             canonicalUrl += "?" + encodedQuery;
         }
         // 签名
-        HttpMethod httpMethod = WechatPayV3Type.CERT.method();
+        HttpMethod httpMethod = WxPayV3Type.CERT.method();
         String authorization = WxSignProvide.authorization(httpMethod.name(),canonicalUrl,"","5BAB830441024763C885D9DE9C4CDE515F5083CE","1605765479",privateKey);
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));

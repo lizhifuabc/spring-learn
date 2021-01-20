@@ -8,7 +8,7 @@ import org.springframework.http.HttpMethod;
  * @author lizhifu
  * @date 2021/1/12
  */
-public enum WechatPayV3Type {
+public enum WxPayV3Type {
     /**
      * 商户订单号查询
      * https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_1_2.shtml#menu2
@@ -42,7 +42,7 @@ public enum WechatPayV3Type {
      * @param method HttpMethod方法
      * @param pattern 地址pattern
      */
-    WechatPayV3Type(HttpMethod method, String pattern) {
+    WxPayV3Type(HttpMethod method, String pattern) {
         this.method = method;
         this.pattern = pattern;
     }
