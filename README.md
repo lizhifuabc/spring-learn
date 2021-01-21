@@ -44,9 +44,11 @@
 
 [spring-boot-cors：跨域的三种实现方式](./spring-boot-cors)
 
-[spring-boot-thymeleaf：springbot整合thymeleaf](./spring-boot-thymeleaf)
+[spring-boot-thymeleaf：springboot整合thymeleaf](./spring-boot-thymeleaf)
 
 [spring-boot-rabbitmq:整合rabbitmq](./spring-boot-mq/spring-boot-rabbitmq)
+
+[spring-boot-upload：springboo文件上传](./spring-boot-upload)
 
 # spring-boot
 
