@@ -11,7 +11,7 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 
 /**
  * HelloWorldRouter
- *
+ * 基于routing function 的开发模式
  * @author lizhifu
  * @date 2021/1/15
  */
