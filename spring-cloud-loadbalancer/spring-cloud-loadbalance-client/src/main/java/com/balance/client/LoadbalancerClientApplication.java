@@ -10,7 +10,8 @@ import reactor.core.publisher.Mono;
 
 /**
  * 启动
- * https://spring.io/guides/gs/spring-cloud-loadbalancer/
+ * demo地址：https://spring.io/guides/gs/spring-cloud-loadbalancer/
+ * 官方文档：https://docs.spring.io/spring-cloud-commons/docs/current/reference/html/#spring-cloud-loadbalancer
  * @author lizhifu
  * @date 2021/1/15
  */
