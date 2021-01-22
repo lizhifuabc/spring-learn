@@ -1,5 +1,7 @@
 # 基础
 
+### [String简单解析](./String简单解析.md)
+
 ### [java内的相等判断](./javaequal.md)
 
 ### [hashcode和equals](./hashcodeequals.md)
