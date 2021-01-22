@@ -1,7 +1,10 @@
 package com.learn.redis.controller;
 
+import com.learn.redis.service.RedisService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * IndexController
@@ -11,8 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class IndexController {
+    @Resource
+    private RedisService redisService;
     @GetMapping("/")
     public String helloWorld(){
-        return "helloWorld";
+        redisService.setCacheObject("expiredKey","expiredKey");
+        redisService.expire("expiredKey",5);
+        return "helloWorld:"+redisService.getCacheObject("expiredKey");
     }
 }
