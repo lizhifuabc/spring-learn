@@ -10,6 +10,8 @@
 
 # HashMap
 
+### [HashMap使用调优](./HashMap使用调优.md)
+
 ###  [HashMap之构造函数](./hashmap.md)
 
 ### [HashMap之hash算法](hashmap_hash.md)
