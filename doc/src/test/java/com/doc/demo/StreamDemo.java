@@ -131,4 +131,29 @@ public class StreamDemo {
         Optional<StreamEntity> streamEntity1 = streamEntityList.stream().filter(result-> result.getAge() == 20).findAny();
         streamEntity1.ifPresent(System.out::println);
     }
+    @Test
+    public void sum(){
+        // List 统计
+        List<StreamEntity> streamEntityList =Arrays.asList
+                (StreamEntity.builder().name("小米").age(10).build(),StreamEntity.builder().name("魅族").age(20).build());
+        IntSummaryStatistics intSummaryStatistics =
+                streamEntityList.stream().mapToInt(StreamEntity::getAge).summaryStatistics();
+        System.out.println("平均值：" + intSummaryStatistics.getAverage());
+        System.out.println("总个数：" + intSummaryStatistics.getCount());
+        System.out.println("最大值：" + intSummaryStatistics.getMax());
+        System.out.println("最小值：" + intSummaryStatistics.getMin());
+        System.out.println("总和值：" + intSummaryStatistics.getSum());
+        // 单独
+        // 平均值
+        Double aDouble = streamEntityList.stream().collect(Collectors.averagingDouble(StreamEntity::getAge));
+        System.out.println("平均值:"+aDouble);
+        // 最大值和最小值
+        Optional<Integer> max = streamEntityList.stream().map(StreamEntity::getAge).max(Integer::compare);
+        Optional<Integer> min = streamEntityList.stream().map(StreamEntity::getAge).min(Integer::compare);
+        System.out.println("最大值:"+max);
+        System.out.println("最小值:"+min);
+        // 求和
+        Double sumScore = streamEntityList.stream().mapToDouble(StreamEntity::getAge).sum();
+        System.out.println("和:"+sumScore);
+    }
 }

@@ -196,3 +196,45 @@ StreamEntity(name=魅族, age=20, score=null)
 StreamEntity(name=魅族, age=20, score=null)
 ```
 
+# 统计 
+
+```java
+    @Test
+    public void sum(){
+        // List 统计
+        List<StreamEntity> streamEntityList =Arrays.asList
+                (StreamEntity.builder().name("小米").age(10).build(),StreamEntity.builder().name("魅族").age(20).build());
+        IntSummaryStatistics intSummaryStatistics =
+                streamEntityList.stream().mapToInt(StreamEntity::getAge).summaryStatistics();
+        System.out.println("平均值：" + intSummaryStatistics.getAverage());
+        System.out.println("总个数：" + intSummaryStatistics.getCount());
+        System.out.println("最大值：" + intSummaryStatistics.getMax());
+        System.out.println("最小值：" + intSummaryStatistics.getMin());
+        System.out.println("总和值：" + intSummaryStatistics.getSum());
+        // 单独
+        // 平均值
+        Double aDouble = streamEntityList.stream().collect(Collectors.averagingDouble(StreamEntity::getAge));
+        System.out.println("平均值:"+aDouble);
+        // 最大值和最小值
+        Optional<Integer> max = streamEntityList.stream().map(StreamEntity::getAge).max(Integer::compare);
+        Optional<Integer> min = streamEntityList.stream().map(StreamEntity::getAge).min(Integer::compare);
+        System.out.println("最大值:"+max);
+        System.out.println("最小值:"+min);
+        // 求和
+        Double sumScore = streamEntityList.stream().mapToDouble(StreamEntity::getAge).sum();
+        System.out.println("和:"+sumScore);
+    }
+```
+
+```java
+平均值：15.0
+总个数：2
+最大值：20
+最小值：10
+总和值：30
+平均值:15.0
+最大值:Optional[20]
+最小值:Optional[10]
+和:30.0
+```
+
