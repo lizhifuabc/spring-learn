@@ -34,6 +34,10 @@ public class RabbitMqConstant {
     /**
      * fanout模式
      */
+    public final static String FANOUT_QUEUE2 = "queue.fanout.2";
+    /**
+     * fanout模式
+     */
     public final static String FANOUT_MODE_EX = "exchange.fanout.1";
     /**
      * 主题模式

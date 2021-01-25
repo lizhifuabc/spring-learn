@@ -57,6 +57,13 @@ public class RabbitMqConfig {
         return new Queue(RabbitMqConstant.FANOUT_QUEUE);
     }
     /**
+     * 声明 并 加载广播队列2
+     */
+    @Bean
+    public Queue fanoutQueue2() {
+        return new Queue(RabbitMqConstant.FANOUT_QUEUE2);
+    }
+    /**
      * 声明 并 加载广播交换器
      */
     @Bean
@@ -70,8 +77,18 @@ public class RabbitMqConfig {
      * @param fanoutExchange 广播交换器
      */
     @Bean
-    Binding bindingExchange(Queue fanoutQueue, FanoutExchange fanoutExchange) {
+    Binding bindingExchange(Queue fanoutQueue,FanoutExchange fanoutExchange) {
         return BindingBuilder.bind(fanoutQueue).to(fanoutExchange);
+    }
+    /**
+     * 将 广播队列 和 广播交换器 绑定
+     *
+     * @param fanoutQueue2    广播队列
+     * @param fanoutExchange 广播交换器
+     */
+    @Bean
+    Binding bindingExchange2(Queue fanoutQueue2,FanoutExchange fanoutExchange) {
+        return BindingBuilder.bind(fanoutQueue2).to(fanoutExchange);
     }
     //------------------------------------------------end-----------------------------------------------------------------------------------
 

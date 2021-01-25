@@ -21,6 +21,62 @@
   - 无法线性的扩展queue
   - queue 的数据量很大，如果大于单机的承载能力，就会无法处理
 
+# 消息模式
+
+### 直连模式(Direct)
+
+![image-20210125094926057](assets/image-20210125094926057.png)
+
+代码入口：RabbitMqDirectController.java
+
+### 广播模式(Fanout)
+
+> 简单的讲，就是把交换机（Exchange）里的消息发送给所有绑定该交换机的队列，忽略routingKey
+
+- FanoutExchange模式需要提前将 Exchange 与 Queue 进行绑定，一个 Exchange 可以绑定多个 Queue，一个 Queue 可以同多个 Exchange 进行绑定。是多对多关系
+- 不需要 RoutingKey。
+- 如果接受到消息的 Exchange 没有与任何 Queue 绑定，则消息会被抛弃。
+- 队列的消费者都能拿到消息。实现一条消息被多个消费者消费
+
+![image-20210125101827856](assets/image-20210125101827856.png)
+
+ 代码位置：RabbitMqFanoutController.java
+
+### 主题模式(TopicExchange)
+
+绑定：
+
+- 定义TopicExchange
+- FanoutExchange和TopicExchange进行绑定
+- Queue和TopicExchange进行绑定
+
+通配符：
+
+- 路由格式必须以 . 分隔，比如 user.email 或者 user.aaa.email
+- 通配符 * ，代表一个占位符，或者说一个单词，比如路由为 user.*，那么 user.email 可以匹配，但是 user.aaa.email 就匹配不了
+- 通配符 # ，代表一个或多个占位符，或者说一个或多个单词，比如路由为 user.#，那么 user.email 可以匹配，user.aaa.email 也可以匹配
+
+![image-20210125103927886](assets/image-20210125103927886.png)
+
+代码位置：RabbitMqTopicController.java
+
+### 死信模式
+
+- 定义死信交换机
+- 死信交换机可以和任何一个普通的队列进行绑定
+- 死信队列实际上就是一个普通的队列，只是这个队列跟死信交换机进行了绑定，用来存放死信而已，死信交换机:x-dead-letter-exchange，死信消息路由键:x-dead-letter-routing-key）
+
+代码位置：DeadRabbitMqConfig，RabbitMqDeadController
+
+### 延迟队列
+
+> 首先，它是一种队列，队列意味着内部的元素是有序的，元素出队和入队是有方向性的，元素从一端进入，从另一端取出。
+
+- 定义CustomExchange，x-delayed-type 和 x-delayed-message 固定
+- 延迟队列(普通队列)绑定自定义交换器
+
+代码位置：RabbitMqDelayController
+
 # 保障消息投递
 
 - 生产者保障能够发送消息到Broker
