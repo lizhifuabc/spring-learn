@@ -51,7 +51,9 @@
 		<module>spring-cloud-loadbalancer</module>
 		<module>spring-boot-webflux</module>
         <module>spring-boot-thymeleaf</module>
-    </modules>
+		<module>spring-boot-sentinel</module>
+		<module>spring-boot-wxmp</module>
+	</modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>

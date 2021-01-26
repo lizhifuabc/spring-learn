@@ -50,6 +50,12 @@
 
 [spring-boot-upload：springboo文件上传](./spring-boot-upload)
 
+# 业务相关代码
+
+[微信公众号对接](./spring-boot-wxmp)
+
+[微信支付对接](./spring-boot-payment)
+
 # spring-boot
 
 [design-singleton](./spring-boot-design/design-singleton):单例模式
