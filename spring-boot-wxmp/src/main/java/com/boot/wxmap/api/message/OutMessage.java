@@ -3,7 +3,6 @@ package com.boot.wxmap.api.message;
 import com.boot.wxmap.util.XmlDataConverter;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamConverter;
-import lombok.AllArgsConstructor;
 
 /**
  * 回复消息
