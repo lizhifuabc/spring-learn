@@ -27,10 +27,10 @@ public class QrcodeApiTest {
                 .build();
         QrcodeApi qrcodeApi = new QrcodeApi();
         QRCodeParam codeParam = QRCodeParam.builder()
-                .accessToken("41_6jzZ_6MKXAUshXhholxAFyYCLAym4eFZ6K_vRb-VxH_eXscylSN_rOWYSdTA9LbhdZUfM1VyI2NAuecjk503ZU1pGFeMpyR56AZtUvM6-pnjt5ISFxSqsBMgqF6G7LVqjkUjwAxxh9-SFlqVVLKbAAABRQ")
+                .accessToken("41_Ry3W34xZpHOPFFjcsio543fVEfa4ZKkR3XLoGa_A0OtL5a7odDZL_u1rw3yHf_8ntQWGI3I3itbxEOhHcVSavJ7YXQBTpHQdvmKzTyXRlIHgVC_LcfEcgB2G6KTv9kOWyrR5h7tpzQpO_8anKLKcACAXYX")
                 .action_name(EQRActionName.QR_STR_SCENE)
                 .action_info(actionInfo)
-                .expire_seconds((3*60*60l))
+                .expire_seconds((12*60*60l))
                 .build();
         qrcodeApi.create(codeParam);
     }

@@ -1,5 +1,7 @@
 package com.boot.wxmap.controller.message;
 
+import com.boot.wxmap.api.message.TextMessage;
+import com.boot.wxmap.client.WxMessageClient;
 import com.boot.wxmap.crypto.SHA1;
 import com.boot.wxmap.util.ParseXmlUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -44,8 +46,16 @@ public class MessageController {
         if (!SHA1.checkSignature(timestamp, nonce, signature,"JlCN0K41ZgS1hTYmJbBq56IUFatRGnjw")) {
             throw new IllegalArgumentException("非法请求，可能属于伪造的请求！");
         }
-        Map result = ParseXmlUtil.parseTo(requestBody);
+        Map<String,String> result = ParseXmlUtil.parseTo(requestBody);
         log.info("\n接收微信请求：[result=[\n{}\n] ", result);
-        return "success";
+        WxMessageClient.create().withMsgType(result.get("MsgType"));
+        TextMessage textMessage = TextMessage.builder()
+                .fromUserName(result.get("ToUserName"))
+                .toUserName(result.get("FromUserName"))
+                .content("感谢您的关注！")
+                .build();
+        String out = ParseXmlUtil.objectToXml(textMessage);
+        log.info("返回给微信的xml数据为{}",out);
+        return out;
     }
 }

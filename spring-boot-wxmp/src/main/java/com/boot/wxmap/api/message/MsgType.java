@@ -8,7 +8,7 @@ public enum MsgType {
 	/**
 	 * 文本消息
 	 */
-	text("text"),
+	TEXT("text"),
 	/**
 	 * 图片消息
 	 */

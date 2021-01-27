@@ -1,5 +1,12 @@
 package com.boot.wxmap.util;
 
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.core.util.QuickWriter;
+import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
+import com.thoughtworks.xstream.io.xml.DomDriver;
+import com.thoughtworks.xstream.io.xml.PrettyPrintWriter;
+import com.thoughtworks.xstream.io.xml.XmlFriendlyNameCoder;
+import com.thoughtworks.xstream.io.xml.XppDriver;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.w3c.dom.Document;
@@ -11,6 +18,7 @@ import org.xml.sax.InputSource;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.StringReader;
+import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,6 +28,35 @@ import java.util.Map;
  */
 @Slf4j
 public class ParseXmlUtil {
+	/**
+	 * 将bean转换为xml
+	 * @param obj 转换的bean
+	 * @return bean转换为xml
+	 */
+	public static String objectToXml(Object obj) {
+		//解决下划线问题
+		XStream xStream = new XStream(new DomDriver() {
+			@Override
+			public HierarchicalStreamWriter createWriter(Writer out) {
+				return new MyWriter(out);}});
+		//xstream使用注解转换
+		xStream.processAnnotations(obj.getClass());
+		return xStream.toXML(obj);
+	}
+	public static class MyWriter extends PrettyPrintWriter {
+		public MyWriter(Writer writer) {
+			super(writer);
+		}
+		@Override
+		protected void writeText(QuickWriter writer, String text) {
+			writer.write(text);
+		}
+	}
+	/**
+	 * xml转map
+	 * @param xmlStr
+	 * @return
+	 */
 	public static Map parseTo(String xmlStr) {
 		if(StringUtils.isEmpty(xmlStr)){
 			return null;
