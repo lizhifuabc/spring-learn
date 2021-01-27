@@ -6,12 +6,7 @@ import com.boot.wxmap.client.WxClient;
 import com.boot.wxmap.api.oauth.OathTokenParam;
 import com.boot.wxmap.api.oauth.OauthParam;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.RequestEntity;
 import org.springframework.util.StringUtils;
-import org.springframework.web.util.UriComponentsBuilder;
-
-import java.net.URI;
-
 /**
  * 微信oath2授权
  * <br>https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html

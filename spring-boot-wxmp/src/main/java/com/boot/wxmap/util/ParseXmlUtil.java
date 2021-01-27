@@ -1,8 +1,7 @@
 package com.boot.wxmap.util;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -16,10 +15,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * xml数据转换
  * @author lizhifu
  */
+@Slf4j
 public class ParseXmlUtil {
-	private static final Logger logger = LoggerFactory.getLogger(ParseXmlUtil.class);
 	public static Map parseTo(String xmlStr) {
 		if(StringUtils.isEmpty(xmlStr)){
 			return null;
@@ -71,7 +71,7 @@ public class ParseXmlUtil {
 				}
 			}
 		} catch (Exception e) {
-			logger.error("parse xml error:", e);
+			log.error("parse xml error:", e);
 		}
 		return map;
 	}

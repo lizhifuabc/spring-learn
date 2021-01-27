@@ -57,7 +57,6 @@ public enum MsgType {
 	/**
 	 * 构造函数
 	 * 
-	 * @param code
 	 * @param name
 	 */
 	private MsgType(String name) {
