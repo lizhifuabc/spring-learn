@@ -30,7 +30,7 @@ public class OauthApi extends BaseAbstractApi {
         result.append("&redirect_uri="+oauthParam.getRedirectUri());
         result.append("&response_type=code");
         result.append("&scope="+oauthParam.getScope().toString());
-        if(StringUtils.isEmpty(oauthParam.getState())){
+        if(!StringUtils.isEmpty(oauthParam.getState())){
             result.append("&state="+oauthParam.getState());
         }
         result.append("#wechat_redirect");
