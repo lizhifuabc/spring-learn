@@ -2,6 +2,7 @@ package com.boot.wxmap.api.message;
 
 /**
  * 消息类型
+ * @author lizhifu
  */
 public enum MsgType {
 
