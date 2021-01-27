@@ -1,12 +1,18 @@
 # 基础
 
-### [String简单解析](./String简单解析.md)
+### java相关
 
-### [java内的相等判断](./javaequal.md)
+[String简单解析](./String简单解析.md)
 
-### [hashcode和equals](./hashcodeequals.md)
+[java内的相等判断](./javaequal.md)
 
-### [Stream常用](./stream.md)
+[hashcode和equals](./hashcodeequals.md)
+
+[Stream常用](./stream.md)
+
+### 知识点
+
+[常见的性能指标：QPS、TPS、RT、吞吐量](./性能指标.md)
 
 # HashMap
 
