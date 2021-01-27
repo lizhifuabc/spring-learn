@@ -4,15 +4,12 @@ import com.boot.wxmap.base.WxMappingJackson2HttpMessageConverter;
 import com.boot.wxmap.handle.WechatPayResponseErrorHandler;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.DefaultResponseErrorHandler;
 import org.springframework.web.client.RestOperations;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Collections;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 
