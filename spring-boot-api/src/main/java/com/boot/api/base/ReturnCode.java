@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
  * @date 2020/12/24
  */
 public enum ReturnCode {
-    SYSTEM_ERROR(HttpStatus.INTERNAL_SERVER_ERROR.value(), "服务器错误"),
+    SYSTEM_ERROR(HttpStatus.SERVICE_UNAVAILABLE.value(), "服务器错误"),
     PARAM_ERROR(HttpStatus.BAD_REQUEST.value(), "参数错误"),
     SUCCESS(HttpStatus.OK.value(), "成功"),
     NOT_FOUND(HttpStatus.NOT_FOUND.value(),"URL不存在");
