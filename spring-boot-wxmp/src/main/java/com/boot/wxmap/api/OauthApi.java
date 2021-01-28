@@ -7,6 +7,9 @@ import com.boot.wxmap.api.oauth.OathTokenParam;
 import com.boot.wxmap.api.oauth.OauthParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
+
+import java.net.URLEncoder;
+
 /**
  * 微信oath2授权
  * <br>https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html
@@ -27,7 +30,7 @@ public class OauthApi extends BaseAbstractApi {
     public String getOAuthUrl(OauthParam oauthParam){
         StringBuffer result = new StringBuffer(OAUTH2_URI+"?");
         result.append("appid="+oauthParam.getAppId());
-        result.append("&redirect_uri="+oauthParam.getRedirectUri());
+        result.append("&redirect_uri="+ URLEncoder.encode(oauthParam.getRedirectUri()));
         result.append("&response_type=code");
         result.append("&scope="+oauthParam.getScope().toString());
         if(!StringUtils.isEmpty(oauthParam.getState())){
