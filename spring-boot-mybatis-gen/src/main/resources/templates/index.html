@@ -1,0 +1,37 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>测试</title>
+</head>
+
+<body>
+<div name="code" method="post">
+    <textarea name="sql" id="sql" style="width: 600px;height: 300px" placeholder="请输入建表语句"></textarea>
+    <input type="button" onClick="model('model')" value="生成model">
+    <input type="button" onClick="model('mybatis')" value="生成mybatis">
+    <input type="button" onClick="model('mapper')" value="生成mapper">
+</div>
+<textarea name="result" id="result" style="width: 600px;height: 400px"></textarea>
+</body>
+<script src="js/jquery.min.js"></script>
+<script>
+    function model(type){
+        var model = {}
+        model["sql"] = $("#sql").val();
+        model["type"] = type;
+        $.ajax({
+            type:"POST",
+            url:"/learn/model",
+            data: model,
+            success:function(data){
+                console.log(data)
+                $("#result").val(data);
+                console.log(data.length)
+            },
+            error:function(error){
+                alert(JSON.stringify(error));
+            }
+        });
+    }
+</script>
+</html>
