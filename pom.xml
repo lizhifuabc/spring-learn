@@ -53,7 +53,8 @@
         <module>spring-boot-thymeleaf</module>
 		<module>spring-boot-sentinel</module>
 		<module>spring-boot-wxmp</module>
-	</modules>
+        <module>spring-boot-mybatis-gen</module>
+    </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
