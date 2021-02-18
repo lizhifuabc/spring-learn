@@ -1,5 +1,6 @@
 package com.boot.wxmap.controller.message;
 
+import com.boot.wxmap.api.message.LinkMessage;
 import com.boot.wxmap.api.message.TextMessage;
 import com.boot.wxmap.client.WxMessageClient;
 import com.boot.wxmap.crypto.SHA1;
@@ -55,6 +56,16 @@ public class MessageController {
                 .content("感谢您的关注！")
                 .build();
         String out = ParseXmlUtil.objectToXml(textMessage);
+
+        LinkMessage linkMessage = LinkMessage.builder()
+                .fromUserName(result.get("ToUserName"))
+                .toUserName(result.get("FromUserName"))
+                .description("测试描述")
+                .title("测试标题")
+                .url("https://www.baidu.com/")
+                .build();
+        out = ParseXmlUtil.objectToXml(linkMessage);
+
         log.info("返回给微信的xml数据为{}",out);
         return out;
     }

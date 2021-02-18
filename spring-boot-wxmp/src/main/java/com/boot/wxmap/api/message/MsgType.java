@@ -10,7 +10,10 @@ public enum MsgType {
 	 * 文本消息
 	 */
 	TEXT("text"),
-
+	/**
+	 * 链接消息
+	 */
+	LINK("link"),
 	/**
 	 * 消息转发到客服
 	 */
