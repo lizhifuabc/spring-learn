@@ -22,7 +22,7 @@ public class WxPayApiTest {
         WxDirectPayApi wxDirectPayApi = new WxDirectPayApi();
         TransactionQueryParams param = new TransactionQueryParams();
         param.setAppId("wx524534x423234");
-        param.setMchId("1605765479");
+        param.setMchid("1605765479");
         param.setTransactionIdOrOutTradeNo(System.currentTimeMillis()+"");
 //        WxResponseEntity<ObjectNode> responseEntity =  wxDirectPayApi.queryTransactionByOutTradeNo(param);
 //        System.out.println(responseEntity);

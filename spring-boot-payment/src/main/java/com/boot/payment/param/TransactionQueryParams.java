@@ -17,7 +17,7 @@ public class TransactionQueryParams{
     /**
      * 直连商户号
      */
-    private String mchId;
+    private String mchid;
     /**
      * 商户订单号
      */
