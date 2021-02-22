@@ -14,6 +14,8 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 
 /**
  * 直连模式
@@ -35,7 +37,19 @@ public class WxDirectPayApi extends BaseAbstractApi{
                 .withFunction(this::payFunction)
                 .withConsumer(responseEntity -> {
                     ObjectNode body = responseEntity.getBody();
-
+                    body.put("appId", wxPayParam.getAppid());
+                    long epochSecond = LocalDateTime.now()
+                            .toEpochSecond(ZoneOffset.of("+8"));
+                    String timestamp = String.valueOf(epochSecond);
+                    body.put("timeStamp", timestamp);
+                    String nonceStr =  String.valueOf(System.currentTimeMillis());
+                    body.put("nonceStr",nonceStr);
+                    String packageStr = "prepay_id=" + body.get("prepay_id").asText();
+                    body.put("package", packageStr);
+                    body.put("signType", "RSA");
+                    // TODO
+                    // String paySign = super.doRequestSign(appInfo.getPrivateKey(), appInfo.getAppId(), timestamp, nonceStr, packageStr);
+                    //body.put("paySign", paySign);
                     wxResponseEntity.setHttpStatus(responseEntity.getStatusCodeValue());
                     wxResponseEntity.setBody(body);
                 }).execute();
