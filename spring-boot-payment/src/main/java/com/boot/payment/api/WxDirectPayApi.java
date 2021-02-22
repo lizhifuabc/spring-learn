@@ -69,7 +69,8 @@ public class WxDirectPayApi extends BaseAbstractApi{
     private RequestEntity<?> queryTransactionFunction(WxPayV3Type wxPayV3Type, Object o) {
         TransactionQueryParams params = (TransactionQueryParams) o;
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        //转换  queryParams.add("mchid", params.getMchId());
+        //转换
+        queryParams.add("mchid", params.getMchid());
         URI uri = UriComponentsBuilder.fromHttpUrl(wxPayV3Type.uri(WxServer.CHINA))
                 .queryParams(queryParams)
                 .build()
