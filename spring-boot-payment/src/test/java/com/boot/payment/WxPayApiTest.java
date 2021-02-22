@@ -24,12 +24,12 @@ public class WxPayApiTest {
         param.setAppId("wx524534x423234");
         param.setMchid("1605765479");
         param.setTransactionIdOrOutTradeNo(System.currentTimeMillis()+"");
-//        WxResponseEntity<ObjectNode> responseEntity =  wxDirectPayApi.queryTransactionByOutTradeNo(param);
-//        System.out.println(responseEntity);
+        WxResponseEntity<ObjectNode> responseEntity =  wxDirectPayApi.queryTransactionByOutTradeNo(param);
+        System.out.println(responseEntity);
 
-        WxPayParam wxPayParam = new WxPayParam();
-        wxPayParam.setAppid("wx524534x423234");
-        WxResponseEntity<ObjectNode> jsPay = wxDirectPayApi.jsPay(wxPayParam);
-        System.out.println("jsPay:"+jsPay);
+//        WxPayParam wxPayParam = new WxPayParam();
+//        wxPayParam.setAppid("wx524534x423234");
+//        WxResponseEntity<ObjectNode> jsPay = wxDirectPayApi.jsPay(wxPayParam);
+//        System.out.println("jsPay:"+jsPay);
     }
 }
