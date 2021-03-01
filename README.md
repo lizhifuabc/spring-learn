@@ -8,6 +8,8 @@
 
 [基于建表语句生成代码](./spring-boot-mybatis-gen)
 
+[基于数据库生成代码](./spring-boot-mybatis-daogen)
+
 
 
 # 进阶

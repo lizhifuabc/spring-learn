@@ -54,6 +54,7 @@
 		<module>spring-boot-sentinel</module>
 		<module>spring-boot-wxmp</module>
         <module>spring-boot-mybatis-gen</module>
+        <module>spring-boot-mybatis-daogen</module>
     </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
