@@ -35,6 +35,13 @@ public class GenTableMapperTest {
     static void init(){
         genInfo.setAuthor("lizhifu");
         genInfo.setTableName("admin");
+        genInfo.setMybatisPackage("mybatis/sqlMap");
+        genInfo.setEntityPackage("com.mybatis.gen.domain");
+        genInfo.setMapperPackage("com.mybatis.gen.mapper");
+        genInfo.setControllerPackage("com.mybatis.gen.controller");
+        genInfo.setServicePackage("com.mybatis.gen.service");
+        genInfo.setServiceImplPackage("com.mybatis.gen.service.impl");
+
         genInfo.setTemplatePath("/Users/lizhifu/Documents/workspace/manage/spring-learn/spring-boot-mybatis-daogen/target/classes/model");
         genInfo.setFilePath("/Users/lizhifu/Documents/workspace/manage/spring-learn/spring-boot-mybatis-daogen/src/main");
     }

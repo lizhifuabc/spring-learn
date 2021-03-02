@@ -11,6 +11,30 @@ import lombok.Data;
 @Data
 public class GenInfo {
     /**
+     * mybatis包
+     */
+    private String mybatisPackage;
+    /**
+     * serviceImpl包
+     */
+    private String serviceImplPackage;
+    /**
+     * service包
+     */
+    private String servicePackage;
+    /**
+     * mapper包
+     */
+    private String mapperPackage;
+    /**
+     * controller包
+     */
+    private String controllerPackage;
+    /**
+     * 实体包
+     */
+    private String entityPackage;
+    /**
      * 作者
      */
     private String author;
@@ -32,51 +56,26 @@ public class GenInfo {
     private String filePath;
 
     public String getFilePath() {
+        String path = System.getProperty("file.separator");
+        String java = filePath + System.getProperty("file.separator") + "java" + System.getProperty("file.separator");
         if(templateName.equals("domain")){
-            return filePath + System.getProperty("file.separator")+"java"
-                    + System.getProperty("file.separator")+"com"
-                    + System.getProperty("file.separator")+"mybatis"
-                    + System.getProperty("file.separator")+"gen"
-                    + System.getProperty("file.separator")+"domain"
-                    + System.getProperty("file.separator");
+            return java + entityPackage.replaceAll("\\.", System.getProperty("file.separator")) + path;
         }
         if(templateName.equals("mapper")){
-            return filePath + System.getProperty("file.separator")+"java"
-                    + System.getProperty("file.separator")+"com"
-                    + System.getProperty("file.separator")+"mybatis"
-                    + System.getProperty("file.separator")+"gen"
-                    + System.getProperty("file.separator")+"mapper"
-                    + System.getProperty("file.separator");
+            return java + mapperPackage.replaceAll("\\.", System.getProperty("file.separator")) + path;
         }
         if(templateName.equals("service")){
-            return filePath + System.getProperty("file.separator")+"java"
-                    + System.getProperty("file.separator")+"com"
-                    + System.getProperty("file.separator")+"mybatis"
-                    + System.getProperty("file.separator")+"gen"
-                    + System.getProperty("file.separator")+"service"
-                    + System.getProperty("file.separator");
+            return java + servicePackage.replaceAll("\\.", System.getProperty("file.separator")) + path;
         }
         if(templateName.equals("controller")){
-            return filePath + System.getProperty("file.separator")+"java"
-                    + System.getProperty("file.separator")+"com"
-                    + System.getProperty("file.separator")+"mybatis"
-                    + System.getProperty("file.separator")+"gen"
-                    + System.getProperty("file.separator")+"controller"
-                    + System.getProperty("file.separator");
+            return java + controllerPackage.replaceAll("\\.", System.getProperty("file.separator")) + path;
         }
         if(templateName.equals("service_impl")){
-            return filePath + System.getProperty("file.separator")+"java"
-                    + System.getProperty("file.separator")+"com"
-                    + System.getProperty("file.separator")+"mybatis"
-                    + System.getProperty("file.separator")+"gen"
-                    + System.getProperty("file.separator")+"service"
-                    + System.getProperty("file.separator")+"impl"
-                    + System.getProperty("file.separator");
+            return java + serviceImplPackage.replaceAll("\\.", System.getProperty("file.separator")) + path;
         }
         if(templateName.equals("mybatis")){
             return filePath + System.getProperty("file.separator")+"resources"
-                    + System.getProperty("file.separator")+"mybatis"
-                    + System.getProperty("file.separator")+ "mybatis/sqlMap"
+                    + System.getProperty("file.separator")+ mybatisPackage
                     + System.getProperty("file.separator");
         }
         return filePath;
