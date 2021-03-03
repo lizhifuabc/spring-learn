@@ -7,6 +7,7 @@ import com.mybatis.gen.domain.GenTableColumn;
 import com.mybatis.gen.util.str.StringUtils;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * 代码生成
@@ -24,7 +25,15 @@ public class GenUtils {
      */
     public static void initTable(GenTable genTable, GenInfo genInfo)
     {
-        genTable.setClassName(convertClassName(genTable.getTableName()));
+        if(genInfo.isRemovePrefix()){
+            if(Objects.isNull(genInfo.getPrefix())){
+                throw new RuntimeException("如果去除表前缀，请填写前缀名称");
+            }
+            String className = genTable.getTableName().replace(genInfo.getPrefix(),"");
+            genTable.setClassName(convertClassName(className));
+        }else {
+            genTable.setClassName(convertClassName(genTable.getTableName()));
+        }
         genTable.setAuthor(genInfo.getAuthor());
     }
 

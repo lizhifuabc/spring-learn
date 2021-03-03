@@ -21,7 +21,7 @@ import com.mybatis.gen.base.R;
 /**
 * 管理员信息
 * @author lizhifu
-* @date 2021-03-02
+* @date 2021-03-03
 */
 @RestController
 @RequestMapping(value = "/admin")
@@ -34,7 +34,7 @@ public class AdminController extends BaseController{
     /**
     * 新增
     * @author lizhifu
-    * @date 2021/03/02
+    * @date 2021/03/03
     **/
     @RequestMapping("/insert")
     public R insert(Admin admin){
@@ -44,7 +44,7 @@ public class AdminController extends BaseController{
     /**
     * 根据主键刪除
     * @author lizhifu
-    * @date 2021/03/02
+    * @date 2021/03/03
     **/
     @RequestMapping("/deleteByPrimaryKey")
     public R deleteByPrimaryKey(Long primaryKey){
@@ -54,7 +54,7 @@ public class AdminController extends BaseController{
     /**
     * 根据主键更新
     * @author lizhifu
-    * @date 2021/03/02
+    * @date 2021/03/03
     **/
     @RequestMapping("/updateByPrimaryKey")
     public R updateByPrimaryKey(Admin admin){
@@ -64,7 +64,7 @@ public class AdminController extends BaseController{
     /**
     * 根据主键查询
     * @author lizhifu
-    * @date 2021/03/02
+    * @date 2021/03/03
     **/
     @RequestMapping("/selectByPrimaryKey")
     public R selectByPrimaryKey(Long primaryKey){
@@ -74,7 +74,7 @@ public class AdminController extends BaseController{
     /**
     * 通用查询
     * @author lizhifu
-    * @date 2021/03/02
+    * @date 2021/03/03
     **/
     @RequestMapping("/selectList")
     public R selectList(@RequestParam(required = false, defaultValue = "1") int pageNum,

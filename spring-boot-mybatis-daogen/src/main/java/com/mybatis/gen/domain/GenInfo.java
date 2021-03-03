@@ -11,6 +11,14 @@ import lombok.Data;
 @Data
 public class GenInfo {
     /**
+     * 是否去除表前缀
+     */
+    private boolean removePrefix = true;
+    /**
+     * 表前缀
+     */
+    private String prefix;
+    /**
      * mybatis包
      */
     private String mybatisPackage;

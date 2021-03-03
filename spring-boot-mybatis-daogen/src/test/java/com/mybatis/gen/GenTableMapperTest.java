@@ -34,7 +34,10 @@ public class GenTableMapperTest {
     @BeforeAll
     static void init(){
         genInfo.setAuthor("lizhifu");
-        genInfo.setTableName("admin");
+        genInfo.setTableName("t_admin");
+        genInfo.setPrefix("t_");
+        genInfo.setRemovePrefix(true);
+
         genInfo.setMybatisPackage("mybatis/sqlMap");
         genInfo.setEntityPackage("com.mybatis.gen.domain");
         genInfo.setMapperPackage("com.mybatis.gen.mapper");

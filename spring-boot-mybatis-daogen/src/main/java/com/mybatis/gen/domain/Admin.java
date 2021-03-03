@@ -7,7 +7,7 @@ import lombok.Data;
 /**
 * [管理员信息]
 * @author lizhifu
-* @date 2021-03-02
+* @date 2021-03-03
 */
 @Data
 public class Admin implements Serializable {

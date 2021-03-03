@@ -12,7 +12,7 @@ import com.mybatis.gen.mapper.AdminMapper;
 /**
 * 管理员信息
 * @author lizhifu
-* @date 2021-03-02
+* @date 2021-03-03
 */
 @Service
 @Slf4j
@@ -24,7 +24,7 @@ public class AdminServiceImpl implements AdminService {
 	/**
 	* 新增
 	* @author lizhifu
-	* @date 2021/03/02
+	* @date 2021/03/03
 	**/
 	@Override
 	public Admin insert(Admin admin){
@@ -34,7 +34,7 @@ public class AdminServiceImpl implements AdminService {
 	/**
 	* 根据主键刪除
 	* @author lizhifu
-	* @date 2021/03/02
+	* @date 2021/03/03
 	**/
 	@Override
 	public int deleteByPrimaryKey(Long primaryKey){
@@ -44,7 +44,7 @@ public class AdminServiceImpl implements AdminService {
 	/**
 	* 根据主键更新
 	* @author lizhifu
-	* @date 2021/03/02
+	* @date 2021/03/03
 	**/
 	@Override
 	public int updateByPrimaryKey(Admin admin){
@@ -54,7 +54,7 @@ public class AdminServiceImpl implements AdminService {
 	/**
 	* 根据主键查询
 	* @author lizhifu
-	* @date 2021/03/02
+	* @date 2021/03/03
 	**/
 	@Override
 	public Admin selectByPrimaryKey(Long primaryKey){
@@ -64,7 +64,7 @@ public class AdminServiceImpl implements AdminService {
 	/**
 	* 通用查询
 	* @author lizhifu
-	* @date 2021/03/02
+	* @date 2021/03/03
 	**/
 	@Override
 	public List<Admin> selectList(Admin admin){
