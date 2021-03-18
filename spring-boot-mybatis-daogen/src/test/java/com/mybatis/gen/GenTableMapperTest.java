@@ -3,9 +3,9 @@ package com.mybatis.gen;
 import com.mybatis.gen.domain.GenInfo;
 import com.mybatis.gen.domain.GenTable;
 import com.mybatis.gen.domain.GenTableColumn;
-import com.mybatis.gen.mapper.GenTableMapper;
+import com.mybatis.gen.domain.GenTableUnique;
+import com.mybatis.gen.service.GenService;
 import com.mybatis.gen.util.gen.FreemarkerUtil;
-import com.mybatis.gen.util.gen.GenUtils;
 import freemarker.template.TemplateException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -29,22 +29,23 @@ import java.util.List;
 @SpringBootTest
 public class GenTableMapperTest {
     @Resource
-    GenTableMapper genTableMapper;
+    GenService genService;
     static GenInfo genInfo = new GenInfo();
     @BeforeAll
     static void init(){
-        genInfo.setAuthor("lizhifu");
-        genInfo.setTableName("t_admin");
-        genInfo.setPrefix("t_");
-        genInfo.setRemovePrefix(true);
-
-        genInfo.setMybatisPackage("mybatis/sqlMap");
-        genInfo.setEntityPackage("com.mybatis.gen.domain");
-        genInfo.setMapperPackage("com.mybatis.gen.mapper");
-        genInfo.setControllerPackage("com.mybatis.gen.controller");
+        genInfo.setBasePackage("com.mybatis.gen");
+        genInfo.setMybatisPackage("mybatis.sqlMap");
         genInfo.setServicePackage("com.mybatis.gen.service");
         genInfo.setServiceImplPackage("com.mybatis.gen.service.impl");
+        genInfo.setDomainPackage("com.mybatis.gen.domain");
+        genInfo.setMapperPackage("com.mybatis.gen.mapper");
+        genInfo.setControllerPackage("com.mybatis.gen.controller");
 
+        genInfo.setAuthor("lizhifu");
+        genInfo.setTableName("t_table_test");
+        genInfo.setRemovePrefix(true);
+        genInfo.setPrefix("t_");
+        genInfo.setSwagger(true);
         genInfo.setTemplatePath("/Users/lizhifu/Documents/workspace/manage/spring-learn/spring-boot-mybatis-daogen/target/classes/model");
         genInfo.setFilePath("/Users/lizhifu/Documents/workspace/manage/spring-learn/spring-boot-mybatis-daogen/src/main");
     }
@@ -71,20 +72,16 @@ public class GenTableMapperTest {
     void exeDetail() throws IOException, TemplateException {
         String filePath = genInfo.getFilePath();
         System.out.println("filePath:"+filePath);
-        GenTable genTable = genTableMapper.selectDbTableByName(genInfo.getTableName());
-        GenUtils.initTable(genTable,genInfo);
 
-        List<GenTableColumn> genTableColumns =  genTableMapper.selectDbTableColumnsByName(genInfo.getTableName());
-        genTableColumns.forEach(res->{
-            GenUtils.initColumnField(res);
-            if(res.getIsPk().equals("1")){
-                genTable.setPkColumn(res);
-            }
-        });
+        GenTable genTable = genService.genTable(genInfo);
+        List<GenTableColumn> genTableColumns = genService.genTableColumns(genInfo,genTable);
+        List<GenTableUnique> genTableUniques = genService.genTableUniques(genInfo);
+
         ModelMap map = new ModelMap();
         map.addAttribute("genTable",genTable);
         map.addAttribute("genInfo",genInfo);
         map.addAttribute("genTableColumns",genTableColumns);
+        map.addAttribute("genTableUniques",genTableUniques);
         String result = FreemarkerUtil.processString(genInfo.getTemplateName()+".ftl",map,genInfo.getTemplatePath());
         System.out.println(result);
         String fileName = genTable.getClassName();
@@ -114,11 +111,5 @@ public class GenTableMapperTest {
         BufferedWriter out = new BufferedWriter(new FileWriter(file));
         out.write(result);
         out.close();
-    }
-    @Test
-    void name(){
-        GenTable genTable = genTableMapper.selectDbTableByName("sys_post");
-        GenUtils.initTable(genTable,genInfo);
-        System.out.println(genTable.toString());
     }
 }

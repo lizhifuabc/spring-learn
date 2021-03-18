@@ -1,8 +1,8 @@
-package com.mybatis.gen.service;
+package ${genInfo.servicePackage};
 
 import java.util.Map;
 import java.util.List;
-import com.mybatis.gen.domain.${genTable.className};
+import ${genInfo.domainPackage}.${genTable.className};
 /**
 * ${genTable.tableComment}
 * @author ${genTable.author}
@@ -14,7 +14,7 @@ public interface ${genTable.className}Service {
     * @author ${genTable.author}
     * @date ${.now?string('yyyy/MM/dd')}
     **/
-    ${genTable.className} insert(${genTable.className} ${genTable.className?uncap_first});
+    int insert(${genTable.className} ${genTable.className?uncap_first});
 
     /**
     * 根据主键刪除
@@ -53,5 +53,13 @@ public interface ${genTable.className}Service {
     **/
     ${genTable.className} selectBy${tableColumns.javaField?cap_first}(${tableColumns.javaType} ${tableColumns.javaField?uncap_first});
         </#if>
+    </#list>
+    <#list genTableUniques as tableColumns >
+        /**
+        * 根据唯一约束[${tableColumns.constraintName}]查询
+        * @author ${genTable.author}
+        * @date ${.now?string('yyyy/MM/dd')}
+        **/
+        ${genTable.className} selectBy${tableColumns.constraintName?cap_first}(${genTable.className} ${genTable.className?uncap_first});
     </#list>
 }

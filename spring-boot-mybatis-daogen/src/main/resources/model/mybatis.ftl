@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mybatis.gen.mapper.${genTable.className}Mapper">
+<mapper namespace="${genInfo.mapperPackage}.${genTable.className}Mapper">
 
-    <resultMap id="BaseResultMap" type="com.mybatis.gen.domain.${genTable.className}" >
+    <resultMap id="BaseResultMap" type="${genInfo.domainPackage}.${genTable.className}" >
         <#if genTableColumns?exists && genTableColumns?size gt 0>
             <#list genTableColumns as tableColumns >
                 <result column="${tableColumns.columnName}" property="${tableColumns.javaField}" />
@@ -19,15 +19,22 @@
         </#if>
     </sql>
 
-    <insert id="insert" useGeneratedKeys="true" keyColumn="${genTable.pkColumn.columnName}" keyProperty="${genTable.pkColumn.javaField}" parameterType="com.mybatis.gen.domain.${genTable.className}">
+    <insert id="insert" useGeneratedKeys="true" keyColumn="${genTable.pkColumn.columnName}" keyProperty="${genTable.pkColumn.javaField}" parameterType="${genInfo.domainPackage}.${genTable.className}">
         INSERT INTO ${genTable.tableName}
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <#if genTableColumns?exists && genTableColumns?size gt 0>
                 <#list genTableColumns as tableColumns >
                     <#if tableColumns.isPk != "1" >
-                        <if test= "null != ${tableColumns.javaField} and '' != ${tableColumns.javaField}">
-                        ${tableColumns.columnName}<#if tableColumns_has_next>,</#if>
-                        ${r"</if>"}
+                        <#if tableColumns.javaType == "String" >
+                            <if test= "null != ${tableColumns.javaField} and '' != ${tableColumns.javaField}">
+                            ${tableColumns.columnName}<#if tableColumns_has_next>,</#if>
+                            ${r"</if>"}
+                         </#if>
+                        <#if tableColumns.javaType != "String" >
+                            <if test= "null != ${tableColumns.javaField}">
+                            ${tableColumns.columnName}<#if tableColumns_has_next>,</#if>
+                            ${r"</if>"}
+                        </#if>
                     </#if>
                 </#list>
             </#if>
@@ -36,9 +43,16 @@
             <#if genTableColumns?exists && genTableColumns?size gt 0>
                 <#list genTableColumns as tableColumns >
                     <#if tableColumns.isPk != "1" >
-                        <if test= "null != ${tableColumns.javaField} and '' != ${tableColumns.javaField}">
-                        ${r"#{"}${tableColumns.javaField}${r"}"}<#if tableColumns_has_next>,</#if>
-                        ${r"</if>"}
+                        <#if tableColumns.javaType == "String" >
+                            <if test= "null != ${tableColumns.javaField} and '' != ${tableColumns.javaField}">
+                            ${r"#{"}${tableColumns.javaField}${r"}"}<#if tableColumns_has_next>,</#if>
+                            ${r"</if>"}
+                        </#if>
+                        <#if tableColumns.javaType != "String" >
+                            <if test= "null != ${tableColumns.javaField}">
+                            ${r"#{"}${tableColumns.javaField}${r"}"}<#if tableColumns_has_next>,</#if>
+                            ${r"</if>"}
+                        </#if>
                     </#if>
                 </#list>
             </#if>
@@ -60,12 +74,27 @@
         </#if>
     </#list>
 
-    <update id="updateByPrimaryKey" parameterType="com.mybatis.gen.domain.${genTable.className}">
+    <#list genTableUniques as tableColumns >
+        <select id="selectBy${tableColumns.constraintName?cap_first}" resultMap="BaseResultMap">
+            SELECT <include refid="Base_Column_List" />
+            FROM ${genTable.tableName} WHERE 1 = 1
+            <#list tableColumns.genTableColumnUniques as unique >
+                and ${unique.columnName} = ${r"#{"}${unique.javaField}${r"}"}
+            </#list>
+        </select>
+    </#list>
+
+    <update id="updateByPrimaryKey" parameterType="${genInfo.domainPackage}.${genTable.className}">
         UPDATE ${genTable.tableName}
         <set>
             <#list genTableColumns as tableColumns >
                 <#if tableColumns.isPk != "1">
-                    <if test = "null != ${tableColumns.javaField} and '' != ${tableColumns.javaField}">${tableColumns.columnName} = ${r"#{"}${tableColumns.javaField}${r"}"}<#if tableColumns_has_next>,</#if>${r"</if>"}
+                    <#if tableColumns.javaType != "String" >
+                        <if test = "null != ${tableColumns.javaField}">${tableColumns.columnName} = ${r"#{"}${tableColumns.javaField}${r"}"}<#if tableColumns_has_next>,</#if>${r"</if>"}
+                    </#if>
+                    <#if tableColumns.javaType == "String" >
+                        <if test = "null != ${tableColumns.javaField} and '' != ${tableColumns.javaField}">${tableColumns.columnName} = ${r"#{"}${tableColumns.javaField}${r"}"}<#if tableColumns_has_next>,</#if>${r"</if>"}
+                    </#if>
                 </#if>
             </#list>
         </set>
@@ -82,7 +111,12 @@
         SELECT <include refid="Base_Column_List" />
         FROM ${genTable.tableName} where 1 = 1
         <#list genTableColumns as tableColumns >
-            <if test = "null != ${tableColumns.javaField} and '' != ${tableColumns.javaField}">and ${tableColumns.columnName} = ${r"#{"}${tableColumns.javaField}${r"}"}<#if tableColumns_has_next></#if>${r"</if>"}
+            <#if tableColumns.javaType == "String" >
+                <if test = "null != ${tableColumns.javaField} and '' != ${tableColumns.javaField}">and ${tableColumns.columnName} = ${r"#{"}${tableColumns.javaField}${r"}"}<#if tableColumns_has_next></#if>${r"</if>"}
+            </#if>
+            <#if tableColumns.javaType != "String" >
+                <if test = "null != ${tableColumns.javaField}">and ${tableColumns.columnName} = ${r"#{"}${tableColumns.javaField}${r"}"}<#if tableColumns_has_next></#if>${r"</if>"}
+            </#if>
         </#list>
     </select>
 

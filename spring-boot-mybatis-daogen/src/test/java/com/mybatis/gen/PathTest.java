@@ -1,5 +1,7 @@
 package com.mybatis.gen;
 
+import com.mybatis.gen.domain.GenInfo;
+
 /**
  * 地址测试
  *
@@ -8,6 +10,8 @@ package com.mybatis.gen;
  */
 public class PathTest {
     public static void main(String[] args) {
+        GenInfo genInfo = new GenInfo();
+        System.out.println(PathTest.class.getPackage().getName());
         System.out.println("java版本号：" + System.getProperty("java.version"));
         System.out.println("Java提供商名称：" + System.getProperty("java.vendor"));
         System.out.println("Java提供商主页：" + System.getProperty("java.vendor.url"));

@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <properties>
         <java.version>1.8</java.version>
+        <battcn.swagger.version>2.1.5-RELEASE</battcn.swagger.version>
         <pagehelper.spring.boot.starter.version>1.2.12</pagehelper.spring.boot.starter.version>
     </properties>
 
@@ -29,6 +30,11 @@
     </dependencyManagement>
 
     <dependencies>
+        <dependency>
+            <groupId>com.battcn</groupId>
+            <artifactId>swagger-spring-boot-starter</artifactId>
+            <version>${battcn.swagger.version}</version>
+        </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

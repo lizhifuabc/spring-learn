@@ -1,13 +1,13 @@
-package com.mybatis.gen.service.impl;
+package ${genInfo.serviceImplPackage};
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.Map;
 import java.util.List;
-import com.mybatis.gen.domain.${genTable.className};
-import com.mybatis.gen.service.${genTable.className}Service;
-import com.mybatis.gen.mapper.${genTable.className}Mapper;
+import ${genInfo.domainPackage}.${genTable.className};
+import ${genInfo.servicePackage}.${genTable.className}Service;
+import ${genInfo.mapperPackage}.${genTable.className}Mapper;
 
 /**
 * ${genTable.tableComment}
@@ -27,7 +27,7 @@ public class ${genTable.className}ServiceImpl implements ${genTable.className}Se
 	* @date ${.now?string('yyyy/MM/dd')}
 	**/
 	@Override
-	public ${genTable.className} insert(${genTable.className} ${genTable.className?uncap_first}){
+	public int insert(${genTable.className} ${genTable.className?uncap_first}){
 		return ${genTable.className?uncap_first}Mapper.insert(${genTable.className?uncap_first});
 	}
 
@@ -84,5 +84,15 @@ public class ${genTable.className}ServiceImpl implements ${genTable.className}Se
 	}
 		</#if>
 	</#list>
-
+	<#list genTableUniques as tableColumns >
+	/**
+	* 根据唯一约束[${tableColumns.constraintName}]查询
+	* @author ${genTable.author}
+	* @date ${.now?string('yyyy/MM/dd')}
+	**/
+	@Override
+	public ${genTable.className} selectBy${tableColumns.constraintName?cap_first}(${genTable.className} ${genTable.className?uncap_first}) {
+		return ${genTable.className?uncap_first}Mapper.selectBy${tableColumns.constraintName?cap_first}(${genTable.className?uncap_first});
+	}
+	</#list>
 }

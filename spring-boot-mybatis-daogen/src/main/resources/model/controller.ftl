@@ -1,4 +1,4 @@
-package com.mybatis.gen.controller;
+package ${genInfo.controllerPackage};
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,16 +13,23 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 
-import com.mybatis.gen.service.${genTable.className}Service;
-import com.mybatis.gen.domain.${genTable.className};
-import com.mybatis.gen.base.BaseController;
-import com.mybatis.gen.base.R;
+import ${genInfo.servicePackage}.${genTable.className}Service;
+import ${genInfo.domainPackage}.${genTable.className};
+import ${genInfo.basePackage}.base.BaseController;
+import ${genInfo.basePackage}.base.R;
+
+<#if genInfo.swagger>
+    import io.swagger.annotations.*;
+</#if>
 
 /**
 * ${genTable.tableComment}
 * @author ${genTable.author}
 * @date ${.now?string('yyyy-MM-dd')}
 */
+<#if genInfo.swagger>
+@Api(tags = "${genTable.tableComment}")
+</#if>
 @RestController
 @RequestMapping(value = "/${genTable.className?uncap_first}")
 @Slf4j
@@ -36,6 +43,9 @@ public class ${genTable.className}Controller extends BaseController{
     * @author ${genTable.author}
     * @date ${.now?string('yyyy/MM/dd')}
     **/
+    <#if genInfo.swagger>
+    @ApiOperation(value = "新增",httpMethod ="POST")
+    </#if>
     @RequestMapping("/insert")
     public R insert(${genTable.className} ${genTable.className?uncap_first}){
         return new R().success(${genTable.className?uncap_first}Service.insert(${genTable.className?uncap_first}));
@@ -46,6 +56,9 @@ public class ${genTable.className}Controller extends BaseController{
     * @author ${genTable.author}
     * @date ${.now?string('yyyy/MM/dd')}
     **/
+    <#if genInfo.swagger>
+    @ApiOperation(value = "根据主键刪除",httpMethod ="GET")
+    </#if>
     @RequestMapping("/deleteByPrimaryKey")
     public R deleteByPrimaryKey(Long primaryKey){
         return new R().success(${genTable.className?uncap_first}Service.deleteByPrimaryKey(primaryKey));
@@ -56,6 +69,9 @@ public class ${genTable.className}Controller extends BaseController{
     * @author ${genTable.author}
     * @date ${.now?string('yyyy/MM/dd')}
     **/
+    <#if genInfo.swagger>
+    @ApiOperation(value = "根据主键更新",httpMethod ="POST")
+    </#if>
     @RequestMapping("/updateByPrimaryKey")
     public R updateByPrimaryKey(${genTable.className} ${genTable.className?uncap_first}){
         return new R().success(${genTable.className?uncap_first}Service.updateByPrimaryKey(${genTable.className?uncap_first}));
@@ -66,8 +82,11 @@ public class ${genTable.className}Controller extends BaseController{
     * @author ${genTable.author}
     * @date ${.now?string('yyyy/MM/dd')}
     **/
+    <#if genInfo.swagger>
+    @ApiOperation(value = "根据主键查询",httpMethod ="GET")
+    </#if>
     @RequestMapping("/selectByPrimaryKey")
-    public R selectByPrimaryKey(Long primaryKey){
+    public R<${genTable.className}> selectByPrimaryKey(Long primaryKey){
         return new R().success(${genTable.className?uncap_first}Service.selectByPrimaryKey(primaryKey));
     }
 
@@ -76,8 +95,11 @@ public class ${genTable.className}Controller extends BaseController{
     * @author ${genTable.author}
     * @date ${.now?string('yyyy/MM/dd')}
     **/
+    <#if genInfo.swagger>
+    @ApiOperation(value = "通用查询",httpMethod ="POST")
+    </#if>
     @RequestMapping("/selectList")
-    public R selectList(@RequestParam(required = false, defaultValue = "1") int pageNum,
+    public R<${genTable.className}> selectList(@RequestParam(required = false, defaultValue = "1") int pageNum,
                         @RequestParam(required = false, defaultValue = "10") int pageSize,
                         ${genTable.className} ${genTable.className?uncap_first}) {
         PageHelper.startPage(pageNum, pageSize, false);
@@ -90,8 +112,11 @@ public class ${genTable.className}Controller extends BaseController{
     * @author ${genTable.author}
     * @date ${.now?string('yyyy/MM/dd')}
     **/
+    <#if genInfo.swagger>
+    @ApiOperation(value = "根据唯一建[${tableColumns.javaField?uncap_first}]查询",httpMethod ="GET")
+    </#if>
     @RequestMapping("/selectBy${tableColumns.javaField?cap_first}")
-    public R selectBy${tableColumns.javaField?cap_first}(${tableColumns.javaType} ${tableColumns.javaField?uncap_first}){
+    public R<${genTable.className}> selectBy${tableColumns.javaField?cap_first}(${tableColumns.javaType} ${tableColumns.javaField?uncap_first}){
         return new R().success(${genTable.className?uncap_first}Service.selectBy${tableColumns.javaField?cap_first}(${tableColumns.javaField?uncap_first}));
     }
     </#if>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.gen.mapper.TableTestMapper">
+
+    <resultMap id="BaseResultMap" type="com.mybatis.gen.domain.TableTest" >
+                <result column="id" property="id" />
+                <result column="info1" property="info1" />
+                <result column="info2" property="info2" />
+                <result column="info3" property="info3" />
+                <result column="info4" property="info4" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+                id,
+                info1,
+                info2,
+                info3,
+                info4
+    </sql>
+
+    <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.mybatis.gen.domain.TableTest">
+        INSERT INTO t_table_test
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                            <if test= "null != info1 and '' != info1">
+                            info1,
+                            </if>
+                            <if test= "null != info2 and '' != info2">
+                            info2,
+                            </if>
+                            <if test= "null != info3 and '' != info3">
+                            info3,
+                            </if>
+                            <if test= "null != info4 and '' != info4">
+                            info4
+                            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                            <if test= "null != info1 and '' != info1">
+                            #{info1},
+                            </if>
+                            <if test= "null != info2 and '' != info2">
+                            #{info2},
+                            </if>
+                            <if test= "null != info3 and '' != info3">
+                            #{info3},
+                            </if>
+                            <if test= "null != info4 and '' != info4">
+                            #{info4}
+                            </if>
+        </trim>
+    </insert>
+
+    <delete id="deleteByPrimaryKey" >
+        DELETE FROM t_table_test
+        WHERE id = #{id}
+    </delete>
+
+    <select id="selectByInfo3" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM t_table_test
+        WHERE info3 = #{info3}
+    </select>
+    <select id="selectByInfo4" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM t_table_test
+        WHERE info4 = #{info4}
+    </select>
+
+        <select id="selectByInfo1" resultMap="BaseResultMap">
+            SELECT <include refid="Base_Column_List" />
+            FROM t_table_test WHERE 1 = 1
+                and info1 = #{info1}
+                and info2 = #{info2}
+        </select>
+
+    <update id="updateByPrimaryKey" parameterType="com.mybatis.gen.domain.TableTest">
+        UPDATE t_table_test
+        <set>
+                        <if test = "null != info1 and '' != info1">info1 = #{info1},</if>
+                        <if test = "null != info2 and '' != info2">info2 = #{info2},</if>
+                        <if test = "null != info3 and '' != info3">info3 = #{info3},</if>
+                        <if test = "null != info4 and '' != info4">info4 = #{info4}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM t_table_test
+        WHERE id = #{id}
+    </select>
+
+    <select id="selectList" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM t_table_test where 1 = 1
+                <if test = "null != id">and id = #{id}</if>
+                <if test = "null != info1 and '' != info1">and info1 = #{info1}</if>
+                <if test = "null != info2 and '' != info2">and info2 = #{info2}</if>
+                <if test = "null != info3 and '' != info3">and info3 = #{info3}</if>
+                <if test = "null != info4 and '' != info4">and info4 = #{info4}</if>
+    </select>
+
+</mapper>

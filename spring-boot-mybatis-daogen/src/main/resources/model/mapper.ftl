@@ -1,8 +1,8 @@
-package com.mybatis.gen.mapper;
+package ${genInfo.mapperPackage};
 
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
-import com.mybatis.gen.domain.${genTable.className};
+import ${genInfo.domainPackage}.${genTable.className};
 
 /**
  * ${genTable.tableComment}
@@ -16,14 +16,14 @@ public interface ${genTable.className}Mapper {
     * @author ${genTable.author}
     * @date ${.now?string('yyyy/MM/dd')}
     **/
-    ${genTable.className} insert(${genTable.className} ${genTable.className?uncap_first});
+    int insert(${genTable.className} ${genTable.className?uncap_first});
 
     /**
     * 根据主键刪除
     * @author ${genTable.author}
     * @date ${.now?string('yyyy/MM/dd')}
     **/
-    int deleteByPrimaryKey(Long primaryKey);
+    int deleteByPrimaryKey(Long ${genTable.pkColumn.javaField});
 
     /**
     * 根据主键更新
@@ -37,7 +37,7 @@ public interface ${genTable.className}Mapper {
     * @author ${genTable.author}
     * @date ${.now?string('yyyy/MM/dd')}
     **/
-    ${genTable.className} selectByPrimaryKey(Long primaryKey);
+    ${genTable.className} selectByPrimaryKey(Long ${genTable.pkColumn.javaField});
 
     /**
     * 通用查询
@@ -55,5 +55,14 @@ public interface ${genTable.className}Mapper {
     **/
     ${genTable.className} selectBy${tableColumns.javaField?cap_first}(${tableColumns.javaType} ${tableColumns.javaField?uncap_first});
         </#if>
+    </#list>
+
+    <#list genTableUniques as tableColumns >
+    /**
+    * 根据唯一约束[${tableColumns.constraintName}]查询
+    * @author ${genTable.author}
+    * @date ${.now?string('yyyy/MM/dd')}
+    **/
+    ${genTable.className} selectBy${tableColumns.constraintName?cap_first}(${genTable.className} ${genTable.className?uncap_first});
     </#list>
 }

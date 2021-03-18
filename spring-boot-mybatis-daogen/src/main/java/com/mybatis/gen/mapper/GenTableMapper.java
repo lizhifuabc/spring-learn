@@ -2,6 +2,7 @@ package com.mybatis.gen.mapper;
 
 import com.mybatis.gen.domain.GenTable;
 import com.mybatis.gen.domain.GenTableColumn;
+import com.mybatis.gen.domain.GenTableUnique;
 
 import java.util.List;
 
@@ -26,4 +27,10 @@ public interface GenTableMapper {
      * @return 表信息
      */
     public GenTable selectDbTableByName(String tableName);
+    /**
+     * 查询约束
+     * @param tableName
+     * @return
+     */
+    public List<GenTableUnique> selectUniqueTableByName(String tableName);
 }
