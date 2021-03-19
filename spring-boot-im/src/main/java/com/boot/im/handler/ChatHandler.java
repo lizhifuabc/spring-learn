@@ -35,10 +35,10 @@ public class ChatHandler extends SimpleChannelInboundHandler<TextWebSocketFrame>
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg) {
         String content = msg.text();
-        log.info("接收到的消息为{}",content);
         ChatHandler.ctx = ctx;
         // 获取客户端发来的消息
         MsgData dataContent = JSONObject.parseObject(content,MsgData.class);
+        log.info("接收到的消息为{}",dataContent.toString());
         // 业务操作
         MsgActionEnum msgActionEnum = MsgActionEnum.getEnum(dataContent.getAction());
         msgActionFactory.getMsgStrategy(msgActionEnum).action(dataContent);

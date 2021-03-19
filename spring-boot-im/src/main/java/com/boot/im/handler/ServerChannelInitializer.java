@@ -11,13 +11,25 @@ import io.netty.handler.stream.ChunkedWriteHandler;
 import io.netty.handler.timeout.IdleStateHandler;
 
 import javax.annotation.Resource;
+import java.util.concurrent.TimeUnit;
 
 /**
- * 通道
+ * netty服务初始化器
  * @author lizhifu
  */
-public class WSServerInitialzer extends ChannelInitializer<SocketChannel> {
-
+public class ServerChannelInitializer extends ChannelInitializer<SocketChannel> {
+    /**
+     * 服务器读操作空闲(秒)
+     */
+    private final static int readerIdleTime = 0;
+    /**
+     * 服务器写操作空闲(秒)
+     */
+    private final static int writerIdleTime = 0;
+    /**
+     * 服务器全部操作空闲(秒)
+     */
+    private final static int allIdleTime = 30;
     @Resource
     private ChatHandler chatHandler;
 
@@ -41,13 +53,14 @@ public class WSServerInitialzer extends ChannelInitializer<SocketChannel> {
         //===========================增加心跳支持==============================
 
         /**
+         * 心跳检测
          * 针对客户端，如果在1分钟时间内没有向服务端发送读写心跳（ALL），则主动断开连接
          * 如果有读空闲和写空闲，则不做任何处理
+         * 如果在N分钟时没有向服务端发送读写心跳(ALL)，则主动断开 0代表不处理
          */
-        pipeline.addLast(new IdleStateHandler(8,10,12));
-        //自定义的空闲状态检测的handler
+        pipeline.addLast(new IdleStateHandler(readerIdleTime, writerIdleTime, allIdleTime, TimeUnit.SECONDS));
+        // 心跳处理器
         pipeline.addLast(heartBeatHandler);
-
         /**
          * 本handler 会帮你处理一些繁重复杂的事情
          * 会帮你处理握手动作：handshaking（close、ping、pong） ping+pong = 心跳
@@ -56,7 +69,7 @@ public class WSServerInitialzer extends ChannelInitializer<SocketChannel> {
         String path = nettyProperties.getPath();
         pipeline.addLast(new WebSocketServerProtocolHandler(path));
 
-        //自定义的handler
+        //自定义业务处理器
         pipeline.addLast(chatHandler);
     }
 }

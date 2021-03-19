@@ -6,6 +6,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
+import lombok.extern.slf4j.Slf4j;
 
 
 /**
@@ -14,6 +15,7 @@ import io.netty.handler.timeout.IdleStateEvent;
  * @author lizhifu
  */
 @ChannelHandler.Sharable
+@Slf4j
 public class HeartBeatHandler extends ChannelInboundHandlerAdapter {
 
     @Override
@@ -21,6 +23,8 @@ public class HeartBeatHandler extends ChannelInboundHandlerAdapter {
         if(evt instanceof IdleStateEvent){
             IdleStateEvent event = (IdleStateEvent)evt;
             if(event.state()== IdleState.ALL_IDLE){
+                String socketString = ctx.channel().remoteAddress().toString();
+                log.info("Client:{}.ALL_IDLE 超时", socketString);
                 Channel channel = ctx.channel();
                 //资源释放
                 channel.close();

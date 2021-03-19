@@ -2,7 +2,7 @@ package com.boot.im.config;
 
 import com.boot.im.handler.ChatHandler;
 import com.boot.im.handler.HeartBeatHandler;
-import com.boot.im.handler.WSServerInitialzer;
+import com.boot.im.handler.ServerChannelInitializer;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -23,7 +23,7 @@ import javax.annotation.PreDestroy;
 @Configuration
 @Slf4j
 @ConditionalOnClass({ServerBootstrap.class,
-        WSServerInitialzer.class})
+        ServerChannelInitializer.class})
 public class NettyConfig {
     /**
      * 一个主线程组
@@ -38,8 +38,8 @@ public class NettyConfig {
 
     @Bean("chanelInit")
     @ConditionalOnMissingBean
-    public WSServerInitialzer wsServerInitialzer() {
-        return new WSServerInitialzer();
+    public ServerChannelInitializer wsServerInitialzer() {
+        return new ServerChannelInitializer();
     }
     @Bean("HeartBeatHandler")
     public HeartBeatHandler HeartBeatHandler() {
@@ -52,7 +52,7 @@ public class NettyConfig {
 
     @Bean("server")
     @ConditionalOnMissingBean
-    public ServerBootstrap server(WSServerInitialzer chanelInit) {
+    public ServerBootstrap server(ServerChannelInitializer chanelInit) {
         return new ServerBootstrap()
                 //设置主从线程组
                 .group(bossGroup, workGroup)
