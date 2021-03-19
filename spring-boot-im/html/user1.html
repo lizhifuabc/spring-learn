@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<form action="" onsubmit="return false">
+			<table>      
+					<tr>
+					   <td>发送内容：</td>
+					   <td>
+							<input type="text" name="message" id="message"/> 
+					   </td>
+					</tr>
+					<tr>
+					   <td>接收内容：</td>
+					   <td>
+							<textarea rows="30" cols="16" id="content">
+								
+							</textarea>
+					   </td>
+					</tr>
+					<tr>
+						<td>
+							<input type="submit" onclick="send()" value="提交" /> 
+						</td>
+					</tr>
+			</table>
+		</form>
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="js/websocket.js"></script>
+		<script>
+			var fromUserId = 1;
+			var toUserId = 2;
+			var action = {
+				// 第一次(或重连)初始化连接
+				connect: 0,
+				// 聊天消息
+				chat: 1,
+				// 消息签收
+				receive: 2,
+				// 客户端保持心跳
+				keep: 3
+			}
+			$(function() {
+				var webs = _websocket.init("ws://localhost:8888/im/ws",function() {
+					if(webs.readyState == 0) {
+						 console.log('已断开链接');
+						 webs = _websocket.Reconnect();
+					 }
+				 },function(e){
+					 var data = JSON.parse(e.data);
+					 console.log('data'+data)
+					 $("#content").append(data.msg.msg).append(";");
+					 // 收到消息 
+					_websocket.doSend({
+						action: action.receive,
+						msg: {
+							fromUserId: fromUserId,
+							toUserId: toUserId
+						}
+					});
+				 });
+				 // 初始化连接
+				 setTimeout(function(){
+				 	_websocket.doSend({
+				 		action: action.connect,
+				 		msg: {
+				 			fromUserId: fromUserId// 发送人默认是用户id为1
+				 		}
+				 	});
+				 }, 3000);
+				 // 发送心跳
+				 setInterval(function() {
+				 	_websocket.doSend({
+				 		action: action.keep
+				 	});
+				 },3000);
+			});
+			/**
+			  * 发送消息
+			  */
+			function send() {
+				var message = $("#message").val();
+				_websocket.doSend({
+					action: action.chat,
+					msg: {
+						fromUserId: fromUserId,
+						toUserId: toUserId,
+						msg: message
+					}	
+				});
+			}
+		</script>
+	</body>
+</html>
