@@ -55,6 +55,7 @@
 		<module>spring-boot-wxmp</module>
         <module>spring-boot-mybatis-gen</module>
         <module>spring-boot-mybatis-daogen</module>
+        <module>spring-boot-im</module>
     </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
