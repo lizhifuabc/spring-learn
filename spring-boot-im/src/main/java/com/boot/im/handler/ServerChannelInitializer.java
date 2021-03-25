@@ -46,8 +46,11 @@ public class ServerChannelInitializer extends ChannelInitializer<SocketChannel> 
         // websocket 基于http协议，所以要有http编解码器
         pipeline.addLast(new HttpServerCodec());
         //在http上有一些数据流产生，有大有小，我们对其进行处理，既然如此，我们需要使用netty 对下数据流写 提供支持，这个类叫：ChunkedWriteHandler
+        //比如一个1G大小的文件如果你直接传输肯定会撑暴jvm内存的; 增加之后就不用考虑这个问题了
         pipeline.addLast(new ChunkedWriteHandler());
         //对httpMessage 进行聚合处理，聚合成request或 response
+        // 把多个消息转换为一个单一的FullHttpRequest或是FullHttpResponse，
+        // 原因是HTTP解码器会在每个HTTP消息中生成多个消息对象HttpRequest/HttpResponse,HttpContent,LastHttpContent
         pipeline.addLast(new HttpObjectAggregator(1024 * 64));
 
         //===========================增加心跳支持==============================
