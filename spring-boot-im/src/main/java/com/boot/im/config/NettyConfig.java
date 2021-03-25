@@ -53,14 +53,18 @@ public class NettyConfig {
     @Bean("server")
     @ConditionalOnMissingBean
     public ServerBootstrap server(ServerChannelInitializer chanelInit) {
-        return new ServerBootstrap()
-                //设置主从线程组
-                .group(bossGroup, workGroup)
+        log.info("start  socket server");
+        // Server 服务启动
+        ServerBootstrap bootstrap = new ServerBootstrap();
+        //设置主从线程组
+        bootstrap.group(bossGroup, workGroup)
                 // 设置nio的双向通道
                 .channel(NioServerSocketChannel.class)
                 //设置chanel初始化器
                 //每一个chanel由多个handler共同组成管道(pipeline)
                 .childHandler(chanelInit);
+        return bootstrap;
+
     }
     /**
      * 关闭netty服务
