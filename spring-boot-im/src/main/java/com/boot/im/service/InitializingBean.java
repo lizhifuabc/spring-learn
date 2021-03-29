@@ -23,10 +23,13 @@ public class InitializingBean implements org.springframework.beans.factory.Initi
     private NettyProperties properties;
     @Override
     public void afterPropertiesSet() throws Exception {
+        log.info("start  server at port[" + properties.getPort() + "]");
         //启动服务端，绑定端口，设置启动的方式为同步的，Netty会一直等待，直到该端口启动完毕。
         ChannelFuture future = server.bind(properties.getPort()).sync();
         if (future.isSuccess()) {
             log.info("启动 Netty 成功");
+        }else {
+            log.info("启动 Netty 失败");
         }
     }
 }
