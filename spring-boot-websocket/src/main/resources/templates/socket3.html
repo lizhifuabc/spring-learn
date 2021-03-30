@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>3</title>
+</head>
+<body>
+hello world!
+<textarea id="content" ows="400" cols="100" style="margin: 0px; height: 335px; width: 808px;">
+</textarea>
+<input type="button" value="发送消息" onclick="sendMsg()" />
+</body>
+<script>
+    var lockReconnect = false;//避免重复连接
+    var wsUrl = "ws://localhost:8080/wsHandler/3";		// websocket链接
+    var ws;
+    function createWebSocket(){
+        try {
+            ws = new WebSocket(wsUrl);
+            websocketInit();
+        } catch (e) {
+            console.log('catch');
+            websocketReconnect(wsUrl);
+        }
+    }
+    function websocketInit () {
+        // 建立 web socket 连接成功触发事件
+        ws.onopen = function (evt) {
+            onOpen(evt);
+        };
+        // 断开 web socket 连接成功触发事件
+        ws.onclose = function (evt) {
+            websocketReconnect(wsUrl);
+            onClose(evt);
+        };
+        // 接收服务端数据时触发事件
+        ws.onmessage = function (evt) {
+            onMessage(evt);
+        };
+        // 通信发生错误时触发
+        ws.onerror = function (evt) {
+            websocketReconnect(wsUrl);
+            onError(evt);
+        };
+    };
+    function onOpen(evt) {
+        console.log("建立链接");
+        var sendData = { test: 'test' };        // 正常的请求数据
+        sendData = JSON.stringify(sendData);
+        ws.send(sendData);
+        console.log("心跳检测重置");
+        heartCheck.start();
+    }
+
+    function onClose(evt) {
+        console.log("连接已关闭...");
+    }
+
+    function onMessage(msg) {
+        console.log(msg.data);
+        //发现消息进入
+        //开始处理前端触发逻辑
+        var ele = document.getElementById("content");
+        ele.value = ele.value + '\n' +msg.data;
+        //拿到任何消息都说明当前连接是正常的
+        heartCheck.start();
+    }
+
+    function websocketReconnect(url) {
+        if (lockReconnect) {       // 是否已经执行重连
+            return;
+        };
+        lockReconnect = true;
+        //没连接上会一直重连，设置延迟避免请求过多
+        tt && clearTimeout(tt);
+        var tt = setTimeout(function () {
+            createWebSocket(url);
+            lockReconnect = false;
+        }, 5000);
+    }
+    //心跳检测
+    var heartCheck = {
+        timeout: 30000,
+        timeoutObj: null,
+        serverTimeoutObj: null,
+        start: function () {
+            console.log('start');
+            var self = this;
+            this.timeoutObj && clearTimeout(this.timeoutObj);
+            this.serverTimeoutObj && clearTimeout(this.serverTimeoutObj);
+            this.timeoutObj = setTimeout(function () {
+                //发送测试信息，后端收到后，返回一个消息，
+                ws.send("1");
+                self.serverTimeoutObj = setTimeout(function () {
+                    ws.close();
+                }, self.timeout);
+            }, this.timeout)
+        }
+    }
+    function onError(evt) {
+        console.log('通信错误：' + evt.data);
+    }
+    // 创建websocket
+    createWebSocket();
+    function sendMsg(){
+        index.send("这是来自客户端的消息1" + location.href + new Date());
+        var xmlhttp = new XMLHttpRequest();
+        // get方法带参数是将参数写在url里面传过去给后端
+        xmlhttp.open("GET", "/socket/socket/push/2", true);
+        xmlhttp.send();
+    }
+</script>
+</html>

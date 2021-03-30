@@ -1,5 +1,7 @@
 package com.boot.websocket.controller;
 
+import com.boot.websocket.config.RedisKey;
+import com.boot.websocket.service.SendMessageService;
 import com.boot.websocket.service.WsService;
 import com.boot.websocket.session.WsSessionManager;
 import lombok.extern.slf4j.Slf4j;
@@ -27,6 +29,8 @@ import java.util.Map;
 public class SocketController {
     @Resource
     private WsService wsService;
+    @Resource
+    private SendMessageService sendMessageService;
     @GetMapping("/index/{userId}")
     public ModelAndView socket(@PathVariable String userId) {
         ModelAndView mav = new ModelAndView("/socket"+userId);
@@ -35,12 +39,13 @@ public class SocketController {
 
     /**
      * 推送数据
-     * @param userId
+     * @param toUserId
      * @return
      */
     @ResponseBody
-    @RequestMapping("/socket/push/{userId}")
-    public void push(@PathVariable String userId) throws IOException {
-        wsService.sendMsg(WsSessionManager.get(userId),"来自客户端发送的消息"+userId);
+    @RequestMapping("/socket/push/{toUserId}")
+    public void push(@PathVariable String toUserId) throws IOException {
+//        sendMessageService.sendMessage(RedisKey.REDIS_MQ_CHAT,"来自客户端发送的消息"+userId);
+        wsService.sendMsg(toUserId,"来自客户端发送的消息"+toUserId);
     }
 }
