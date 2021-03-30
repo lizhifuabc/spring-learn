@@ -31,5 +31,10 @@ public class WebSocketConfig implements WebSocketConfigurer {
                 .addInterceptors(handInterceptor)
                 //跨域
                 .setAllowedOrigins("*");
+        // withSockJS() 方法声明我们想要使用 SockJS 功能，如果WebSocket不可用的话，会使用 SockJS；
+        webSocketHandlerRegistry
+                .addHandler(wsHandler, "/sockjs/wsHandler/{userId}")
+                .setAllowedOrigins("*")
+                .addInterceptors(handInterceptor).withSockJS();
     }
 }
