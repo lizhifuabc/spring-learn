@@ -57,7 +57,8 @@
         <module>spring-boot-mybatis-daogen</module>
         <module>spring-boot-im</module>
         <module>spring-boot-websocket</module>
-    </modules>
+		<module>spring-boot-task</module>
+	</modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
