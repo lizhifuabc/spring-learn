@@ -18,6 +18,7 @@
         <module>spring-boot-mq-common</module>
         <module>spring-boot-kafka</module>
         <module>spring-boot-kafka-consume</module>
+        <module>spring-boot-rabbitmq-delay</module>
     </modules>
     <dependencyManagement>
         <dependencies>
