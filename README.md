@@ -142,3 +142,6 @@
 
 [spring-cloud-nacos-discovery](./spring-cloud-nacos-discovery)
 
+# 其他
+感谢[JetBrains](https://jb.gg/OpenSource) 提供的免费license
+![JetBrains](./doc/assets/jetbrains-variant-4.svg)
