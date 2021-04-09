@@ -1,3 +1,6 @@
+# 基础
+[java基础内容](./doc)
+
 # Mybatis
 
 [基于mybatis的Provider机制实现Mybatis通用Mapper](./spring-boot-mybatis-provider)
