@@ -21,27 +21,40 @@ public class DocumentApiTest {
     @Resource
     private ElasticsearchRestTemplate template;
     @Test
-    public void save() {
-        User user = new User(1, "李四", 22, "北京", LocalDateTime.now());
+    void test() {
+        saveOne();
+        getById();
+        deleteById();
+        saveList();
+    }
+
+    void saveOne() {
+        User user = new User(1, "张三", 18, "上海市闵行区", LocalDateTime.now());
         template.save(user);
     }
-    @Test
-    public void get() {
+
+    void getById() {
         User user = template.get("1", User.class);
         System.out.println(user);
     }
-    @Test
-    public void delete() {
+
+    void deleteById() {
         String delete = template.delete("1", User.class);
         System.out.println(delete);
     }
-    @Test
-    public void saveList() {
+
+    void saveList() {
         List<User> userList = new ArrayList<>();
-        userList.add(new User(1, "阿萨德", 16, "北京", LocalDateTime.now()));
-        userList.add(new User(2, "阿斯顿发", 25, "山东", LocalDateTime.now()));
-        userList.add(new User(3, "李四", 25, "北京昌平", LocalDateTime.now()));
-        userList.add(new User(3, "王五", 25, "北朝阳", LocalDateTime.now()));
+        userList.add(new User(1, "Max", 16, "上海市闵行区", LocalDateTime.now()));
+        userList.add(new User(2, "Vicky", 17, "上海市长宁区", LocalDateTime.now()));
+        userList.add(new User(3, "张三", 18, "上海张江", LocalDateTime.now()));
+        userList.add(new User(4, "李四", 19, "江苏省盐城市", LocalDateTime.now()));
+        userList.add(new User(5, "王五", 20, "江苏省苏州斯", LocalDateTime.now()));
+        userList.add(new User(6, "赵六", 21, "江苏省南京市", LocalDateTime.now()));
+        userList.add(new User(7, "孙七", 22, "北京市朝阳区", LocalDateTime.now()));
+        userList.add(new User(8, "周八", 23, "山东济南", LocalDateTime.now()));
+        userList.add(new User(9, "吴九", 24, "河南郑州", LocalDateTime.now()));
+        userList.add(new User(10, "郑十", 25, "四川重庆", LocalDateTime.now()));
         Iterable<User> users = template.save(userList);
         for (User user : users) {
             System.out.println(user);

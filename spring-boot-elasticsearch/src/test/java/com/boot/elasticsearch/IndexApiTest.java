@@ -15,7 +15,7 @@ import javax.annotation.Resource;
  * @date 2021/4/15
  */
 @SpringBootTest
-public class IndexApi {
+public class IndexApiTest {
     @Resource
     private ElasticsearchRestTemplate template;
     /**
