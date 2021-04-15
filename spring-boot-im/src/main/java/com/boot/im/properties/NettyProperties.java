@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @author lizhifu
  * @date 2021/3/19
  */
-@ConfigurationProperties(prefix = "im.netty")
+@ConfigurationProperties(prefix = "netty")
 @Component
 @Data
 public class NettyProperties {

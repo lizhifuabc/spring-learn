@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * 启动
  * 配置文档：https://github.com/redisson/redisson/wiki/2.-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95
+ * starter地址：https://github.com/redisson/redisson/tree/master/redisson-spring-boot-starter
  * @author lizhifu
  * @date 2020/12/9
  */

@@ -1,5 +1,7 @@
-package com.boot.im.handler;
+package com.boot.im.channel;
 
+import com.boot.im.handler.ChatHandler;
+import com.boot.im.handler.HeartBeatHandler;
 import com.boot.im.properties.NettyProperties;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
@@ -9,6 +11,7 @@ import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import io.netty.handler.stream.ChunkedWriteHandler;
 import io.netty.handler.timeout.IdleStateHandler;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
@@ -17,6 +20,7 @@ import java.util.concurrent.TimeUnit;
  * netty服务初始化器
  * @author lizhifu
  */
+@Component
 public class ServerChannelInitializer extends ChannelInitializer<SocketChannel> {
     /**
      * 服务器读操作空闲(秒)

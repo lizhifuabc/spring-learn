@@ -1,4 +1,4 @@
-博客地址：http://www.lizhifuspace.com/
+博客地址：http://lizhifuspace.com/
 # 基础
 [java基础内容](./doc)
 
@@ -58,7 +58,13 @@
 
 [spring-boot-rabbitmq:整合rabbitmq](./spring-boot-mq/spring-boot-rabbitmq)
 
-[spring-boot-upload：springboo文件上传](./spring-boot-upload)
+[spring-boot-upload：springboot文件上传](./spring-boot-upload)
+
+[spring-boot-redis-redisson：springboot使用Redisson](./spring-boot-redis-redisson)
+
+[spring-boot-elasticsearch：springboot使用elasticsearch](./spring-boot-elasticsearch)
+
+[spring-boot-im：Springboot 整合 Netty](./spring-boot-im)
 
 # 业务相关代码
 

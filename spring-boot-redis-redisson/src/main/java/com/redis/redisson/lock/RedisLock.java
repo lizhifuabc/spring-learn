@@ -2,6 +2,7 @@ package com.redis.redisson.lock;
 
 import com.redis.redisson.domain.LockParam;
 import lombok.extern.slf4j.Slf4j;
+import org.redisson.RedissonLock;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.stereotype.Component;
@@ -19,9 +20,8 @@ import javax.annotation.Resource;
 public class RedisLock {
     @Resource
     private RedissonClient redissonClient;
-
     /**
-     * 加锁
+     * 可重入锁
      * @param lockParam
      * @return
      */

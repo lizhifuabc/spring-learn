@@ -1,8 +1,8 @@
 package com.boot.im.config;
 
+import com.boot.im.channel.ServerChannelInitializer;
 import com.boot.im.handler.ChatHandler;
 import com.boot.im.handler.HeartBeatHandler;
-import com.boot.im.handler.ServerChannelInitializer;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PreDestroy;
+import javax.annotation.Resource;
 
 
 /**
@@ -22,8 +23,7 @@ import javax.annotation.PreDestroy;
  */
 @Configuration
 @Slf4j
-@ConditionalOnClass({ServerBootstrap.class,
-        ServerChannelInitializer.class})
+@ConditionalOnClass({ServerBootstrap.class})
 public class NettyConfig {
     /**
      * 一个主线程组
@@ -36,11 +36,9 @@ public class NettyConfig {
      */
     private EventLoopGroup workGroup = new NioEventLoopGroup(512);
 
-    @Bean("chanelInit")
-    @ConditionalOnMissingBean
-    public ServerChannelInitializer wsServerInitialzer() {
-        return new ServerChannelInitializer();
-    }
+    @Resource
+    private ServerChannelInitializer serverChannelInitializer;
+
     @Bean("HeartBeatHandler")
     public HeartBeatHandler HeartBeatHandler() {
         return new HeartBeatHandler();
@@ -52,7 +50,7 @@ public class NettyConfig {
 
     @Bean("server")
     @ConditionalOnMissingBean
-    public ServerBootstrap server(ServerChannelInitializer chanelInit) {
+    public ServerBootstrap server() {
         log.info("start  socket server");
         // Server 服务启动
         ServerBootstrap bootstrap = new ServerBootstrap();
@@ -62,7 +60,7 @@ public class NettyConfig {
                 .channel(NioServerSocketChannel.class)
                 //设置chanel初始化器
                 //每一个chanel由多个handler共同组成管道(pipeline)
-                .childHandler(chanelInit);
+                .childHandler(serverChannelInitializer);
         return bootstrap;
 
     }

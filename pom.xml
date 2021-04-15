@@ -59,6 +59,7 @@
         <module>spring-boot-websocket</module>
 		<module>spring-boot-task</module>
         <module>java-thread</module>
+        <module>spring-boot-elasticsearch</module>
     </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
