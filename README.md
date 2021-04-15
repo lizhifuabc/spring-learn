@@ -66,6 +66,8 @@
 
 [spring-boot-im：Springboot 整合 Netty](./spring-boot-im)
 
+[spring-boot-shutdown：Springboot停机](./spring-boot-shutdown)
+
 # 业务相关代码
 
 [微信公众号对接](./spring-boot-wxmp)
