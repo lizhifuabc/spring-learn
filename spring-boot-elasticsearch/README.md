@@ -66,3 +66,5 @@ lizhifudeMBP:bin lizhifu$ ./elasticsearch
 }
 ```
 
+# 实体映射
+
