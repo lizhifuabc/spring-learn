@@ -52,11 +52,11 @@ public class SearchApiTest {
         for (SearchHit<User> searchHit : searchHits) {
             System.out.println(searchHit);
         }
-        System.out.println("---------------");
+        System.out.println("*************************");
     }
 
     void stringQuery() {
-        QueryStringQueryBuilder queryBuilder = QueryBuilders.queryStringQuery("郑州");
+        QueryStringQueryBuilder queryBuilder = QueryBuilders.queryStringQuery("北京");
         NativeSearchQuery query = new NativeSearchQuery(queryBuilder);
         search(query);
     }
@@ -68,13 +68,13 @@ public class SearchApiTest {
     }
 
     void matchQuery() {
-        MatchQueryBuilder queryBuilder = QueryBuilders.matchQuery("address", "上海市");
+        MatchQueryBuilder queryBuilder = QueryBuilders.matchQuery("address", "北京市");
         NativeSearchQuery query = new NativeSearchQuery(queryBuilder);
         search(query);
     }
 
     void matchPhraseQuery() {
-        MatchPhraseQueryBuilder queryBuilder = QueryBuilders.matchPhraseQuery("address", "上海市");
+        MatchPhraseQueryBuilder queryBuilder = QueryBuilders.matchPhraseQuery("address", "北京市");
         NativeSearchQuery query = new NativeSearchQuery(queryBuilder);
         search(query);
     }
