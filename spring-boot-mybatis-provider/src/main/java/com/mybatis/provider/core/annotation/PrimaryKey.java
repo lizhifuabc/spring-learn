@@ -6,6 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * 指定主键名称
  * @author lizhifu
  */
 @Target(ElementType.FIELD)

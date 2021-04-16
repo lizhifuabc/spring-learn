@@ -20,7 +20,8 @@ import java.util.stream.Stream;
 @Data
 public class TableInfo {
     /**
-     * 主键名
+     * 主键数据返回字段 {@link BaseEntity} keyProperty
+     * 即数据插入时将ID赋值给keyProperty
      */
     public static final String DEFAULT_PRIMARY_KEY = "keyProperty";
     /**
