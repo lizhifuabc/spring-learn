@@ -1,5 +1,6 @@
-package com.mybatis.provider.core;
+package com.mybatis.provider.core.provider;
 
+import com.mybatis.provider.core.TableInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.builder.annotation.ProviderContext;
 import org.apache.ibatis.jdbc.SQL;

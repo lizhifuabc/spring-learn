@@ -1,6 +1,5 @@
 package com.mybatis.provider.core.provider;
 
-import com.mybatis.provider.core.SqlProviderSupport;
 import com.mybatis.provider.core.TableInfo;
 import org.apache.ibatis.builder.annotation.ProviderContext;
 import org.apache.ibatis.jdbc.SQL;

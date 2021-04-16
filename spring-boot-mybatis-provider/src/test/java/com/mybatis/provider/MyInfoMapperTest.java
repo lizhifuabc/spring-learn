@@ -24,21 +24,6 @@ public class MyInfoMapperTest {
         MyInfo myInfo = new MyInfo();
         myInfo.setUserName("小明测试"+random.nextInt());
         System.out.println(myInfoMapper.insert(myInfo));
-        System.out.println(myInfo.toString());
         System.out.println(myInfo.getKeyProperty());
-
-        myInfo.setInfoId(myInfo.getKeyProperty());
-        myInfo.setUserName("汉堡测试"+random.nextInt());
-        myInfoMapper.updateByPrimaryKey(myInfo);
-
-        System.out.println(myInfoMapper.count());
-
-        System.out.println(myInfoMapper.countByEntity(myInfo));
-
-        System.out.println(myInfoMapper.selectByPrimaryKey(124).toString());
-
-        System.out.println(myInfoMapper.selectOneByEntity(myInfo).toString());
-
-        System.out.println("selectByEntity："+myInfoMapper.selectByEntity(myInfo).toString());
     }
 }
