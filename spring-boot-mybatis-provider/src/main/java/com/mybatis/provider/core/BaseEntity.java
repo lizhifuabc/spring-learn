@@ -13,6 +13,7 @@ import lombok.Data;
 public class BaseEntity {
     /**
      * 插入时将主键数据返回给此字段值
+     * 主键不一定是ID，所以将值统一返回给keyProperty
      */
     @NoColumn
     private Integer keyProperty;
