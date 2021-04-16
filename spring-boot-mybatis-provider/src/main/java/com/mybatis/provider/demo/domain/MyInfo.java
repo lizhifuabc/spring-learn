@@ -5,8 +5,6 @@ import com.mybatis.provider.core.annotation.PrimaryKey;
 import com.mybatis.provider.core.annotation.Table;
 import lombok.Data;
 
-import java.io.Serializable;
-
 /**
  * MyInfo实体
  *
@@ -15,7 +13,7 @@ import java.io.Serializable;
  */
 @Table("my_info")
 @Data
-public class MyInfo  extends BaseEntity implements Serializable{
+public class MyInfo extends BaseEntity{
     /**
      * ID
      */
