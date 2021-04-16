@@ -57,6 +57,7 @@ public class TableInfo {
      * @return {@link TableInfo}
      */
     public static TableInfo of(Class<?> mapperType) {
+        // 获取实体类
         Class<?> entityClass = entityType(mapperType);
         // 获取不含有@NoColumn注解的fields
         Field[] fields = excludeNoColumnField(ReflectionUtils.getFields(entityClass, null));
@@ -75,18 +76,21 @@ public class TableInfo {
      * @return clz
      */
     private static Class<?> entityType(Class<?> mapperType) {
+        //获取泛型接口
         return Stream.of(mapperType.getGenericInterfaces())
+                //获取实现的第一个接口类型
                 .filter(ParameterizedType.class::isInstance)
                 .map(ParameterizedType.class::cast)
                 .filter(type -> type.getRawType() == BaseMapper.class)
                 .findFirst()
+                //获取到实际的泛型中参数类型
                 .map(type -> type.getActualTypeArguments()[0])
                 .filter(Class.class::isInstance)
                 .map(Class.class::cast)
                 .orElseThrow(() -> new IllegalStateException("未找到BaseMapper的泛型类 " + mapperType.getName() + "."));
     }
     /**
-     * 获取表名
+     * 获取表名称
      *
      * @param entityType  实体类型
      * @return      表名
