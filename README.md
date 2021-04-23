@@ -68,6 +68,8 @@
 
 [spring-boot-shutdown：Springboot停机](./spring-boot-shutdown)
 
+[spring-boot-api：Springboot通用api接口层模式](./spring-boot-api)
+
 # 业务相关代码
 
 [微信公众号对接](./spring-boot-wxmp)
