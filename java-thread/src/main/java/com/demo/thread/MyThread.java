@@ -16,5 +16,7 @@ public class MyThread extends Thread{
         Thread thread = new MyThread();
         // 启动线程
         thread.start();
+        thread.start();
+        thread.run();
     }
 }
