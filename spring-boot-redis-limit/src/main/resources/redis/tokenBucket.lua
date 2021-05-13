@@ -2,7 +2,6 @@
 local tokens_key = KEYS[1]
 -- 当前规则上次调用时间
 local timestamp_key = KEYS[2]
---redis.log(redis.LOG_WARNING, "tokens_key " .. tokens_key)
 -- 速率
 local rate = tonumber(ARGV[1])
 -- 容量
