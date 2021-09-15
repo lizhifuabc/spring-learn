@@ -2,6 +2,7 @@ package com.boot.api.config;
 
 import com.boot.api.annotation.ApiVersion;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.mvc.condition.RequestCondition;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ import java.util.regex.Pattern;
  * @date 2020/12/24
  */
 @Data
+@Slf4j
 public class ApiVersionCondition implements RequestCondition<ApiVersionCondition> {
     /**
      * 接口路径中的版本号前缀，如: api/v[1-n]/test
@@ -38,6 +40,7 @@ public class ApiVersionCondition implements RequestCondition<ApiVersionCondition
      */
     @Override
     public ApiVersionCondition getMatchingCondition(HttpServletRequest httpServletRequest) {
+        log.info("uri is {}",httpServletRequest.getRequestURI());
         Matcher m = VERSION_PREFIX_PATTERN.matcher(httpServletRequest.getRequestURI());
         if (m.find()) {
             double version = Double.valueOf(m.group(1));
