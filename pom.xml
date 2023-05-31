@@ -63,6 +63,7 @@
         <module>spring-boot-shutdown</module>
         <module>spring-boot-admin</module>
         <module>spring-boot-web</module>
+        <module>spring-boot-actuator</module>
     </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
