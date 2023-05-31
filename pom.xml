@@ -61,6 +61,7 @@
         <module>java-thread</module>
         <module>spring-boot-elasticsearch</module>
         <module>spring-boot-shutdown</module>
+        <module>spring-boot-admin</module>
     </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
