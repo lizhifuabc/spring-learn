@@ -1,4 +1,3 @@
-博客地址：http://lizhifuspace.com/
 # 基础
 [java基础内容](./doc)
 
