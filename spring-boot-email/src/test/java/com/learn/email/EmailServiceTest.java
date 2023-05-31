@@ -3,14 +3,12 @@ package com.learn.email;
 import com.learn.email.domain.EmailDTO;
 import com.learn.email.domain.MimeEmailDTO;
 import com.learn.email.service.EmailService;
+import jakarta.activation.MimetypesFileTypeMap;
+import jakarta.annotation.Resource;
+import jakarta.mail.MessagingException;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.FileSystemResource;
-import org.springframework.util.ResourceUtils;
-
-import javax.activation.MimetypesFileTypeMap;
-import javax.annotation.Resource;
-import javax.mail.MessagingException;
 import java.io.File;
 import java.io.FileNotFoundException;
 

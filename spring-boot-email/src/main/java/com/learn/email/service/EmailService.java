@@ -2,8 +2,8 @@ package com.learn.email.service;
 
 import com.learn.email.domain.EmailDTO;
 import com.learn.email.domain.MimeEmailDTO;
+import jakarta.mail.MessagingException;
 
-import javax.mail.MessagingException;
 
 /**
  * EmailService

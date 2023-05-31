@@ -3,6 +3,9 @@ package com.learn.email.service.impl;
 import com.learn.email.domain.EmailDTO;
 import com.learn.email.domain.MimeEmailDTO;
 import com.learn.email.service.EmailService;
+import jakarta.annotation.Resource;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.InputStreamSource;
 import org.springframework.mail.SimpleMailMessage;
@@ -10,9 +13,6 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
 
 /**
  * EmailServiceImpl
