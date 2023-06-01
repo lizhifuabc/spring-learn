@@ -1,4 +1,4 @@
-create schema my_db;
+create schema if not exists my_db;
 drop table if exists my_db.my_info;
 create table my_db.my_info (
     info_id        bigint(20)     not null auto_increment   comment 'ID',

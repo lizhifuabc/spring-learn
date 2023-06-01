@@ -2,10 +2,10 @@ package com.boot.mybatis;
 
 import com.boot.mybatis.domain.MyInfo;
 import com.boot.mybatis.mapper.MyInfoMapper;
+import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.annotation.Resource;
 import java.util.Random;
 
 /**
