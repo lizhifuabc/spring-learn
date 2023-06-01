@@ -10,14 +10,20 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-boot-druid</artifactId>
-
+    <properties>
+        <!--	指定jdk版本	-->
+        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
     <dependencyManagement>
         <dependencies>
             <!--  设置springboot版本依赖 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-parent</artifactId>
-                <version>2.4.0</version>
+                <version>3.1.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -33,17 +39,17 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
-            <version>1.2.5</version>
+            <version>1.2.18</version>
         </dependency>
         <!-- sprin boot jdbc -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
-        <!-- Mysql驱动包 -->
+        <!-- mysql 驱动 -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
         </dependency>
     </dependencies>
 </project>

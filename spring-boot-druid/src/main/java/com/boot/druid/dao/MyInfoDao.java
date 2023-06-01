@@ -1,9 +1,9 @@
 package com.boot.druid.dao;
 
+import jakarta.annotation.Resource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 
 /**
  * MyInfoDao
@@ -14,8 +14,11 @@ import javax.annotation.Resource;
 @Service
 public class MyInfoDao {
     @Resource
-    private JdbcTemplate jdbcTemplate;
+    private JdbcTemplate oneJdbcTemplate;
+    @Resource
+    private JdbcTemplate twoJdbcTemplate;
     public void select(){
-        jdbcTemplate.execute("INSERT INTO my_db.my_info (user_name) VALUES ('我的财务室');");
+        twoJdbcTemplate.execute("INSERT INTO my_info (user_name) VALUES ('我的财务室');");
+        oneJdbcTemplate.execute("INSERT INTO my_info (user_name) VALUES ('我的财务室');");
     }
 }
