@@ -4,7 +4,7 @@ import com.learn.redis.service.RedisService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * IndexController

@@ -1,5 +1,9 @@
 # Redis过期提醒
 
+1. Redis 配置
+2. Redis 分布式锁：基于自定义LUA脚本实现
+3. Redis 分布式锁：基于 spring-integration-redis 实现
+
 redis.conf：
 
 ```javascript
