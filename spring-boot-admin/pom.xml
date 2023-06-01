@@ -17,6 +17,8 @@
         <module>spring-boot-admin-server</module>
     </modules>
     <properties>
+        <!--	指定jdk版本	-->
+        <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
