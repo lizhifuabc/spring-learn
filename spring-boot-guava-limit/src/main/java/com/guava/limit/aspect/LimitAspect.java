@@ -28,6 +28,9 @@ import java.util.concurrent.TimeUnit;
 @Component
 @Slf4j
 public class LimitAspect {
+    /**
+     * 限流器
+     */
     private static final ConcurrentMap<String, RateLimiter> RATE_LIMITER_MAP = new ConcurrentHashMap<>();
     /**
      * 切面
