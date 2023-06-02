@@ -12,7 +12,7 @@
 | [spring-boot-elasticsearch](./spring-boot-elasticsearch) | elasticsearch |
 | [spring-boot-lombok](./spring-boot-lombok) | Spring Boot lombok，lombok使用实例 |
 | [spring-boot-event](./spring-boot-event) | 1. google eventbus 事件总线<br/>2. spring application event 事件 |
-|  |  |
+| [spring-boot-properties](./spring-boot-properties) | 配置文件相关 |
 |  |  |
 |  |  |
 
