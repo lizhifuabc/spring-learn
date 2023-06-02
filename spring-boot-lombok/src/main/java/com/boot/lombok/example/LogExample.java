@@ -11,15 +11,7 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2020/12/29
  */
 @Log
-public class LogExample {
-
 @Slf4j
-public class LogExampleOther {
-
-}
-
 @CommonsLog(topic="CounterLog")
-private class LogExampleCategory {
-
-}
+public class LogExample {
 }

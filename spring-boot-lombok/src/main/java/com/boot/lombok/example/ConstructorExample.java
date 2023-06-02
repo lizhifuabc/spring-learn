@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
  * @author lizhifu
  * @date 2020/12/29
  */
-@NoArgsConstructor
+@NoArgsConstructor(force = true)
 @RequiredArgsConstructor(staticName = "of")
 @AllArgsConstructor
 public class ConstructorExample {
