@@ -3,7 +3,7 @@
 | 项目            | 介绍 |
 | --------------- | ---- |
 | [spring-boot-web](./spring-boot-web) | Spring Boot Web 基础 Spring Boot test 自定义配置文件 多配置文件加载 actuator |
-|                 |      |
+| [spring-boot-jpa](./spring-boot-jpa) | Spring Boot Jpa 框架基础 |
 |                 |      |
 
 
