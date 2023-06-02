@@ -7,3 +7,10 @@ server:
 logging:
   # 应用程序终止时释放日志资源
   register-shutdown-hook: true
+spring:
+  output:
+    ansi:
+      # 控制台彩色输出
+      enabled: always
+  application:
+    name: spring-boot-log
