@@ -6,7 +6,7 @@
 | [spring-boot-jpa](./spring-boot-jpa) | Spring Boot Jpa 框架基础 |
 | [spring-boot-email](./spring-boot-email) | 1. 复杂邮件类型<br/>2. 发送文本邮件 |
 | [spring-boot-log](./spring-boot-log) | 1. 日志打印<br/>2. 自定义操作日志记录注解，日志切面配置<br/>3. 基于 controller package 的日志记录<br/>4. 定义logback-spring.xml配置文件 |
-|  |  |
+| [spring-boot-mybatis](./spring-boot-mybatis) | mybatis |
 |  |  |
 |  |  |
 |  |  |

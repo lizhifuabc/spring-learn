@@ -11,19 +11,6 @@
 
     <artifactId>spring-boot-wxmp</artifactId>
 
-    <dependencyManagement>
-        <dependencies>
-            <!--  设置springboot版本依赖 -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-parent</artifactId>
-                <version>2.4.2</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
         <!--  springboot web 依赖      -->
         <dependency>
