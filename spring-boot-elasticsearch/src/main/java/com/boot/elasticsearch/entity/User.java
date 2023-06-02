@@ -35,7 +35,7 @@ import java.time.LocalDateTime;
  * @author lizhifu
  * @date 2021/4/15
  */
-@Document(indexName = "user", shards = 3, replicas = 0)
+@Document(indexName = "user")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -48,7 +48,7 @@ public class User {
     private Integer age;
     @Field(type = FieldType.Text, analyzer = "ik_max_word")
     private String address;
-    @Field(type = FieldType.Date, format = DateFormat.custom, pattern = "uuuu-MM-dd'T'HH:mm:ss.SSSX")
+    @Field(type = FieldType.Date, format = DateFormat.date_optional_time)
     private LocalDateTime createTime;
     public User(Integer id) {
         this.id = id;

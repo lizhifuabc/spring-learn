@@ -9,7 +9,7 @@
 | [spring-boot-mybatis](./spring-boot-mybatis) | mybatis |
 | [spring-boot-init](./spring-boot-init) | 启动加载<br/>1. CommandLineRunner（注解的执行优先级是按value值从小到大顺序）<br/>2. InitializingBean<br/>3. @PostConstruct |
 | [spring-boot-async](./spring-boot-async) | spring boot 异步任务 |
-|  |  |
+| [spring-boot-elasticsearch](./spring-boot-elasticsearch) | elasticsearch |
 |  |  |
 
 
