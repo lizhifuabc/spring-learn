@@ -70,7 +70,8 @@
         <module>spring-boot-web</module>
         <module>spring-boot-actuator</module>
         <module>spring-boot-mapstruct</module>
-    </modules>
+		<module>spring-boot-graalvm</module>
+	</modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
