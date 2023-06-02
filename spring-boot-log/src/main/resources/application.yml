@@ -4,3 +4,6 @@ server:
   # 访问路径
   servlet:
     context-path: /learn
+logging:
+  # 应用程序终止时释放日志资源
+  register-shutdown-hook: true

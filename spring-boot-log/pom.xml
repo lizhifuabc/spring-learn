@@ -10,13 +10,20 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-boot-log</artifactId>
+    <properties>
+        <!--	指定jdk版本	-->
+        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
     <dependencyManagement>
         <dependencies>
             <!--  设置springboot版本依赖 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-parent</artifactId>
-                <version>2.4.0</version>
+                <version>3.1.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -36,8 +43,6 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
-            <version>1.18.2</version>
         </dependency>
         <!-- 解析 UserAgent 信息 -->
         <dependency>
@@ -48,8 +53,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>22.0</version>
-            <scope>compile</scope>
+            <version>32.0.0-jre</version>
         </dependency>
     </dependencies>
 

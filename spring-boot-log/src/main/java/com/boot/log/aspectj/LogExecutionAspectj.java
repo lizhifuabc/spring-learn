@@ -5,6 +5,7 @@ import com.boot.log.util.ArrayUtil;
 import com.boot.log.util.IpUtils;
 import com.google.common.collect.Maps;
 import eu.bitwalker.useragentutils.UserAgent;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
@@ -16,13 +17,12 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Objects;
 
 /**
- * 基于注解的日志拦截器，注解可以自定义很多内容，例如模块、描述等等内容
+ * 基于 controller package 的日志记录，例如模块、描述等等内容
  * <li>@Around:
  * <p>既可以在目标方法之前织入增强动作，也可以在执行目标方法之后织入增强动作；</p>
  * <p>可以改变执行目标方法的参数值，也可以改变执行目标方法之后的返回值； 当需要改变目标方法的返回值时，只能使用Around方法；</p>
@@ -39,7 +39,7 @@ public class LogExecutionAspectj {
     /**
      * 配置切入点
      */
-    @Pointcut("execution(public * com.part.log.controller.*Controller.*(..))")
+    @Pointcut("execution(public * com.boot.log.controller.*Controller.*(..))")
     public void logPointCut()
     {
     }

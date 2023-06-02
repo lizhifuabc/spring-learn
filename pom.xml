@@ -71,10 +71,4 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-boot-learn</name>
 	<description>spring-boot-learn</description>
-
-	<properties>
-		<!--	指定jdk版本	-->
-		<java.version>1.8</java.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
 </project>
