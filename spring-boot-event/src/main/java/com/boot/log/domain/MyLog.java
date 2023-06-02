@@ -1,4 +1,4 @@
-package com.boot.log.log.domain;
+package com.boot.log.domain;
 
 import lombok.Data;
 

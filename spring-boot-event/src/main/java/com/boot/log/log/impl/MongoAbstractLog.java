@@ -1,6 +1,7 @@
-package com.boot.log.log;
+package com.boot.log.log.impl;
 
-import com.boot.log.log.domain.MyLog;
+import com.boot.log.domain.MyLog;
+import com.boot.log.log.AbstractLog;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -10,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2020/12/29
  */
 @Slf4j
-public class MongoAbstractLog extends AbstractLog{
+public class MongoAbstractLog extends AbstractLog {
     @Override
     public void saveLog(MyLog myLog) {
         log.info("MongoAbstractLog mongo保存日志 {}",myLog.toString());

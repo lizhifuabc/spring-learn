@@ -42,7 +42,7 @@
 		<module>spring-boot-caffeine</module>
         <module>spring-boot-design</module>
 		<module>spring-boot-lombok</module>
-		<module>spring-boot-log-custom</module>
+		<module>spring-boot-event</module>
 		<module>spring-boot-sharding</module>
 		<module>spring-boot-cors</module>
 		<module>spring-boot-mybatis-sharding</module>

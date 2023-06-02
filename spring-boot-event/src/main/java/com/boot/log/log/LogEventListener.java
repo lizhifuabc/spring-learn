@@ -1,12 +1,13 @@
 package com.boot.log.log;
 
-import com.boot.log.log.domain.MyLog;
+import com.boot.log.domain.MyLog;
+import com.boot.log.log.impl.DataSourceAbstractLog;
 import com.google.common.eventbus.Subscribe;
+import jakarta.annotation.Resource;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 
 /**
  * 日志监听

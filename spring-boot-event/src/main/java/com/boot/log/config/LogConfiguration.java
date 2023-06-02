@@ -1,7 +1,7 @@
 package com.boot.log.config;
 
 import com.boot.log.log.AbstractLog;
-import com.boot.log.log.MongoAbstractLog;
+import com.boot.log.log.impl.MongoAbstractLog;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

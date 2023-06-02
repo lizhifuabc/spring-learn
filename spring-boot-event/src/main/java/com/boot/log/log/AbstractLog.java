@@ -1,7 +1,7 @@
 package com.boot.log.log;
 
 
-import com.boot.log.log.domain.MyLog;
+import com.boot.log.domain.MyLog;
 
 /**
  * 自定义日志抽象类
