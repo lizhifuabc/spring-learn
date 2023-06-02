@@ -19,7 +19,6 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
  */
 @Configuration
 @EnableScheduling
-@ComponentScan(basePackages = {"com.boot.task.timer"})
 public class TimerConfig implements SchedulingConfigurer {
     @Override
     public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {

@@ -6,6 +6,9 @@ categories: SpringBoot
 
 ---
 
+1. 定时任务
+2. 指定线程池
+
 配置线程池，使用不同线程执行任务，提升执行效率
 
 <!--more-->
@@ -36,7 +39,6 @@ spring.task.scheduling.thread-name-prefix=timer-thread-
  */
 @Configuration
 @EnableScheduling
-@ComponentScan(basePackages = {"com.boot.task.timer"})
 public class TimerConfig implements SchedulingConfigurer {
     @Override
     public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {
