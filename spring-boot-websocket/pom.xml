@@ -11,22 +11,6 @@
 
     <artifactId>spring-boot-websocket</artifactId>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
-    <dependencyManagement>
-        <dependencies>
-            <!--  设置springboot版本依赖 -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-parent</artifactId>
-                <version>2.4.4</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
     <dependencies>
         <!--   redis 依赖     -->
         <dependency>
@@ -68,4 +52,13 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <build>
+        <finalName>spring-boot-demo-websocket</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

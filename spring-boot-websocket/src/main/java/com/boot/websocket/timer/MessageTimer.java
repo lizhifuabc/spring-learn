@@ -1,13 +1,12 @@
 package com.boot.websocket.timer;
 
 import com.boot.websocket.service.WsService;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
-import java.io.IOException;
 import java.time.LocalDateTime;
 
 /**
@@ -28,7 +27,7 @@ public class MessageTimer {
     @Scheduled(cron = "0/5 * * * * *")
     public void scheduled(){
         try {
-            wsService.broadcastMsg("消息自动推送 "  + LocalDateTime.now().toString());
+            wsService.broadcastMsg("每5s发送消息自动推送 "  + LocalDateTime.now());
         } catch (Exception e) {
             log.error("MessageTimer error",e);
         }

@@ -2,12 +2,12 @@ package com.boot.websocket.config;
 
 import com.boot.websocket.handler.WsHandler;
 import com.boot.websocket.interceptor.HandInterceptor;
+import jakarta.annotation.Resource;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
 
-import javax.annotation.Resource;
 
 /**
  * WebSocketConfig 配置

@@ -15,7 +15,7 @@
 | [spring-boot-properties](./spring-boot-properties) | 配置文件相关 |
 | [spring-boot-guava-limit](./spring-boot-guava-limit) | *基于*  guava  限流 |
 | [spring-boot-task](./spring-boot-task) | 1. 定时任务<br/>2. 指定线程池 |
-|  |  |
+| [spring-boot-websocket](./spring-boot-websocket) | 1. 消息推送<br/>2. 聊天室 |
 |  |  |
 |  |  |
 |  |  |
