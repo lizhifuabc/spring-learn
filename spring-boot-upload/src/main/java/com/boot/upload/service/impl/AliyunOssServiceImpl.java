@@ -7,7 +7,7 @@ import com.boot.upload.config.AliyunOssConfig;
 import com.boot.upload.service.AliyunOssService;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Date;
