@@ -9,7 +9,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<packaging>pom</packaging>
 	<modules>
-		<module>spring-boot-helloworld</module>
+		<module>spring-boot-init</module>
 		<module>spring-boot-redis</module>
 		<module>spring-boot-email</module>
         <module>spring-cloud-nacos-discovery</module>

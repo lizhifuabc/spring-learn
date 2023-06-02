@@ -2,12 +2,12 @@
 
 | 项目            | 介绍 |
 | --------------- | ---- |
-| [spring-boot-web](./spring-boot-web) | Spring Boot Web 基础 Spring Boot test 自定义配置文件 多配置文件加载 actuator |
+| [spring-boot-web](./spring-boot-web) | Spring Boot Web 基础<br>Spring Boot test<br>自定义配置文件 <br/>多配置文件加载 actuator |
 | [spring-boot-jpa](./spring-boot-jpa) | Spring Boot Jpa 框架基础 |
 | [spring-boot-email](./spring-boot-email) | 1. 复杂邮件类型<br/>2. 发送文本邮件 |
 | [spring-boot-log](./spring-boot-log) | 1. 日志打印<br/>2. 自定义操作日志记录注解，日志切面配置<br/>3. 基于 controller package 的日志记录<br/>4. 定义logback-spring.xml配置文件 |
 | [spring-boot-mybatis](./spring-boot-mybatis) | mybatis |
-|  |  |
+| [spring-boot-init](./spring-boot-init) | 启动加载<br/>1. CommandLineRunner（注解的执行优先级是按value值从小到大顺序）<br/>2. InitializingBean<br/>3. @PostConstruct |
 |  |  |
 |  |  |
 |  |  |

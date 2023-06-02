@@ -9,20 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-boot-helloworld</artifactId>
-    <dependencyManagement>
-        <dependencies>
-            <!--  设置springboot版本依赖 -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-parent</artifactId>
-                <version>2.4.1</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
+    <artifactId>spring-boot-init</artifactId>
     <dependencies>
         <!--  springboot web 依赖      -->
         <dependency>
