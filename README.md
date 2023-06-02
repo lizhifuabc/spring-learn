@@ -8,7 +8,7 @@
 | [spring-boot-log](./spring-boot-log) | 1. 日志打印<br/>2. 自定义操作日志记录注解，日志切面配置<br/>3. 基于 controller package 的日志记录<br/>4. 定义logback-spring.xml配置文件 |
 | [spring-boot-mybatis](./spring-boot-mybatis) | mybatis |
 | [spring-boot-init](./spring-boot-init) | 启动加载<br/>1. CommandLineRunner（注解的执行优先级是按value值从小到大顺序）<br/>2. InitializingBean<br/>3. @PostConstruct |
-|  |  |
+| [spring-boot-async](./spring-boot-async) | spring boot 异步任务 |
 |  |  |
 |  |  |
 

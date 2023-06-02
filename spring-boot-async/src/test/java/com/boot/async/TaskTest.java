@@ -1,9 +1,9 @@
 package com.boot.async;
 
 import com.boot.async.task.Task;
+import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
 
-import javax.annotation.Resource;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
