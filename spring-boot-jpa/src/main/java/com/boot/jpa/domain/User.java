@@ -1,8 +1,7 @@
 package com.boot.jpa.domain;
 
+import jakarta.persistence.*;
 import lombok.Data;
-
-import javax.persistence.*;
 
 /**
  * User
