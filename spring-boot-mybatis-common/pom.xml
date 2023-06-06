@@ -8,7 +8,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
+    <packaging>jar</packaging>
     <artifactId>spring-boot-mybatis-common</artifactId>
     <dependencies>
         <!-- Java EE 标准中的一部分，它通过提供提供一套对象关系模型（ORM）来帮助在开发应用过程中高效的管理关系型数据,
@@ -29,4 +29,26 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!--  skip跳过spring打包                  -->
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>${java.version}</source>  <!-- 源代码使用的 JDK 版本 -->
+                    <target>${java.version}</target> <!-- 需要生成的目标 class 文件的 JDK 版本 -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

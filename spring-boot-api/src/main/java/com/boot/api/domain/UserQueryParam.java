@@ -1,11 +1,9 @@
 package com.boot.api.domain;
 
 import com.boot.api.annotation.Amount;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 /**

@@ -2,13 +2,13 @@ package com.mybatis.gen.util.servlet;
 
 import com.mybatis.gen.util.str.Convert;
 import com.mybatis.gen.util.str.StringUtils;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import jakarta.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
