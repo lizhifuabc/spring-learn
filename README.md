@@ -20,7 +20,7 @@
 | [spring-batch](./spring-batch) | Spring Batch 轻量级的批量处理框架 |
 | [spring-boot-mybatis-common](./spring-boot-mybatis-common) | 基于mybatis的`XMLMapperBuilder`机制实现Mybatis通用Mapper |
 | [spring-boot-mybatis-common-example](./spring-boot-mybatis-common-example) | 基于mybatis的`XMLMapperBuilder`机制实现Mybatis通用Mapper使用案例 |
-|  |  |
+| [spring-boot-saas](./spring-boot-saas) | 多租户模式下，数据源切换：采用共享DB，独立Schema的方式进行 |
 
 
 
@@ -166,9 +166,9 @@
 
 提供解决热点账户的几种思路。
 
-[spring-boot-saas](./spring-boot-saas)
 
-多租户模式下，数据源切换：采用共享DB，独立Schema的方式进行
+
+
 
 ## spring-cloud
 

@@ -17,7 +17,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
  * 数据源选择器切面
  *
  * @author lizhifu
- * @date 2020/12/22
+ * @since  2020/12/22
  */
 @Aspect
 @Component
@@ -26,13 +26,14 @@ public class DataSourceAspect {
     public void dataSourcePointCut() {
     }
     @Before("dataSourcePointCut()")
-    public void doBefore(JoinPoint joinPoint) {
+    public void doBefore() {
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
         ServletRequestAttributes attributes = (ServletRequestAttributes) requestAttributes;
+        assert attributes != null;
         HttpServletRequest request = attributes.getRequest();
-        String configDatasoure = request.getHeader("datasource-config-name");
-        if(null != configDatasoure && !configDatasoure.equals("")){
-            DynamicDataSourceContextHolder.setCurrentDatasource(configDatasoure);
+        String datasource = request.getHeader("datasource-config-name");
+        if(null != datasource && !"".equals(datasource)){
+            DynamicDataSourceContextHolder.setCurrentDatasource(datasource);
         }else {
             DynamicDataSourceContextHolder.setDefaultDatasource();
         }

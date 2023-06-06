@@ -21,7 +21,7 @@ import javax.sql.DataSource;
 public class DataSourceConfig {
     /**
      * 默认数据源
-     * @return
+     * @return DataSource
      */
     @Bean
     @ConfigurationProperties("spring.datasource.druid")
@@ -33,13 +33,12 @@ public class DataSourceConfig {
     /**
      * 动态数据源 DependsOn 在defaultDataSource之后才能初始化
      * 保证动态数据源的前置增强先于事务
-     * @return
+     * @return DynamicDataSource
      */
     @Bean
     @Primary
     @DependsOn({"defaultDataSource"})
     public DynamicDataSource dynamicDataSource(){
-        DynamicDataSource dynamicDataSource = new DynamicDataSource();
-        return dynamicDataSource;
+        return new DynamicDataSource();
     }
 }
