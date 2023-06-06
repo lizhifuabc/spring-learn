@@ -16,7 +16,7 @@ import java.util.List;
  * @date 2021/1/4
  */
 @Repository
-public interface UserDao extends JpaRepository<User,Long> {
+public interface UserRepository extends JpaRepository<User,Long> {
 
     List<User> findByUserNameIsLike(String userName);
 
