@@ -25,7 +25,7 @@
 | [spring-boot-starter](./spring-boot-starter) | 自定义starter |
 | [spring-boot-cors](./spring-boot-cors) | 跨域的三种实现方式 |
 | [spring-boot-upload](./spring-boot-upload) | springboot文件上传 |
-|  |  |
+| [spring-boot-shutdown](./spring-boot-shutdown) | Springboot停机 |
 |  |  |
 |  |  |
 |  |  |
@@ -47,8 +47,6 @@
 [基于建表语句生成代码](./spring-boot-mybatis-gen)
 
 [基于数据库生成代码](./spring-boot-mybatis-daogen)
-
-
 
 # 进阶
 
@@ -84,15 +82,11 @@
 
 [spring-boot-rabbitmq:整合rabbitmq](./spring-boot-mq/spring-boot-rabbitmq)
 
-[spring-boot-upload：springboot文件上传](./spring-boot-upload)
-
 [spring-boot-redis-redisson：springboot使用Redisson](./spring-boot-redis-redisson)
 
 [spring-boot-elasticsearch：springboot使用elasticsearch](./spring-boot-elasticsearch)
 
 [spring-boot-im：Springboot 整合 Netty](./spring-boot-im)
-
-[spring-boot-shutdown：Springboot停机](./spring-boot-shutdown)
 
 [spring-boot-api：Springboot通用api接口层模式](./spring-boot-api)
 

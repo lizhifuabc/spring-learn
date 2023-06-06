@@ -1,8 +1,7 @@
 package com.boot.shutdown.service;
 
+import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.PreDestroy;
 
 /**
  * DemoService
