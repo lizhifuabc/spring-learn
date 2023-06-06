@@ -23,7 +23,7 @@
 | [spring-boot-saas](./spring-boot-saas) | 多租户模式下，数据源切换：采用共享DB，独立Schema的方式进行 |
 | [spring-boot-webflux](./spring-boot-webflux) | webflux函数式编程DEMO |
 | [spring-boot-starter](./spring-boot-starter) | 自定义starter |
-|  |  |
+| [spring-boot-cors](./spring-boot-cors) | 跨域的三种实现方式 |
 |  |  |
 |  |  |
 |  |  |
@@ -78,11 +78,7 @@
 
 # spring-learn
 
-
-
 [spring-cloud-loadbalancer简单实例](./spring-cloud-loadbalancer)
-
-[spring-boot-cors：跨域的三种实现方式](./spring-boot-cors)
 
 [spring-boot-thymeleaf：springboot整合thymeleaf](./spring-boot-thymeleaf)
 
