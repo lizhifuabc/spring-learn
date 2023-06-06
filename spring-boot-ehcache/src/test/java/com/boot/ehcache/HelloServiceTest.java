@@ -5,7 +5,7 @@ import com.boot.ehcache.service.HelloService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * HelloService 测试

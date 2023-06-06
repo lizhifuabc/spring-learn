@@ -6,7 +6,7 @@ import com.boot.zk.lock.LockService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * LockService 测试

@@ -7,7 +7,7 @@ import com.boot.saas.domain.MysqlAccount;
 import com.boot.saas.mapper.MysqlAccountMapper;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * 数据源配置 Controller

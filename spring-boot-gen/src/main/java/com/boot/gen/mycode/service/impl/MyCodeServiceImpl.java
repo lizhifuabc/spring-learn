@@ -1,7 +1,7 @@
 package com.boot.gen.mycode.service.impl;
 
 import java.util.List;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 import com.boot.gen.mycode.mapper.MyCodeMapper;
 import com.boot.gen.mycode.domain.MyCode;

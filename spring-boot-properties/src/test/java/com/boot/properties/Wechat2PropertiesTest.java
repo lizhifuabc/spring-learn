@@ -4,7 +4,7 @@ import com.boot.properties.properties.Wechat2Properties;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * Wechat2Properties

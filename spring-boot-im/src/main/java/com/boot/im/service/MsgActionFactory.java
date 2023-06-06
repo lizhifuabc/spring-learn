@@ -3,7 +3,7 @@ package com.boot.im.service;
 import com.boot.im.type.MsgActionEnum;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.Map;
 
 /**

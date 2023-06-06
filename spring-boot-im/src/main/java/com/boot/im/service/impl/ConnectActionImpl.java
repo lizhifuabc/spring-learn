@@ -9,7 +9,7 @@ import com.boot.im.type.MsgActionEnum;
 import io.netty.channel.Channel;
 import org.springframework.context.ApplicationContext;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * 初始化连接

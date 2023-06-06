@@ -12,7 +12,7 @@ import org.apache.velocity.app.Velocity;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.io.StringWriter;
 
 /**

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>17</java.version>
         <battcn.swagger.version>2.1.5-RELEASE</battcn.swagger.version>
         <pagehelper.spring.boot.starter.version>1.2.12</pagehelper.spring.boot.starter.version>
     </properties>
@@ -50,7 +50,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
-            <version>1.2.3</version>
+            <version>1.2.18</version>
         </dependency>
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>

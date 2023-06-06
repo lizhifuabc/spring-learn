@@ -4,7 +4,7 @@ import com.boot.hot.dao.AccountHisDao;
 import com.boot.hot.dao.param.AccountHisParam;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.Random;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;

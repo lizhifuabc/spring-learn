@@ -5,7 +5,7 @@ import com.boot.sharding.mapper.OrderMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.Random;
 
 /**

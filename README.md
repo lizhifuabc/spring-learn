@@ -18,8 +18,8 @@
 | [spring-boot-websocket](./spring-boot-websocket) | 1. 消息推送<br/>2. 聊天室 |
 | [spring-boot-upload](./spring-boot-upload) | *单文件上传*、*多文件上传*、阿里云oss文件上传 |
 | [spring-batch](./spring-batch) | Spring Batch 轻量级的批量处理框架 |
-|  |  |
-|  |  |
+| [spring-boot-mybatis-common](./spring-boot-mybatis-common) | 基于mybatis的`XMLMapperBuilder`机制实现Mybatis通用Mapper |
+| [spring-boot-mybatis-common-example](./spring-boot-mybatis-common-example) | 基于mybatis的`XMLMapperBuilder`机制实现Mybatis通用Mapper使用案例 |
 |  |  |
 
 
@@ -31,8 +31,6 @@
 # Mybatis
 
 [基于mybatis的Provider机制实现Mybatis通用Mapper](./spring-boot-mybatis-provider)
-
-[基于mybatis的`XMLMapperBuilder`机制实现Mybatis通用Mapper](./spring-boot-mybatis-common)
 
 [基于mybatis的分库分表实现思路:不涉及分布式事务](./spring-boot-mybatis-sharding)
 

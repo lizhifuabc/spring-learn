@@ -4,7 +4,7 @@ import com.boot.upload.service.AliyunOssService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 

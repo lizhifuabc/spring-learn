@@ -7,7 +7,7 @@ import com.boot.hot.queue.QueueService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.Random;
 import java.util.UUID;

@@ -1,6 +1,5 @@
 package com.mybatis.common;
 
-import com.mybatis.common.util.EntityUtils;
 import com.mybatis.common.xml.ColumnXml;
 import org.springframework.util.ReflectionUtils;
 

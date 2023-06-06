@@ -15,6 +15,7 @@ import org.apache.ibatis.reflection.SystemMetaObject;
 import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.context.ApplicationContext;
 
 import org.slf4j.Logger;
@@ -24,7 +25,7 @@ import org.springframework.util.Assert;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.io.ByteArrayInputStream;
 import java.util.Map;
 
@@ -34,6 +35,7 @@ import java.util.Map;
  * @author lizhifu
  * @date 2020/12/14
  */
+@AutoConfiguration
 public class MyBatisConfiguration implements InitializingBean {
     private static final Logger logger = LoggerFactory.getLogger(MyBatisConfiguration.class);
     @Resource

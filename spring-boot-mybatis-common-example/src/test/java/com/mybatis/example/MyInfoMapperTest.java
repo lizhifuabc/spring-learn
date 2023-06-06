@@ -6,7 +6,9 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
+
+import java.time.LocalDateTime;
 import java.util.Random;
 
 /**
@@ -26,9 +28,9 @@ public class MyInfoMapperTest {
         sqlSessionFactory.getConfiguration();
         MyInfo myInfo = new MyInfo();
         myInfo.setInfoId(new Random().nextInt());
-        myInfo.setUserName("test");
+        myInfo.setUserName("李志福:"+ LocalDateTime.now());
         myInfoMapper.insert(myInfo);
-        MyInfo res = myInfoMapper.selectById(1000);
+        MyInfo res = myInfoMapper.selectById(-181991845);
         System.out.println(res.getInfoId());
     }
 }

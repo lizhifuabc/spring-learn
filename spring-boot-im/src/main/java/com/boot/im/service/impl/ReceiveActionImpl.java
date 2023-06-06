@@ -8,7 +8,7 @@ import com.boot.im.type.MsgActionEnum;
 import com.boot.im.type.MsgStatusEnum;
 import org.springframework.context.ApplicationContext;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * 消息接收

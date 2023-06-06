@@ -10,7 +10,7 @@ import com.mybatis.gen.util.gen.GenUtils;
 import com.mybatis.gen.util.str.StringUtils;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 

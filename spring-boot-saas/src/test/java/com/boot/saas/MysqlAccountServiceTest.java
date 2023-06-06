@@ -5,7 +5,7 @@ import com.boot.saas.service.MysqlAccountService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * MysqlAccountService

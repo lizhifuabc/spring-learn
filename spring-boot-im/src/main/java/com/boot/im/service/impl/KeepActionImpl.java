@@ -6,7 +6,7 @@ import com.boot.im.service.MsgActionService;
 import com.boot.im.type.MsgActionEnum;
 import org.springframework.context.ApplicationContext;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * 保持心跳
