@@ -71,7 +71,8 @@
         <module>spring-boot-actuator</module>
         <module>spring-boot-mapstruct</module>
 		<module>spring-boot-graalvm</module>
-	</modules>
+        <module>spring-batch</module>
+    </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -88,6 +89,15 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<source>${java.version}</source>  <!-- 源代码使用的 JDK 版本 -->
+					<target>${java.version}</target> <!-- 需要生成的目标 class 文件的 JDK 版本 -->
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
