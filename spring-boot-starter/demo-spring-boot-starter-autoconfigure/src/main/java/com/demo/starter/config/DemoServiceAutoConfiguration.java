@@ -2,6 +2,7 @@ package com.demo.starter.config;
 
 import com.demo.starter.properties.DemoProperties;
 import com.demo.starter.service.DemoService;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -15,7 +16,7 @@ import jakarta.annotation.Resource;
  * @author lizhifu
  * @date 2021/1/15
  */
-@Configuration
+@AutoConfiguration
 @ConditionalOnWebApplication // web 应用则配置生效
 @EnableConfigurationProperties(DemoProperties.class) // 使得 DemoProperties 生效
 public class DemoServiceAutoConfiguration {

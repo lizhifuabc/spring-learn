@@ -22,7 +22,7 @@
 | [spring-boot-mybatis-common-example](./spring-boot-mybatis-common-example) | 基于mybatis的`XMLMapperBuilder`机制实现Mybatis通用Mapper使用案例 |
 | [spring-boot-saas](./spring-boot-saas) | 多租户模式下，数据源切换：采用共享DB，独立Schema的方式进行 |
 | [spring-boot-webflux](./spring-boot-webflux) | webflux函数式编程DEMO |
-|  |  |
+| [spring-boot-starter](./spring-boot-starter) | 自定义starter |
 |  |  |
 |  |  |
 |  |  |
