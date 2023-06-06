@@ -21,6 +21,16 @@
 | [spring-boot-mybatis-common](./spring-boot-mybatis-common) | 基于mybatis的`XMLMapperBuilder`机制实现Mybatis通用Mapper |
 | [spring-boot-mybatis-common-example](./spring-boot-mybatis-common-example) | 基于mybatis的`XMLMapperBuilder`机制实现Mybatis通用Mapper使用案例 |
 | [spring-boot-saas](./spring-boot-saas) | 多租户模式下，数据源切换：采用共享DB，独立Schema的方式进行 |
+| [spring-boot-webflux](./spring-boot-webflux) | webflux函数式编程DEMO |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
 
 
 
@@ -68,11 +78,7 @@
 
 # spring-learn
 
-记录在日常过程用经常使用的方法、工程，方便去查找DEMO
 
-[spring-boot-webflux函数式编程DEMO](./spring-boot-webflux)
-
-[spring-boot-starter自定义starter](./spring-boot-starter)
 
 [spring-cloud-loadbalancer简单实例](./spring-cloud-loadbalancer)
 
