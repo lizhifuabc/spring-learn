@@ -5,7 +5,7 @@ spring:
   mail:
     host: smtp.163.com
     username: lizhifuabc@163.com
-    password: FHYZIKYAKFAYMASA
+    password: xxx
     properties:
       "[mail.smtp.socketFactory.class]": javax.net.ssl.SSLSocketFactory
       "[mail.smtp.socketFactory.fallback]": false
