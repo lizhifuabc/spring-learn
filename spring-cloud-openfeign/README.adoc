@@ -1,0 +1,54 @@
+= spring cloud openfeign
+
+== 数据压缩
+
+在 OpenFeign 中，默认并没有开启数据压缩功能。但如果你在服务间单次传递数据超过 1K 字节，强烈推荐开启数据压缩功能。默认 OpenFeign 使用 Gzip 方式压缩数据，对于大文本通常压缩后尺寸只相当于原始数据的 10%~30%，这会极大提高带宽利用率。
+
+ 如果应用属于计算密集型，CPU 负载长期超过 70%，因数据压缩、解压缩都需要 CPU 运算，开启数据压缩功能反而会给 CPU 增加额外负担，导致系统性能降低，这是不可取的。这种情况 建议不要开启数据的压缩功能
+
+== 默认通信组件
+
+OpenFeign 默认使用 Java 自带的 URLConnection 对象创建 HTTP 请求，但接入生产时，如果能将底层通信组件更换为 Apache HttpClient、OKHttp 这样的专用通信组件，基于这些组件自带的连接池，可以更好地对 HTTP 连接对象进行重用与管理。
+
+== 负载均衡
+
+OpenFeign 使用时默认引用 Ribbon 实现客户端负载均衡，它默认的负载均衡策略是轮询策略。如果需要自定义调整需要在application.yml 中调整微服务通信时使用的负载均衡类即可。
+
+出于性能方面的考虑，我们可以选择用权重策略或区域敏感策略来替代轮询策略，因为这样的执行效率最高。
+
+1. RoundRobinRule 轮询策略
+按顺序将请求轮流分发到各个服务实例,是Ribbon的默认策略。
+2. RandomRule 随机策略
+随机选择一个服务实例,将请求分发过去。
+3. RetryRule 重试策略
+在RoundRobinRule的基础上添加重试机制,在选择实例失败时进行重试。
+4. WeightedResponseTimeRule 权重响应时间策略
+考虑实例的响应时间权重,响应时间快的实例权重加大,被选中的概率增加。
+5. BestAvailableRule 最低并发策略
+选择并发数最低的实例。
+6. AvailabilityFilteringRule 可用过滤策略
+过滤掉故障实例和并发连接数超过阈值的实例,选择并发连接数最小的实例。
+7. ZoneAvoidanceRule 区域避开策略
+综合判断服务器的可用性、负载和区域,避开故障实例所在区域。
+
+除此之外,我们也可以实现自定义的负载均衡策略,步骤如下:
+
+1. 实现 IRule 接口,这是负载均衡策略的规范接口。
+2. 添加 @RibbonClient 注解,指定服务名称与自定义策略。例如:
+
+[source,java]
+----
+@RibbonClient(name = "user-service", configuration = MyRule.class)
+public classribbonRuleConfig {}
+----
+
+3. 在启动类上添加 @RibbonClients 注解,激活自定义配置。
+4. 将自定义策略类放入Spring Context中,如添加@Configuration注解。
+
+== 日志配置
+
+openfeign 的日志级别是 debug，但是 springboot 默认日志级别是 info，因为 debug<info，所以需要也改为debug，openfeign 的日志才会生效
+
+1. 全局日志
+2. 局部配置日志
+3. 更改springboot 默认日志级别

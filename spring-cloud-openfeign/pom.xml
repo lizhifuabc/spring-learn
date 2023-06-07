@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.lizhifu</groupId>
+        <artifactId>spring-learn</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.tomato</groupId>
+    <artifactId>spring-cloud-openfeign</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>spring-cloud-openfeign-one</module>
+        <module>spring-cloud-openfeign-two</module>
+        <module>spring-cloud-openfeign-common</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <spring.cloud.version>2022.0.2</spring.cloud.version>  <!-- https://spring.io/projects/spring-cloud       -->
+        <spring.cloud.alibaba.version>2022.0.0.0-RC2</spring.cloud.alibaba.version> <!-- spring cloud alibaba 统一依赖管理 -->
+
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--  spring cloud 依赖管理 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--  spring cloud alibaba 依赖管理 -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud.alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
