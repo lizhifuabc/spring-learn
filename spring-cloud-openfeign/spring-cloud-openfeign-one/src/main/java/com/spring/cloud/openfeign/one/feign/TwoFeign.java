@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @author lizhifu
  * @since 2023/6/6
  */
-@FeignClient(contextId = "twoFeign", value = OpenFeignService.SERVICE_TWO)
+@FeignClient(contextId = "twoFeign", value = OpenFeignService.SERVICE_TWO,fallback = TwoFeignFallback.class)
 public interface TwoFeign {
     @GetMapping("/two/two")
     String two();

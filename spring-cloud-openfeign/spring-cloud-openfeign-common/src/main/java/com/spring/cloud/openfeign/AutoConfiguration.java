@@ -1,6 +1,7 @@
 package com.spring.cloud.openfeign;
 
 import com.spring.cloud.openfeign.config.FeignLoggerConfiguration;
+import com.spring.cloud.openfeign.config.FooConfiguration;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +15,7 @@ import org.springframework.context.annotation.Import;
  * @since 2023/5/2
  */
 @Configuration(proxyBeanMethods = false)
-@Import({FeignLoggerConfiguration.class})
+@Import({FeignLoggerConfiguration.class, FooConfiguration.class})
 public class AutoConfiguration {
     private static final Logger log = LoggerFactory.getLogger(AutoConfiguration.class);
     @PostConstruct

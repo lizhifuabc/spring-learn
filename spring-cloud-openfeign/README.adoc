@@ -52,3 +52,60 @@ openfeign 的日志级别是 debug，但是 springboot 默认日志级别是 inf
 1. 全局日志
 2. 局部配置日志
 3. 更改springboot 默认日志级别
+
+== 熔断降级
+
+推荐使用Resilience4j作为熔断与容错库,取代原先的Hystrix。
+
+http://127.0.0.1:8081/actuator/health
+
+/actuator/health/resilience4j/熔断器名称端点来监控熔断器的状态。
+
+Resilience4j最新版本中主要支持以下配置:
+
+熔断器(CircuitBreaker):
+- failureRateThreshold:失败率阈值,默认50%
+
+- slowCallRateThreshold:慢调用占比阈值,默认100%
+
+- waitDurationInOpenState:打开状态下等待时长,默认60s
+
+- permittedNumberOfCallsInHalfOpenState:半开状态下允许最大调用次数,默认10
+
+- slidingWindowType:滑动窗口类型,默认COUNT_BASED
+
+- minimumNumberOfCalls:最小调用次数,默认100
+
+- writableStackTraceEnabled:是否启用完整堆栈跟踪,默认false
+
+- recordExceptions:是否记录异常,默认false
+
+- ignoreExceptions:忽略的异常类列表
+
+限流器(RateLimiter):
+
+- limitRefreshPeriod:限流窗口刷新周期,默认500ms
+
+- limitForPeriod:限流窗口期限内最大请求数,默认100
+
+- timeoutDuration:获取令牌的超时时长,默认100ms
+
+超时器(TimeLimiter):
+
+- cancelRunningFuture:是否取消正在执行的线程,默认true
+
+- timeoutDuration:超时时长
+
+隔离(Bulkhead):
+
+- maxConcurrentCalls:并发调用数
+
+- waitingRoomSemaphoreMaxPermits:等待室最大许可数
+
+- bulkheadCpuLight:是否启用“轻量级”隔离器,只基于Semaphore实现,默认false
+
+这些规则覆盖了熔断、限流、超时与隔离等容错场景。熟练掌握各参数的含义及如何配置可以让我们使用Resilience4j实现全面而强大的容错方案。
+
+除此之外,Resilience4j还提供了可视化Dashboard(需额外引入resilience4j-dashboard依赖)、health indicator(通过management.endpoint.health.show-details=always开启)、metrics监控等功能。这让我们不仅可以方便配置容错规则,还可以在系统运行时可视化监控各个熔断与限流器的状态与统计数据。
+
+Resilience4j是一个功能强大且生态完备的容错框架。要熟练使用它,需要我们理解其各模块(Circuit Breaker、Rate Limiter、Bulkhead等)的作用机制和彼此之间的关系,以及它们提供的各种配置项的含义。这需要持续学习与实践,需要我们在各种场景和项目中多次应用它,并不断总结经验。
