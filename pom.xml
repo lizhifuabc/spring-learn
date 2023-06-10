@@ -73,6 +73,7 @@
 		<module>spring-boot-graalvm</module>
         <module>spring-batch</module>
         <module>spring-cloud-openfeign</module>
+        <module>spring-boot-security</module>
     </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
