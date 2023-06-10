@@ -74,7 +74,8 @@
         <module>spring-batch</module>
         <module>spring-cloud-openfeign</module>
         <module>spring-boot-security</module>
-    </modules>
+		<module>spring-boot-docker</module>
+	</modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
