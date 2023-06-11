@@ -40,3 +40,7 @@ management:
       export:
         pushgateway:
           enabled: true
+  endpoint:
+    health:
+      show-details: always
+      enabled: true

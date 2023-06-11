@@ -29,7 +29,7 @@
 | [spring-boot-idempotent](./spring-boot-idempotent) | 幂等：<br>基于数据库保证幂等性 乐观锁<br>redis实现幂等性 |
 | [spring-boot-api](./spring-boot-api) | Springboot通用api接口层模式<br>validation 接口参数验证<br>自定义 validator 验证器 <br>API 接口版本控制<br>统一异常处理<br>自定义异常处理<br>统一返回结果 |
 | [spring-cloud-openfeign](./spring-cloud-openfeign) | 开启日志<br>通信组件<br>数据压缩<br>负载均衡<br>HTTP Interface将 HTTP 服务，定义成一个包含特定注解标记的方法的 Java 接口 |
-|  |  |
+| [spring-boot-actuator](./spring-boot-actuator) | micrometer<br>grafana<br>Zipkin<br>自定义指标 |
 |  |  |
 
 
