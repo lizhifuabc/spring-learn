@@ -12,12 +12,23 @@
     <artifactId>demo-spring-boot-starter-autoconfigure</artifactId>
 
     <dependencies>
-        <!--  springboot 依赖      -->
+        <!--  Spring Boot的核心starter,它包含了Spring Boot自动配置的基础框架支持      -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
-
+        <!--  Spring Boot的自动配置功能      -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+        <!-- 打包时，自动生成配置元信息文件 META-INF/spring-configuration-metadata.json，
+        并放入到 jar 中。方便使用者了解到一些配置元信息。       -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
     <build>
