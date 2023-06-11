@@ -75,7 +75,8 @@
         <module>spring-cloud-openfeign</module>
         <module>spring-boot-security</module>
 		<module>spring-boot-docker</module>
-	</modules>
+        <module>spring-boot-log4j2</module>
+    </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
