@@ -4,7 +4,7 @@ server:
 spring:
   mail:
     host: smtp.163.com
-    username: lizhifuabc@163.com
+    username: xxxx@163.com
     password: xxx
     properties:
       "[mail.smtp.socketFactory.class]": javax.net.ssl.SSLSocketFactory
@@ -19,8 +19,8 @@ spring:
         mail:
           enabled: true
           from: Spring Boot Admin <xxx@xxx.com>
-          to: 1023571989@xxx.com # 多个以,分隔
-          cc: 1023571989@xxx.com # 多个以,分隔
+          to: xxx@xxx.com # 多个以,分隔
+          cc: xxx@xxx.com # 多个以,分隔
         dingtalk:
           enabled: true
           webhook-url: https://oapi.dingtalk.com/robot/send?access_token=xxx
