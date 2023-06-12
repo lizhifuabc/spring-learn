@@ -31,6 +31,11 @@
 | [spring-cloud-openfeign](./spring-cloud-openfeign) | 开启日志<br>通信组件<br>数据压缩<br>负载均衡<br>HTTP Interface将 HTTP 服务，定义成一个包含特定注解标记的方法的 Java 接口 |
 | [spring-boot-actuator](./spring-boot-actuator) | micrometer<br>grafana<br>Zipkin<br>自定义指标 |
 | [spring-boot-log4j2](./spring-boot-log4j2) | log4j2 |
+| [spring-boot-multitenant](./spring-boot-multitenant) | **分区（Partitioned）数据**：不同租户的数据都在一张表里，通过一个值（tenantId）来区分不同的租户。<br>**分结构（Schema）**：不同的租户数据放置在相同数据库实例的不同结构（Schema）中。<br>**分数据库（Database）**：不同租户的数据放置在不同的数据中。 |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
 
 
 
