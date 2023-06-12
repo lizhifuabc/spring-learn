@@ -76,6 +76,7 @@
         <module>spring-boot-security</module>
 		<module>spring-boot-docker</module>
         <module>spring-boot-log4j2</module>
+        <module>spring-boot-multitenant</module>
     </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
