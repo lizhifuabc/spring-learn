@@ -19,7 +19,7 @@
 ## 实现
 
 1. 自定义MultiTenantConnectionProvider实现多数据源
-2. @TenantDiscriminator用于租户字段策略
+2. @TenantId用于租户字段策略
 3. 实现自定义TableNameResolver用于表名策略
 4. 实现自定义Hibernate Filter用于筛选器策略
 

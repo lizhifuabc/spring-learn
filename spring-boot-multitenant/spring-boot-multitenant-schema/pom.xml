@@ -4,25 +4,23 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.lizhifu</groupId>
-        <artifactId>spring-learn</artifactId>
+        <groupId>com.tomato</groupId>
+        <artifactId>spring-boot-multitenant</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.tomato</groupId>
-    <artifactId>spring-boot-multitenant</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>spring-boot-multitenant-datasource</module>
-        <module>spring-boot-multitenant-common</module>
-        <module>spring-boot-multitenant-column</module>
-        <module>spring-boot-multitenant-table</module>
-        <module>spring-boot-multitenant-schema</module>
-    </modules>
+    <artifactId>spring-boot-multitenant-schema</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.tomato</groupId>
+            <artifactId>spring-boot-multitenant-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 </project>

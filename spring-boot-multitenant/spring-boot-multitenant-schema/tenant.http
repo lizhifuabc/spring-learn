@@ -1,0 +1,5 @@
+### 测试
+GET http://127.0.0.1:8080/
+Accept: application/json
+x-tenant-id: my_db
+
