@@ -13,7 +13,7 @@ public enum MultiTenantType{
      */
     COLUMN("COLUMN", "租户字段隔离"),
     /**
-     * 推荐:共享数据源,同schema,租户ID隔离
+     * 共享数据源,同schema,租户ID隔离
      * 所有租户共享同一个数据源和schema,通过租户ID + 表命名策略区分不同租户的数据。
      * 例如accounts表分为:
      * accounts_tenant1 (租户1)
