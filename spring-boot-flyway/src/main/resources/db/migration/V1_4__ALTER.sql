@@ -1,0 +1,1 @@
+alter table my_info add `time` DATETIME NULL;

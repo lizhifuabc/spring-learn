@@ -1,0 +1,1 @@
+ALTER TABLE my_info COMMENT = '我的表 v1.1';
