@@ -15,7 +15,7 @@ public interface MyInfoMapper {
      * 插入
      * @param myInfo
      */
-    public void insert(@Param("myInfo")MyInfo myInfo);
+    public void insert(MyInfo myInfo, @Param("userName2")Integer userName);
 
     /**
      * 查询

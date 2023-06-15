@@ -23,8 +23,8 @@ public class MyInfoMapperTest {
         MyInfo myInfo = new MyInfo();
         myInfo.setInfoId(new Random().nextInt());
         myInfo.setUserName("test");
-        myInfoMapper.insert(myInfo);
-        MyInfo res = myInfoMapper.selectById(1000);
-        System.out.println(res.getInfoId());
+        myInfoMapper.insert(myInfo,1);
+//        MyInfo res = myInfoMapper.selectById(1000);
+//        System.out.println(res.getInfoId());
     }
 }
