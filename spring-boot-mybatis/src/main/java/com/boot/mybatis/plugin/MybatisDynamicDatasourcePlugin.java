@@ -31,7 +31,7 @@ import java.util.regex.Pattern;
  * @since 2023/6/13
  */
 @Slf4j
-@Component
+//@Component
 @Intercepts({@Signature(type = Executor.class, method = "update", args = {MappedStatement.class, Object.class}),
         @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class})})
 public class MybatisDynamicDatasourcePlugin implements Interceptor {
