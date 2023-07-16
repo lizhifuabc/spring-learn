@@ -7,3 +7,10 @@ spring:
     active: dev
   config:
     import: classpath:application-test.yml
+
+
+
+conditional:
+  demo:
+    name: "lizhifu"
+    age: 18
