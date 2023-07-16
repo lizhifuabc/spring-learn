@@ -6,11 +6,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * 启动程序
  * @author lizhifu
- * @date 2020/12/29
+ * @since  2020/12/29
  */
 @SpringBootApplication
-public class SpringBootCrosApplication {
+public class SpringBootCorsApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootCrosApplication.class);
+        SpringApplication.run(SpringBootCorsApplication.class);
     }
 }

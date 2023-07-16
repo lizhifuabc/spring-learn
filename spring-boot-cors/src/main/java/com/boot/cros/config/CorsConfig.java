@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * 跨域配置
  *
  * @author lizhifu
- * @date 2020/12/29
+ * @since  2020/12/29
  */
 @Configuration
 @Slf4j
@@ -20,9 +20,9 @@ public class CorsConfig implements WebMvcConfigurer {
         registry.addMapping("/**")
                 //spring2.4版本不能使用 allowedOrigins
                 .allowedOriginPatterns("*")
-                .allowedMethods("GET", "HEAD", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedOrigins("*")
+                .allowedMethods("POST", "GET", "PUT", "OPTIONS", "DELETE")
                 .allowCredentials(true)
-                .maxAge(3600)
-                .allowedHeaders("*");
+                .maxAge(3600);
     }
 }

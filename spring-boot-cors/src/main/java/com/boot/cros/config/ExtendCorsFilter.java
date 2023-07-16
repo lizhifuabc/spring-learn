@@ -11,11 +11,11 @@ import java.io.IOException;
  * 基于过滤器的方式
  *
  * @author lizhifu
- * @date 2020/12/29
+ * @since  2020/12/29
  */
-@Configuration
+//@Configuration
 @Slf4j
-public class CorsFilter implements Filter {
+public class ExtendCorsFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException, ServletException {
