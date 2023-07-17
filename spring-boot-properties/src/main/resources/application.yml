@@ -1,16 +1,36 @@
-server:
-  port: 8080
-  servlet:
-    context-path: /learn
+# 激活环境配置
 spring:
   profiles:
-    active: dev
+    active: prod
+
+application:
+  name: dev环境
+  version: dev环境
+
+---
+# 开发环境配置
+spring:
   config:
-    import: classpath:application-test.yml
+    activate:
+      on-profile: dev
+server:
+  port: 8080
 
+---
+# 测试环境配置
+spring:
+  config:
+    activate:
+      on-profile: test
+server:
+  port: 8081
 
+---
 
-conditional:
-  demo:
-    name: "lizhifu"
-    age: 18
+# 生产环境配置
+spring:
+  config:
+    activate:
+      on-profile: prod
+server:
+  port: 8082

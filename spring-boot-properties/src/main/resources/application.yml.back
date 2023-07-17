@@ -1,0 +1,16 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /learn
+spring:
+  profiles:
+    active: dev
+  config:
+    import: classpath:application-test.yml
+
+
+
+conditional:
+  demo:
+    name: "lizhifu"
+    age: 18
