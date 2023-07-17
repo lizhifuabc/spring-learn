@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * 启动程序
+ * 启动程序 TODO 完善
  * 文档地址：https://spring.io/projects/spring-data-elasticsearch
- * https://github.com/spring-projects/spring-data-examples/tree/master/elasticsearch/example
+ * https://github.com/spring-projects/spring-data-examples/tree/main/elasticsearch/example
  * @author lizhifu
  * @date 2021/04/14
  */

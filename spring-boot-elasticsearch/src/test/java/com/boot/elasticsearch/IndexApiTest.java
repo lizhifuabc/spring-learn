@@ -3,7 +3,7 @@ package com.boot.elasticsearch;
 import com.boot.elasticsearch.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
+import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.IndexOperations;
 
 import jakarta.annotation.Resource;
@@ -17,13 +17,13 @@ import jakarta.annotation.Resource;
 @SpringBootTest
 public class IndexApiTest {
     @Resource
-    private ElasticsearchRestTemplate template;
+    private ElasticsearchOperations operations;
     /**
      * 索引相关操作
      */
     @Test
     public void index() {
-        IndexOperations indexOperations = template.indexOps(User.class);
+        IndexOperations indexOperations = operations.indexOps(User.class);
         System.out.println("索引是否存在：" + indexOperations.exists());
         System.out.println("索引是否删除：" + indexOperations.delete());
         System.out.println("索引创建结果：" + indexOperations.create());

@@ -3,9 +3,12 @@ package com.boot.elasticsearch;
 import com.boot.elasticsearch.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 
 import jakarta.annotation.Resource;
+import org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.client.erhlc.ElasticsearchRestTemplate;
+import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,13 +22,15 @@ import java.util.List;
 @SpringBootTest
 public class DocumentApiTest {
     @Resource
-    private ElasticsearchRestTemplate template;
+    private ElasticsearchOperations operations;
+    @Resource
+    private ElasticsearchTemplate elasticsearchTemplate;
     @Test
     public void test() {
         User user = new User(1, "赵一", 18, "北京市昌平区", LocalDateTime.now());
-        template.save(user);
-        System.out.println("查询结果为："+template.get("1", User.class));
-        System.out.println("删除结果为："+template.delete("1", User.class));
+        operations.save(user);
+        System.out.println("查询结果为："+operations.get("1", User.class));
+        System.out.println("删除结果为："+operations.delete("1", User.class));
         saveList();
     }
     public void saveList() {
@@ -40,7 +45,7 @@ public class DocumentApiTest {
         userList.add(new User(8, "王8", 23, "山东济南", LocalDateTime.now()));
         userList.add(new User(9, "杨9", 24, "河南郑州", LocalDateTime.now()));
         userList.add(new User(10, "钟10", 25, "四川重庆", LocalDateTime.now()));
-        Iterable<User> users = template.save(userList);
+        Iterable<User> users = operations.save(userList);
         for (User user : users) {
             System.out.println("批量插入结果："+user);
         }
