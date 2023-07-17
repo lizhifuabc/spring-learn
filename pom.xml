@@ -79,6 +79,8 @@
         <module>spring-boot-multitenant</module>
         <module>spring-boot-flyway</module>
         <module>spring-boot-banner</module>
+        <module>advanced-multi-tenancy</module>
+        <module>spring-boot-p6spy</module>
     </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
