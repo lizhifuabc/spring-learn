@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *     https://shardingsphere.apache.org/index_zh.html
  * </p>
  * @author lizhifu
- * @date 2020/12/4
+ * @since 2020/12/4
  */
 @SpringBootApplication
 @MapperScan(basePackages = {"com.boot.sharding.mapper"})

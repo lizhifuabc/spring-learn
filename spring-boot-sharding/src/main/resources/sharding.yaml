@@ -1,0 +1,68 @@
+# 数据源配置
+dataSources:
+  ds_0:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    jdbcUrl: jdbc:mysql://127.0.0.1:3306/my_db_0?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: tomato
+    password: tomato
+  ds_1:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    jdbcUrl: jdbc:mysql://127.0.0.1:3306/my_db_1?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: tomato
+    password: tomato
+# 分片规则配置
+rules:
+  - !SHARDING
+    tables:
+      # 逻辑表名称
+      t_order:
+        actualDataNodes: ds_${0..1}.t_order_${0..1}
+        tableStrategy:
+          standard:
+            shardingColumn: order_id
+            shardingAlgorithmName: t_order_inline
+        keyGenerateStrategy:
+          column: order_id
+          keyGeneratorName: snowflake
+        auditStrategy:
+          auditorNames:
+            - sharding_key_required_auditor
+          allowHintDisable: true
+    # 默认分片列名称
+    # defaultShardingColumn: account_id
+    # 默认数据库分片策略
+    defaultDatabaseStrategy:
+      standard:
+        shardingColumn: user_id
+        shardingAlgorithmName: database_inline
+    # 默认表分片策略
+    defaultTableStrategy:
+      none:
+    # 分片算法配置
+    shardingAlgorithms:
+      # 分库算法
+      database_inline:
+        # 分片算法类型
+        type: INLINE
+        props:
+          # 分片算法的行表达式
+          algorithm-expression: ds_${user_id % 2}
+      # 分表算法
+      t_order_inline:
+        # 分片算法类型
+        type: INLINE
+        props:
+          # 分片算法的行表达式
+          algorithm-expression: t_order_${order_id % 2}
+    keyGenerators:
+      snowflake:
+        type: SNOWFLAKE
+    auditors:
+      sharding_key_required_auditor:
+        type: DML_SHARDING_CONDITIONS
+# 属性配置
+props:
+  # 展示修改以后的sql语句
+  sql-show: true

@@ -1,5 +1,6 @@
 package com.spring.cloud.openfeign.one.controller;
 
+import com.spring.cloud.openfeign.one.feign.DynamicTwoFeign;
 import com.spring.cloud.openfeign.one.feign.TwoFeign;
 import com.spring.cloud.openfeign.one.feign.TwoFeignHttp;
 import com.spring.cloud.openfeign.one.feign.TwoFeignLog;
@@ -21,14 +22,22 @@ import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 public class OneController {
     private final TwoFeign twoFeign;
     private final TwoFeignLog twoFeignLog;
-    public OneController(TwoFeign twoFeign, TwoFeignLog twoFeignLog) {
+
+    private final DynamicTwoFeign dynamicTwoFeign;
+    public OneController(TwoFeign twoFeign, TwoFeignLog twoFeignLog, DynamicTwoFeign dynamicTwoFeign) {
         this.twoFeign = twoFeign;
         this.twoFeignLog = twoFeignLog;
+        this.dynamicTwoFeign = dynamicTwoFeign;
     }
 
     @GetMapping("/one")
     public String one(){
         return twoFeign.two();
+    }
+
+    @GetMapping("/oneDynamic")
+    public String oneDynamic(){
+        return dynamicTwoFeign.two();
     }
 
     @GetMapping("/logFull")

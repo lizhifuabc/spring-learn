@@ -12,7 +12,7 @@ import java.util.Random;
  * OrderMapper
  *
  * @author lizhifu
- * @date 2020/12/29
+ * @since 2020/12/29
  */
 @SpringBootTest
 public class OrderMapperTest {
@@ -20,7 +20,7 @@ public class OrderMapperTest {
     private OrderMapper orderMapper;
     @Test
     public void test(){
-        int userId = 4;
+        int userId = 7;
         System.out.println(userId % 2);
         Order orderParam = new Order();
         orderParam.setUserId(userId);

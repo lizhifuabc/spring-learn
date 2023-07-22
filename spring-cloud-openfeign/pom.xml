@@ -23,7 +23,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <spring.cloud.version>2022.0.2</spring.cloud.version>  <!-- https://spring.io/projects/spring-cloud       -->
+        <spring.cloud.version>2022.0.3</spring.cloud.version>  <!-- https://spring.io/projects/spring-cloud       -->
         <spring.cloud.alibaba.version>2022.0.0.0-RC2</spring.cloud.alibaba.version> <!-- spring cloud alibaba 统一依赖管理 -->
 
     </properties>

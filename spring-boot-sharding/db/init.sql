@@ -1,3 +1,5 @@
+drop database if exists my_db_0;
+drop database if exists my_db_1;
 create schema my_db_0;
 create schema my_db_1;
 drop table if exists my_db_0.t_order_0;
