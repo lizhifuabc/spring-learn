@@ -82,6 +82,7 @@
         <module>advanced-multi-tenancy</module>
         <module>spring-boot-p6spy</module>
         <module>spring-boot-mybatis-flex</module>
+        <module>spring-boot-testcontainer</module>
     </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
