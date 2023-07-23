@@ -35,7 +35,7 @@
 | [spring-boot-flyway](./spring-boot-flyway) | Flyway 数据库版本管理工具 |
 | [spring-boot-banner](./spring-boot-banner) | 自定义 banner starter 打印相关信息 banner.txt |
 | [spring-boot-p6spy](./spring-boot-p6spy) | 开发使用，不建议生产直接使用 |
-|  |  |
+| [spring-boot-mybatis-flex](./spring-boot-mybatis-flex) | MyBatis-Flex 一个优雅的 MyBatis 增强框架。使用案例 |
 
 
 
