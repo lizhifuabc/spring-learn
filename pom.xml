@@ -83,6 +83,7 @@
         <module>spring-boot-p6spy</module>
         <module>spring-boot-mybatis-flex</module>
         <module>spring-boot-testcontainer</module>
+        <module>spring-boot-aot</module>
     </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
