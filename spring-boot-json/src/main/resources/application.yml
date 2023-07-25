@@ -10,6 +10,8 @@ spring:
     # 全局设置pojo或被@JsonInclude注解的属性的序列化方式
     default-property-inclusion: non_null
     serialization:
+      # 按键值顺序排序map entries
+      order-map-entries-by-keys: true
       # 枚举类SerializationFeature
       # Date转换成timestamp
       write-dates-as-timestamps: true
@@ -19,6 +21,8 @@ spring:
       # 枚举类JsonParser.Feature
       # 是否允许出现单引号，默认false
       allow-single-quotes: true
+      # 允许非转义控制符（如tab、换行）出现在字符串中，默认false
+      allow-unquoted-control-chars: true
     mapper:
       # 使用getter取代setter探测属性，如类中含getName()但不包含name属性与setName()，json输出包含name。
       # 默认false
