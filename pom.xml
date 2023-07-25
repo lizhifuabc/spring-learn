@@ -84,6 +84,7 @@
         <module>spring-boot-mybatis-flex</module>
         <module>spring-boot-testcontainer</module>
         <module>spring-boot-aot</module>
+        <module>spring-boot-json</module>
     </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>

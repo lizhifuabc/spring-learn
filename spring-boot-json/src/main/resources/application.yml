@@ -1,0 +1,29 @@
+spring:
+  jackson:
+    # @JsonFormat的格式转换
+    date-format: yyyy-MM-dd HH:mm:ss
+    # 属性命名策略，PropertyNamingStrategy常量，SNAKE_CASE驼峰转下划线
+    property-naming-strategy: SNAKE_CASE
+    # 设置全局时区
+    time-zone: GMT+8
+    # 属性null值处理方式，非空才序列化
+    # 全局设置pojo或被@JsonInclude注解的属性的序列化方式
+    default-property-inclusion: non_null
+    serialization:
+      # 枚举类SerializationFeature
+      # Date转换成timestamp
+      write-dates-as-timestamps: true
+      # 对象为null报错
+      fail-on-empty-beans: true
+    parser:
+      # 枚举类JsonParser.Feature
+      # 是否允许出现单引号，默认false
+      allow-single-quotes: true
+    mapper:
+      # 使用getter取代setter探测属性，如类中含getName()但不包含name属性与setName()，json输出包含name。
+      # 默认false
+      use-getters-as-setters: true
+    deserialization:
+      # 枚举类DeserializationFeature
+      # 反序列化不存在属性时是否报错，默认true
+      fail-on-unknown-properties: false
