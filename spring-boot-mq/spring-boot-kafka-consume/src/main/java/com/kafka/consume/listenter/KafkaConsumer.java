@@ -12,21 +12,32 @@ import org.springframework.stereotype.Component;
  * Consumer
  *
  * @author lizhifu
- * @date 2021/1/4
+ * @since  2021/1/4
  */
 @Slf4j
 @Component
 public class KafkaConsumer {
-    @KafkaListener(topics = KafkaConstant.TOPIC_TEST)
-    public void consumer(ConsumerRecord record, Acknowledgment acknowledgment) {
+    /**
+     * 监听kafka消息
+     *
+     * @param consumerRecord kafka的消息，用consumerRecord可以接收到更详细的信息，也可以用String message只接收消息
+     * @param ack  kafka的消息确认
+     * 使用autoStartup = "false"必须指定id
+     */
+    @KafkaListener(topics = {"topic1", "topic2"}, errorHandler = "ownKafkaListenerErrorHandler")
+    // @KafkaListener(id = "${spring.kafka.consumer.group-id}", topics = {"topic1", "topic2"}, autoStartup = "false")
+    public void consumer(ConsumerRecord<Object, Object> consumerRecord, Acknowledgment ack) {
         try {
-            String message = (String) record.value();
-            log.info("收到消息: {}", message.toString());
+            //用于测试异常处理
+            //int i = 1 / 0;
+            log.info("消费消息：{}", consumerRecord.value());
+            //手动确认
+            ack.acknowledge();
         } catch (Exception e) {
-            log.error(e.getMessage(), e);
-        } finally {
-            // 手动提交 offset
-            acknowledgment.acknowledge();
+            // 消费失败，记录日志
+            // 最好也要确认消息
+            ack.acknowledge();
+            log.error("消费失败：{}", consumerRecord.value(),e);
         }
     }
 }

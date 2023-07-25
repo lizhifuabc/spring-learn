@@ -9,21 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-boot-kafka</artifactId>
-
-    <dependencyManagement>
-        <dependencies>
-            <!--  设置springboot版本依赖 -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-parent</artifactId>
-                <version>3.1.0</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
+    <artifactId>spring-boot-kafka-producer</artifactId>
     <dependencies>
         <!--  springboot web 依赖      -->
         <dependency>

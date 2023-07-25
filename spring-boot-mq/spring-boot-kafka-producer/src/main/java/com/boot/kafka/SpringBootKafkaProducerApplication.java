@@ -8,10 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author lizhifu
  */
 @SpringBootApplication
-public class SpringBootKafkaApplication {
+public class SpringBootKafkaProducerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootKafkaApplication.class, args);
+        SpringApplication.run(SpringBootKafkaProducerApplication.class, args);
     }
 
 }

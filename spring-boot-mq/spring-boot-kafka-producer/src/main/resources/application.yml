@@ -1,0 +1,24 @@
+server:
+  port: 8080
+spring:
+  kafka:
+    producer:
+      # Kafka服务器
+      bootstrap-servers: localhost:9092
+      # 开启事务，必须在开启了事务的方法中发送，否则报错
+      transaction-id-prefix: kafkaTx-
+      # 发生错误后，消息重发的次数，开启事务必须设置大于0。
+      retries: 3
+      # acks=0 ： 生产者在成功写入消息之前不会等待任何来自服务器的响应。
+      # acks=1 ： 只要集群的首领节点收到消息，生产者就会收到一个来自服务器成功响应。
+      # acks=all ：只有当所有参与复制的节点全部收到消息时，生产者才会收到一个来自服务器的成功响应。
+      # 开启事务时，必须设置为all
+      acks: all
+      # 当有多个消息需要被发送到同一个分区时，生产者会把它们放在同一个批次里。该参数指定了一个批次可以使用的内存大小，按照字节数计算。
+      batch-size: 16384
+      # 生产者内存缓冲区的大小。
+      buffer-memory: 1024000
+      # 键的序列化方式
+      key-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      # 值的序列化方式（建议使用Json，这种序列化方式可以无需额外配置传输实体类）
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
