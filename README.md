@@ -2,6 +2,7 @@
 
 | 项目            | 介绍 |
 | --------------- | ---- |
+|                                                              |                                                              |
 | [spring-boot-aot](./spring-boot-aot) | spring boot 3 AOT(Ahead-Of-Time Compilation)技术 |
 | [spring-boot-web](./spring-boot-web) | Spring Boot Web 基础<br>Spring Boot test<br>自定义配置文件 <br/>多配置文件加载 actuator |
 | [spring-boot-jpa](./spring-boot-jpa) | Spring Boot Jpa 框架基础 |
