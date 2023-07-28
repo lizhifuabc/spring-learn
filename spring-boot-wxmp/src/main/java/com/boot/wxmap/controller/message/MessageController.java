@@ -28,7 +28,7 @@ public class MessageController {
                         @RequestParam(name = "echostr", required = false) String echostr){
         log.info("\n接收到来自微信服务器的认证消息：[{}, {}, {}, {}]", signature,
                 timestamp, nonce, echostr);
-        if (SHA1.checkSignature(timestamp, nonce, signature,"JlCN0K41ZgS1hTYmJbBq56IUFatRGnjw")) {
+        if (SHA1.checkSignature(timestamp, nonce, signature,"demo")) {
             return echostr;
         }
         return "非法请求";
@@ -44,7 +44,7 @@ public class MessageController {
         log.info("\n接收微信请求：[openid=[{}], [signature=[{}], encType=[{}], msgSignature=[{}],"
                         + " timestamp=[{}], nonce=[{}], requestBody=[\n{}\n] ",
                 openid, signature, encType, msgSignature, timestamp, nonce, requestBody);
-        if (!SHA1.checkSignature(timestamp, nonce, signature,"JlCN0K41ZgS1hTYmJbBq56IUFatRGnjw")) {
+        if (!SHA1.checkSignature(timestamp, nonce, signature,"demo")) {
             throw new IllegalArgumentException("非法请求，可能属于伪造的请求！");
         }
         Map<String,String> result = ParseXmlUtil.parseTo(requestBody);

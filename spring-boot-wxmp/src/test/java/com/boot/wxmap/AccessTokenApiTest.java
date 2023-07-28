@@ -17,7 +17,7 @@ public class AccessTokenApiTest {
     public void getAccessToken(){
         AccessTokenParam accessTokenParam = AccessTokenParam.builder()
                 .appId("wx7a75dd18c16e65ae")
-                .secret("a20eebe1fa733f85ff66aff09ab0ae0c")
+                .secret("demo")
                 .build();
         AccessTokenApi api = new AccessTokenApi();
         api.getAccessToken(accessTokenParam);

@@ -14,6 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class VerifyController {
     @GetMapping("MP_verify_AuwycCaGeHEVaZ62.txt")
     public String verify(){
-        return "AuwycCaGeHEVaZ62";
+        return "demo";
     }
 }

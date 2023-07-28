@@ -32,7 +32,7 @@ public class OauthApiTest {
         String code = "";
         OauthApi tools = new OauthApi();
         OathTokenParam oathTokenParam = OathTokenParam.builder()
-                .appSecret("a20eebe1fa733f85ff66aff09ab0ae0c")
+                .appSecret("demo")
                 .code(code)
                 .appId("wx7a75dd18c16e65ae").build();
         tools.getAccessToken(oathTokenParam);
