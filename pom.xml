@@ -85,6 +85,7 @@
         <module>spring-boot-testcontainer</module>
         <module>spring-boot-aot</module>
         <module>spring-boot-json</module>
+        <module>business-wx-pay</module>
     </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
