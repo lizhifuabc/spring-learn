@@ -4,7 +4,7 @@ import com.boot.jpa.domain.Parent;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
- * TODO
+ * 父
  *
  * @author lizhifu
  * @since 2023/7/24
