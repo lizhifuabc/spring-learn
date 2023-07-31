@@ -24,7 +24,7 @@ import java.util.Properties;
  * @author lizhifu
  * @since 2023/7/16
  */
-@Component
+//@Component
 @Slf4j
 @Intercepts({
         @Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class, Integer.class})

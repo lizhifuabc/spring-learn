@@ -12,7 +12,7 @@ import java.util.Random;
  * MyInfoMapperTest
  *
  * @author lizhifu
- * @date 2020/12/11
+ * @since  2020/12/11
  */
 @SpringBootTest
 public class MyInfoMapperTest {
@@ -24,7 +24,6 @@ public class MyInfoMapperTest {
         myInfo.setInfoId(new Random().nextInt());
         myInfo.setUserName("test");
         myInfoMapper.insert(myInfo,1);
-//        MyInfo res = myInfoMapper.selectById(1000);
-//        System.out.println(res.getInfoId());
+        MyInfo res = myInfoMapper.selectById(1000);
     }
 }
