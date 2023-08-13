@@ -2,6 +2,8 @@
 spring:
   profiles:
     active: prod
+  application:
+    name: spring-boot-properties
 
 application:
   name: dev环境
