@@ -10,19 +10,18 @@ import java.io.IOException;
 
 /**
  * WsService
- *
+ * 用来进行服务端和客户端之间的交互
  * @author lizhifu
- * @date 2021/3/29
+ * @since  2021/3/29
  */
 @Service
 @Slf4j
 public class WsService {
     /**
      * 发送消息,如果连接断开，缓存到数据库
-     * @param session
-     * @param text
-     * @return
-     * @throws IOException
+     * @param session session
+     * @param text text
+     * @throws IOException IOException
      */
     public void sendMsg(WebSocketSession session, String text) throws IOException {
         String userId = session.getAttributes().get("userId").toString();
@@ -34,10 +33,9 @@ public class WsService {
     }
     /**
      * 发送消息,如果连接断开，缓存到数据库
-     * @param toUserId
-     * @param text
-     * @return
-     * @throws IOException
+     * @param toUserId toUserId
+     * @param text text
+     * @throws IOException IOException
      */
     public void sendMsg(String toUserId, String text) throws IOException {
         if (!isConnected(toUserId)) {
@@ -48,12 +46,11 @@ public class WsService {
     }
 
     /**
-     * 广播消息
-     * @param text
-     * @return
-     * @throws IOException
+     * 广播消息（例如发送心跳数据）
+     * @param text text 消息内容
+     * @throws IOException IOException
      */
-    public void broadcastMsg(String text) throws IOException {
+    public synchronized void broadcastMsg(String text) throws IOException {
         for (WebSocketSession session: WsSessionManager.WS_SESSION_POOL.values()) {
             session.sendMessage(new TextMessage(text));
         }
@@ -61,7 +58,7 @@ public class WsService {
     /**
      * 查询客户端是否在线
      * @param key	客户端ID
-     * @return
+     * @return boolean true:在线 false:不在线
      */
     public boolean isConnected(String key){
         if (WsSessionManager.WS_SESSION_POOL.containsKey(key)) {

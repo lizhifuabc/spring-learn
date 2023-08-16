@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 第一个阶段：HTTP请求，握手阶段，变更协议
  * 第二个阶段：成功转换为WebSocket协议进行通讯传输。
  * @author lizhifu
- * @date 2021/3/29
+ * @since  2021/3/29
  */
 @SpringBootApplication
 public class SpringBootWebSocketApplication {

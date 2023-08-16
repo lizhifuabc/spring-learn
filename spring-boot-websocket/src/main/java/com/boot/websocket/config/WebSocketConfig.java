@@ -13,7 +13,7 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
  * WebSocketConfig 配置
  * 提供对应的onOpen、onClose、onMessage、onError方法
  * @author lizhifu
- * @date 2021/3/29
+ * @since  2021/3/29
  */
 @Configuration
 @EnableWebSocket

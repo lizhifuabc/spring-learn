@@ -12,15 +12,15 @@ import java.time.LocalDateTime;
  * ws消息处理
  *
  * @author lizhifu
- * @date 2021/3/29
+ * @since  2021/3/29
  */
 @Component
 @Slf4j
 public class WsHandler extends AbstractWebSocketHandler {
     /**
      * 方法是在 socket 连接成功后被触发，同原生注解里的 @OnOpen 功能。
-     * @param session
-     * @throws Exception
+     * @param session session
+     * @throws Exception Exception
      */
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
@@ -31,8 +31,8 @@ public class WsHandler extends AbstractWebSocketHandler {
     }
     /**
      * 方法是在客户端发送普通文件信息时触发，同原生注解里的 @OnMessage 功能。
-     * @param session
-     * @param message
+     * @param session session
+     * @param message message
      * @throws Exception
      */
     @Override
