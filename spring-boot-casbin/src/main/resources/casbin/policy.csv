@@ -1,0 +1,6 @@
+p, ROLE_USER, /data/users/*, *
+p, ROLE_ADMIN, /data/users/*, *
+p, ROLE_ADMIN, /data/admins/*, *
+g, user, ROLE_USER
+g, admin, ROLE_USER
+g, admin, ROLE_ADMIN

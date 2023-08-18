@@ -1,0 +1,6 @@
+casbin:
+  storeType: file
+
+logging:
+  level:
+    org.springframework.security: trace
