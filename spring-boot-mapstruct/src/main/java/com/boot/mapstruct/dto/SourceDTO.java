@@ -1,8 +1,6 @@
 package com.boot.mapstruct.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -11,10 +9,8 @@ import lombok.Setter;
  * @author lizhifu
  * @since 2023/6/1
  */
-@Setter
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
+@Setter
 public class SourceDTO {
     private String test;
 }

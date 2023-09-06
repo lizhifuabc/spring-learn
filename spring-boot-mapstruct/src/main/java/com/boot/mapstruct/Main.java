@@ -1,21 +1,17 @@
 package com.boot.mapstruct;
 
 import com.boot.mapstruct.dto.SourceDTO;
-import com.boot.mapstruct.entities.SourceEntity;
+import com.boot.mapstruct.entity.SourceEntity;
 import com.boot.mapstruct.mapper.SourceTargetMapper;
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
 /**
- * 执行Main
+ * Main
  *
  * @author lizhifu
- * @since 2023/6/1
+ * @since 2023/9/6
  */
-@SpringBootTest
-public class MapperTest {
-    @Test
-    public void mapper() {
+public class Main {
+    public static void main(String[] args) {
         SourceDTO sourceDTO = new SourceDTO();
         sourceDTO.setTest("test");
         SourceEntity sourceEntity = SourceTargetMapper.MAPPER.dtoToEntity(sourceDTO);

@@ -1,7 +1,7 @@
 package com.boot.mapstruct.mapper;
 
 import com.boot.mapstruct.dto.SourceDTO;
-import com.boot.mapstruct.entities.SourceEntity;
+import com.boot.mapstruct.entity.SourceEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
