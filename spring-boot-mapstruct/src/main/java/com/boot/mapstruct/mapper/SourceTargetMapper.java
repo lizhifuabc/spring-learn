@@ -1,7 +1,7 @@
 package com.boot.mapstruct.mapper;
 
 import com.boot.mapstruct.dto.SourceDTO;
-import com.boot.mapstruct.entities.TargetEntity;
+import com.boot.mapstruct.entities.SourceEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -16,6 +16,11 @@ import org.mapstruct.factory.Mappers;
 public interface SourceTargetMapper {
     SourceTargetMapper MAPPER = Mappers.getMapper( SourceTargetMapper.class );
 
+    /**
+     * 转换
+     * @param s SourceDTO 对象
+     * @return SourceEntity 对象
+     */
     @Mapping( source = "test", target = "testing" )
-    TargetEntity toTarget(SourceDTO s );
+    SourceEntity dtoToEntity(SourceDTO s );
 }

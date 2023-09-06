@@ -1,4 +1,4 @@
-package com.boot.mapstruct.dto;
+package com.boot.mapstruct.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,15 +6,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * 源对象
+ * 目标对象
  *
  * @author lizhifu
  * @since 2023/6/1
  */
-@Setter
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class SourceDTO {
-    private String test;
+public class SourceEntity {
+    private String testing;
 }
