@@ -87,6 +87,7 @@
         <module>spring-boot-json</module>
         <module>business-wx-pay</module>
         <module>spring-boot-casbin</module>
+        <module>spring-bean</module>
     </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
