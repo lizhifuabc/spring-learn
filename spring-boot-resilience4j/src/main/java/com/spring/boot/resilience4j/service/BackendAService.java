@@ -40,7 +40,7 @@ public class BackendAService implements BaseService {
     @Bulkhead(name = BACKEND_A)
     @Retry(name = BACKEND_A)
     public String failure() {
-        throw new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR, "This is a remote exception");
+        throw new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR, "这是一个远程异常");
     }
 
     @Override

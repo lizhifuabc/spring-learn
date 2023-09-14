@@ -17,7 +17,7 @@ import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;
 @AutoConfigureWebTestClient
 @AutoConfigureMetrics
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
-        classes = Application.class)
+        classes = Resilience4jApplication.class)
 public abstract class AbstractIntegrationTest {
 
     protected static final String BACKEND_A = "backendA";
