@@ -1,0 +1,135 @@
+spring:
+  application.name: spring-boot-resilience4j
+  jackson.serialization.indent_output: true
+
+server:
+  port: 7080
+
+# Spring Boot Actuator 的一些管理端点和度量信息，包括健康检查、磁盘空间健康检查、断路器健康检查、速率限制器健康检查等
+
+management.endpoints.web.exposure.include: '*'
+management.endpoint.health.show-details: always
+
+management.health.diskspace.enabled: false
+management.health.circuitbreakers.enabled: true
+management.health.ratelimiters.enabled: false
+
+info:
+  name: ${spring.application.name}
+  description: resilience4j demo
+  environment: ${spring.profiles.active}
+  version: 0.0.1
+
+management.metrics.tags.application: ${spring.application.name}
+management.metrics.distribution.percentiles-histogram.http.server.requests: true
+management.metrics.distribution.percentiles-histogram.resilience4j.circuitbreaker.calls: true
+
+#resilience4j.circuitbreaker.metrics.use_legacy_binder: true
+# 配置了断路器的行为，包括断路器的参数（如滑动窗口大小、最小调用次数、失败率阈值等）以及记录和忽略的异常类型。
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      registerHealthIndicator: true # 是否注册断路器健康检查端点
+      slidingWindowSize: 10 # 以滑动窗口大小配置断路器的滑动窗口大小。滑动窗口大小表示断路器在半开启状态下允许的最大调用次数。
+      minimumNumberOfCalls: 5 # 以最小调用次数配置断路器。当断路器处于半开启状态时，如果调用次数小于该值，则断路器会进入关闭状态。
+      permittedNumberOfCallsInHalfOpenState: 3 # 以半开启状态下允许的最大调用次数配置断路器。当断路器处于半开启状态时，如果调用次数超过该值，则断路器会进入开启状态。
+      automaticTransitionFromOpenToHalfOpenEnabled: true # 是否允许断路器自动从开启状态转换到半开启状态
+      waitDurationInOpenState: 5s # 以秒为单位配置断路器保持开启状态的时间。当断路器开启时，所有调用都会失败，断路器保持开启状态的时间到期后，断路器进入半开启状态。
+      failureRateThreshold: 50 # 以百分比配置失败率阈值。当失败率等于或大于阈值时，断路器状态并关闭变为开启，并进行服务降级。
+      eventConsumerBufferSize: 10 # 以事件消费者缓冲区大小配置断路器。当断路器开启时，所有调用都会失败，断路器保持开启状态的时间到期后，断路器进入半开启状态。
+      recordExceptions: # 配置一个Throwable类型的列表，被记录为失败类型，需要进行服务降级，支持子类型。
+        - org.springframework.web.client.HttpServerErrorException
+        - java.util.concurrent.TimeoutException
+        - java.io.IOException
+      ignoreExceptions: # 配置一个Throwable类型的列表，被记录为忽略类型，不会进行服务降级，支持子类型。
+        - com.spring.boot.resilience4j.exception.BusinessException
+    shared:
+      slidingWindowSize: 100 # 以滑动窗口大小配置断路器的滑动窗口大小。滑动窗口大小表示断路器在半开启状态下允许的最大调用次数。
+      permittedNumberOfCallsInHalfOpenState: 30 # 以半开启状态下允许的最大调用次数配置断路器。当断路器处于半开启状态时，如果调用次数超过该值，则断路器会进入开启状态。
+      waitDurationInOpenState: 1s # 以秒为单位配置断路器保持开启状态的时间。当断路器开启时，所有调用都会失败，断路器保持开启状态的时间到期后，断路器进入半开启状态。
+      failureRateThreshold: 50 # 以百分比配置失败率阈值。当失败率等于或大于阈值时，断路器状态并关闭变为开启，并进行服务降级。
+      eventConsumerBufferSize: 10 # 以事件消费者缓冲区大小配置断路器。当断路器开启时，所有调用都会失败，断路器保持开启状态的时间到期后，断路器进入半开启状态。
+      ignoreExceptions:  # 被忽略且既不算失败也不算成功的异常列表。任何与列表之一匹配或继承的异常都不会被视为失败或成功，即使异常是recordExceptions的一部分。
+        - com.spring.boot.resilience4j.exception.BusinessException
+  instances: # 配置了两个实例，分别指定了不同的滑动窗口大小、最小调用次数、失败率阈值和记录的异常类型。
+    backendA:
+      baseConfig: default
+    backendB:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      minimumNumberOfCalls: 10
+      permittedNumberOfCallsInHalfOpenState: 3
+      waitDurationInOpenState: 5s
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10
+      recordFailurePredicate: com.spring.boot.resilience4j.exception.RecordFailurePredicate
+# 配置了重试机制，指定了重试的最大次数、等待时间和触发重试的异常类型。
+resilience4j.retry:
+  configs:
+    default:
+      maxAttempts: 3 # 最大重试次数
+      waitDuration: 100 # 两次重试之间的时间间隔
+      retryExceptions: # 配置一个Throwable类型的列表，被记录为失败类型，需要进行重试，支持子类型。
+        - org.springframework.web.client.HttpServerErrorException
+        - java.util.concurrent.TimeoutException
+        - java.io.IOException
+      ignoreExceptions:
+        - com.spring.boot.resilience4j.exception.BusinessException # 配置一个Throwable类型的列表，被记录为忽略类型，不会进行重试，支持子类型。
+  instances: # 配置了两个实例，分别指定了不同的最大重试次数、等待时间和触发重试的异常类型。
+    backendA:
+      baseConfig: default
+    backendB:
+      baseConfig: default
+# 配置了舱壁模式，指定了最大并发调用次数。
+resilience4j.bulkhead:
+  configs:
+    default:
+      maxConcurrentCalls: 100 # 允许并发执行的最大数量
+      maxWaitDuration: 0 # 当达到并发调用数量时，新的调用将被阻塞，这个属性表示最长的等待时间。
+  instances: # 配置了两个实例，分别指定了不同的最大并发调用次数和最长等待时间。
+    backendA:
+      maxConcurrentCalls: 10
+    backendB:
+      maxWaitDuration: 10ms
+      maxConcurrentCalls: 20
+# 配置了线程池舱壁模式，指定了线程池的参数，包括最大线程数、核心线程数和队列容量。
+resilience4j.thread-pool-bulkhead:
+  configs:
+    default:
+      maxThreadPoolSize: 4 # 线程池的最大线程数
+      coreThreadPoolSize: 2 # 线程池的核心线程数
+      queueCapacity: 2 # 线程池的队列容量
+  instances: # 配置了两个实例，分别指定了不同的线程池的参数。
+    backendA:
+      baseConfig: default
+    backendB:
+      maxThreadPoolSize: 1
+      coreThreadPoolSize: 1
+      queueCapacity: 1
+# 配置了速率限制器，指定了限制速率的参数，包括每周期限制次数、刷新周期和超时时长。
+resilience4j.ratelimiter:
+  configs:
+    default:
+      registerHealthIndicator: false # 是否注册速率限制器健康检查端点
+      limitForPeriod: 10 # 每周期限制次数
+      limitRefreshPeriod: 1s # 刷新周期
+      timeoutDuration: 0 # 超时时长
+      eventConsumerBufferSize: 100 # 事件消费者缓冲区大小
+  instances: # 配置了两个实例，分别指定了不同的限制速率的参数。
+    backendA:
+      baseConfig: default
+    backendB:
+      limitForPeriod: 6
+      limitRefreshPeriod: 500ms
+      timeoutDuration: 3s
+# 配置了超时限制器，指定了超时的时长和是否取消运行中的任务。
+resilience4j.timelimiter:
+  configs:
+    default:
+      cancelRunningFuture: false # 是否取消运行中的任务
+      timeoutDuration: 2s # 超时时长
+  instances: # 配置了两个实例，分别指定了不同的超时的时长和是否取消运行中的任务。
+    backendA:
+      baseConfig: default
+    backendB:
+      baseConfig: default
