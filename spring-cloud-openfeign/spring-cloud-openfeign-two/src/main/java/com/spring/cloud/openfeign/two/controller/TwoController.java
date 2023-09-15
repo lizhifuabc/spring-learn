@@ -17,6 +17,18 @@ import java.time.LocalDateTime;
 public class TwoController {
     @GetMapping("/two")
     public String two(){
+        // 随机模拟异常
+        if(Math.random() > 0.5){
+            throw new RuntimeException("two error");
+        }
+        // 随机模拟超时
+        if(Math.random() > 0.5){
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         return "two"+ LocalDateTime.now();
     }
 }

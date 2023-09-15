@@ -38,11 +38,10 @@ public class FooConfiguration {
 
 
     /**
-     * Resilience4j中的CircuitBreaker需要一个名称来标识
+     * Resilience4j 改变 circuit breaker 名称模式
      *
      * @return CircuitBreakerNameResolver
      */
-    @Bean
     public CircuitBreakerNameResolver circuitBreakerNameResolver() {
         log.info("circuitBreakerNameResolver");
         // feignClientName:Feign client的名称,就是@FeignClient中的value属性

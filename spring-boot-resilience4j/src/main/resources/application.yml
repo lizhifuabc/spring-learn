@@ -16,7 +16,7 @@ management.health.ratelimiters.enabled: false
 
 info:
   name: ${spring.application.name}
-  description: resilience4j demo
+  description: spring-boot-resilience4j
   environment: ${spring.profiles.active}
   version: 0.0.1
 
