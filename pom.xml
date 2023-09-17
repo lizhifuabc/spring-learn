@@ -89,7 +89,8 @@
         <module>spring-boot-casbin</module>
         <module>spring-bean</module>
         <module>spring-boot-resilience4j</module>
-    </modules>
+		<module>spring-modulith</module>
+	</modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
