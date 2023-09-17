@@ -90,7 +90,8 @@
         <module>spring-bean</module>
         <module>spring-boot-resilience4j</module>
 		<module>spring-modulith</module>
-	</modules>
+        <module>spring-aop</module>
+    </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
