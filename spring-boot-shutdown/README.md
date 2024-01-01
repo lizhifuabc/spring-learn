@@ -1,5 +1,8 @@
 # SpringBoot优雅停机
 
+> 2024-01-01T14:11:59.257+08:00  INFO 73058 --- [ionShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+> 2024-01-01T14:11:59.263+08:00  INFO 73058 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+
 当 Spring Boot 应用关闭时:
 
 - 停止接受新请求
