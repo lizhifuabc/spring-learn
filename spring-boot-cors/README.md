@@ -1,3 +1,10 @@
+# 跨域
+
+[Spring Boot Reference Documentation](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#web.servlet.spring-mvc.cors)
+
+1. @CrossOrigin 
+2. 全局CORS配置
+
 - Access-Control-Allow-Origin
   - Origin字段的具体值
   - *表示接受任意域名的请求
