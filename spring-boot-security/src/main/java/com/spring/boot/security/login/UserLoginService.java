@@ -35,21 +35,17 @@ public class UserLoginService {
      * @return token
      */
     public String login(String username, String password) {
-        // 用户认证
+        // 构造用户名密码认证信息
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
+        // 对认证信息进行认证
         Authentication authenticate = authenticationManager.authenticate(authenticationToken);
         if (authenticate == null) {
             log.error("{username: {}, password: {}} 认证失败！", username, password);
             return null;
         }
-        // 根据用户名从数据库中获取用户信息
-        UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-        // 封装用户信息（由于使用 JWT 进行验证，这里不需要凭证）
-        UsernamePasswordAuthenticationToken authentication
-                = new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());
         // 将用户信息存储到 Security 上下文中，以便于 Security 进行权限验证
-        SecurityContextHolder.getContext().setAuthentication(authentication);
+        SecurityContextHolder.getContext().setAuthentication(authenticate);
         // 生成 token
-        return jwtTokenUtil.generateToken(username,userDetails.getAuthorities());
+        return jwtTokenUtil.generateToken(username,authenticate.getAuthorities());
     }
 }
