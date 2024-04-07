@@ -35,6 +35,7 @@ public class UserLoginService {
      * @return token
      */
     public String login(String username, String password) {
+        // 用户认证
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
         Authentication authenticate = authenticationManager.authenticate(authenticationToken);
         if (authenticate == null) {

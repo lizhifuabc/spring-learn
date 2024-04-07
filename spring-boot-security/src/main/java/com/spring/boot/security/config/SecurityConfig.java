@@ -76,16 +76,19 @@ public class SecurityConfig {
 
     @Bean
     public AuthenticationProvider daoAuthenticationProvider() {
-        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
         // 提供自定义loadUserByUsername
-        authProvider.setUserDetailsService(userDetailsService);
+        authenticationProvider.setUserDetailsService(userDetailsService);
         // 指定密码编辑器
-        authProvider.setPasswordEncoder(passwordEncoder);
-        return authProvider;
+        authenticationProvider.setPasswordEncoder(passwordEncoder);
+        // 设置隐藏用户未找到异常
+        authenticationProvider.setHideUserNotFoundExceptions(false);
+        return authenticationProvider;
     }
 
     /**
      * 解决 AuthenticationManager 无法注入的问题
+     * 身份认证管理器，调用authenticate()方法完成认证工作
      */
     @Bean
     public AuthenticationManager authenticationManager() {
