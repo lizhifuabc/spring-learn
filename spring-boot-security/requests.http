@@ -4,3 +4,6 @@ Authorization: Basic user password
 
 ### 用户名密码登录
 POST http://localhost:8080/login?username=user&password=password1
+
+### 无权限
+GET http://localhost:8080/index
