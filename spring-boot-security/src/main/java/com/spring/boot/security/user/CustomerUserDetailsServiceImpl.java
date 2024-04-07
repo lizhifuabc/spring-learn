@@ -27,7 +27,6 @@ public class CustomerUserDetailsServiceImpl implements CustomerUserDetailsServic
         // 构造security用户
         Collection<GrantedAuthority> authorities = AuthorityUtils
                 .createAuthorityList("ROLE_ADMIN");
-        CustomerUser customerUser =  new CustomerUser("username", SecurityConstants.BCRYPT + "password", authorities);
-        return customerUser;
+        return new CustomerUser(username, SecurityConstants.BCRYPT + "password", authorities);
     }
 }

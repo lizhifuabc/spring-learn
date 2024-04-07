@@ -1,4 +1,4 @@
-package com.spring.boot.security.controller;
+package com.spring.boot.security.login;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;

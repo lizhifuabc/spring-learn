@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author lizhifu
  */
 @SpringBootApplication
-public class SecurityApplication {
+public class SpringSecurityApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(SecurityApplication.class, args);
+		SpringApplication.run(SpringSecurityApplication.class, args);
 	}
 }

@@ -1,3 +1,6 @@
 ### Basic authorization(BASIC认证)
 POST http://localhost:8080/token
 Authorization: Basic user password
+
+### 用户名密码登录
+POST http://localhost:8080/login?username=user&password=password
