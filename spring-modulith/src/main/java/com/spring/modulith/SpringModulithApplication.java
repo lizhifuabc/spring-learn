@@ -14,8 +14,8 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableAsync
 @SpringBootApplication
 @ConfigurationPropertiesScan
-public class Application {
+public class SpringModulithApplication {
     public static void main(String... args) throws Exception {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(SpringModulithApplication.class, args);
     }
 }

@@ -93,7 +93,8 @@
         <module>spring-aop</module>
         <module>spring-boot-orm</module>
 		<module>spring-boot-jooq</module>
-	</modules>
+        <module>spring-boot-data-source-decorator</module>
+    </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
