@@ -12,7 +12,7 @@ public interface OrganizationExternalAPI {
      * @param id id
      * @return dto
      */
-    OrganizationDTO findByIdWithEmployees(Long id);
+    OrganizationDTO findByIdWithUsers(Long id);
 
     /**
      * 根据id查询

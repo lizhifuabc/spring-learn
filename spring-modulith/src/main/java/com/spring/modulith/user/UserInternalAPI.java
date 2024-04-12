@@ -15,12 +15,12 @@ public interface UserInternalAPI {
      * @param id 部门id
      * @return 用户列表
      */
-    List<UserDTO> getUserByDepartmentId(Long id);
+    List<UserDTO> getUsersByDepartmentId(Long id);
     /**
      * 根据组织id查询
      * @param id 组织id
      * @return 用户列表
      */
-    List<UserDTO> getUserByOrganizationId(Long id);
+    List<UserDTO> getUsersByOrganizationId(Long id);
 
 }

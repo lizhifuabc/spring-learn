@@ -34,12 +34,12 @@ public class UserManagement implements UserInternalAPI, UserExternalAPI {
     }
 
     @Override
-    public List<UserDTO> getUserByDepartmentId(Long departmentId) {
+    public List<UserDTO> getUsersByDepartmentId(Long departmentId) {
         return repository.findByDepartmentId(departmentId);
     }
 
     @Override
-    public List<UserDTO> getUserByOrganizationId(Long id) {
+    public List<UserDTO> getUsersByOrganizationId(Long id) {
         return repository.findByOrganizationId(id);
     }
 
