@@ -1,11 +1,11 @@
 package com.spring.modulith.user.management;
 
-import com.spring.modulith.OrganizationRemoveEvent;
+import com.spring.modulith.event.OrganizationRemoveEvent;
 import com.spring.modulith.user.UserDTO;
 import com.spring.modulith.user.UserExternalAPI;
 import com.spring.modulith.user.UserInternalAPI;
 import com.spring.modulith.user.mapper.UserMapper;
-import com.spring.modulith.user.model.UserEntity;
+import com.spring.modulith.user.model.User;
 import com.spring.modulith.user.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.modulith.events.ApplicationModuleListener;
@@ -24,8 +24,8 @@ import java.util.List;
 @Slf4j
 public class UserManagement implements UserInternalAPI, UserExternalAPI {
 
-    private UserRepository repository;
-    private UserMapper mapper;
+    private final UserRepository repository;
+    private final UserMapper mapper;
 
     public UserManagement(UserRepository repository,
                           UserMapper mapper) {
@@ -46,8 +46,8 @@ public class UserManagement implements UserInternalAPI, UserExternalAPI {
     @Override
     @Transactional
     public UserDTO add(UserDTO userDTO) {
-        UserEntity userEntity = mapper.userDTOTouser(userDTO);
-        return mapper.userEntityToUserDTO(repository.save(userEntity));
+        User user = mapper.userDTOTouser(userDTO);
+        return mapper.userEntityToUserDTO(repository.save(user));
     }
 
     @ApplicationModuleListener

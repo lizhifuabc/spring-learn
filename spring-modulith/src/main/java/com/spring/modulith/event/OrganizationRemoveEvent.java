@@ -1,4 +1,4 @@
-package com.spring.modulith;
+package com.spring.modulith.event;
 
 import lombok.Getter;
 import lombok.Setter;

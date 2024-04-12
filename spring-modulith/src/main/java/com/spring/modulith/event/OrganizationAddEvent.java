@@ -1,4 +1,4 @@
-package com.spring.modulith;
+package com.spring.modulith.event;
 
 /**
  * 组织添加事件

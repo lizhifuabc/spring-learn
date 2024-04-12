@@ -1,7 +1,7 @@
 package com.spring.modulith.user.repository;
 
 import com.spring.modulith.user.UserDTO;
-import com.spring.modulith.user.model.UserEntity;
+import com.spring.modulith.user.model.User;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  * @author lizhifu
  * @since 2024/4/8
  */
-public interface UserRepository extends CrudRepository<UserEntity, Long> {
+public interface UserRepository extends CrudRepository<User, Long> {
     /**
      * 根据部门id查询
      * @param departmentId 部门id

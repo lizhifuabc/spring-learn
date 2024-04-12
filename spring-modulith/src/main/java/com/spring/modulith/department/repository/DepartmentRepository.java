@@ -21,7 +21,7 @@ public interface DepartmentRepository extends CrudRepository<Department, Long> {
      * @return 部门
      */
     @Query("""
-           SELECT new pl.piomin.services.department.DepartmentDTO(d.id, d.organizationId, d.name)
+           SELECT new com.spring.modulith.department.DepartmentDTO(d.id, d.organizationId, d.name)
            FROM Department d
            WHERE d.id = :id
            """)
@@ -33,7 +33,7 @@ public interface DepartmentRepository extends CrudRepository<Department, Long> {
      * @return 部门
      */
     @Query("""
-           SELECT new pl.piomin.services.department.DepartmentDTO(d.id, d.organizationId, d.name)
+           SELECT new com.spring.modulith.department.DepartmentDTO(d.id, d.organizationId, d.name)
            FROM Department d
            WHERE d.organizationId = :organizationId
            """)

@@ -1,7 +1,7 @@
 package com.spring.modulith.department.management;
 
-import com.spring.modulith.OrganizationAddEvent;
-import com.spring.modulith.OrganizationRemoveEvent;
+import com.spring.modulith.event.OrganizationAddEvent;
+import com.spring.modulith.event.OrganizationRemoveEvent;
 import com.spring.modulith.department.DepartmentDTO;
 import com.spring.modulith.department.DepartmentExternalAPI;
 import com.spring.modulith.department.DepartmentInternalAPI;
@@ -25,9 +25,9 @@ import java.util.List;
 @Slf4j
 public class DepartmentManagement implements DepartmentInternalAPI, DepartmentExternalAPI {
 
-    private DepartmentRepository repository;
-    private UserInternalAPI userInternalAPI;
-    private DepartmentMapper mapper;
+    private final DepartmentRepository repository;
+    private final UserInternalAPI userInternalAPI;
+    private final DepartmentMapper mapper;
 
     public DepartmentManagement(DepartmentRepository repository,
                                 UserInternalAPI userInternalAPI,
