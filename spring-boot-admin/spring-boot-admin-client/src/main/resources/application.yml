@@ -18,3 +18,8 @@ management:
   info:
     env:
       enabled: true
+
+
+logging:
+  file:
+    name: logs/${spring.application.name}/info.log
