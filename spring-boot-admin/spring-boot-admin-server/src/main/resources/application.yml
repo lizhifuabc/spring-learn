@@ -1,6 +1,12 @@
 server:
   port: 8088
 
+spring:
+  security:
+    user:
+      name: "user"
+      password: "password"
+
 #spring:
 #  mail:
 #    host: smtp.163.com
