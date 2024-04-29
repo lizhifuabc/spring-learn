@@ -6,6 +6,8 @@ spring:
       client:
         # 要注册的Spring Boot管理服务器的URL。
         url: http://localhost:8088
+        password: "password"
+        username: "user"
   application:
     name: spring-boot-admin-client
 management:
