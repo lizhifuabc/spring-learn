@@ -25,6 +25,7 @@
     </dependencies>
 
     <build>
+        <finalName>arthas-docker</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

@@ -20,4 +20,4 @@ EXPOSE 8080
 # 设置环境变量TZ与JAVA_OPTS,用于指定时区与JVM参数
 ENV TZ=Asia/Shanghai JAVA_OPTS="-Xms128m -Xmx256m -Djava.security.egd=file:/dev/./urandom"
 # 启动命令，等待60秒后启动应用
-CMD sleep 60; java $JAVA_OPTS -jar app.jar
+CMD sleep 5; java $JAVA_OPTS -jar app.jar
