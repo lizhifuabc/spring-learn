@@ -94,6 +94,7 @@
         <module>spring-boot-orm</module>
 		<module>spring-boot-jooq</module>
         <module>spring-boot-data-source-decorator</module>
+        <module>arthas-docker</module>
     </modules>
 	<groupId>com.lizhifu</groupId>
 	<artifactId>spring-learn</artifactId>
