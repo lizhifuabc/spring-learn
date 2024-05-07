@@ -1,8 +1,11 @@
-version: "1"
+# 用于指定当前 Docker Compose 文件的版本，定义 docker 的兼容性
+#version: "3.7"
 services:
   zipkin:
     container_name: zipkin
     image: openzipkin/zipkin
+#    将 host.docker.internal 映射到 host-gateway 上
     extra_hosts: [ 'host.docker.internal:host-gateway' ]
+#    将容器的9411端口映射到主机的9411端口上
     ports:
       - "9411:9411"
